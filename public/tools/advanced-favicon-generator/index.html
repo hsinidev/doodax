@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon-CXy11T2K.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced Favicon Generator | Convert Image, Text & Emoji to ICO - doodax.com</title>
+    <meta name="description" content="The ultimate free Favicon Generator. Create professional favicons from images, text, or emojis. Download ICO, PNG, and SVG formats. Privacy-focused, client-side tool powered by doodax.com.">
+    <meta name="keywords" content="favicon generator, create favicon, image to ico, text to favicon, emoji favicon, favicon.ico generator, free icon tool, website branding, pwa icon generator, doodax">
+    <meta name="author" content="HSINI MOHAMED">
+    <link rel="canonical" href="https://doodax.com/" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://doodax.com/">
+    <meta property="og:title" content="Advanced Favicon Generator | Create Favicons from Image, Text & Emoji">
+    <meta property="og:description" content="Generate pixel-perfect favicons in seconds. Privacy-first, client-side processing. Powered by HSINI MOHAMED.">
+    <meta property="og:image" content="https://doodax.com/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://doodax.com/">
+    <meta property="twitter:title" content="Advanced Favicon Generator">
+    <meta property="twitter:description" content="Generate pixel-perfect favicons in seconds. No upload required.">
+    <meta property="twitter:image" content="https://doodax.com/og-image.jpg">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@tailwindcss/typography@0.5.x/dist/typography.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    typography: {
+                        DEFAULT: {
+                            css: {
+                                color: '#9ca3af',
+                                h1: { color: '#f3f4f6' },
+                                h2: { color: '#f3f4f6' },
+                                h3: { color: '#f3f4f6' },
+                                h4: { color: '#f3f4f6' },
+                                strong: { color: '#f3f4f6' },
+                                a: { color: '#60a5fa' },
+                            },
+                        },
+                    },
+                },
+            },
+            plugins: [
+                function({ addUtilities }) {
+                    addUtilities({
+                        '.line-clamp-2': {
+                            overflow: 'hidden',
+                            display: '-webkit-box',
+                            '-webkit-box-orient': 'vertical',
+                            '-webkit-line-clamp': '2',
+                        }
+                    })
+                }
+            ]
+        }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "name": "Advanced Favicon Generator",
+          "url": "https://doodax.com/",
+          "description": "The ultimate free tool to generate favicons for your next project from text, image, or emoji.",
+          "author": {
+            "@type": "Person",
+            "name": "HSINI MOHAMED",
+            "url": "https://github.com/hsinidev"
+          },
+          "inLanguage": "en-US"
+        },
+        {
+            "@type": "SoftwareApplication",
+            "name": "Favicon Generator",
+            "applicationCategory": "DesignApplication",
+            "operatingSystem": "Web",
+            "url": "https://doodax.com",
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+            }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Why do I need a favicon?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Favicons improve user experience by helping users identify your site in tabs and bookmarks."
+              }
+            },
+            {
+                "@type": "Question",
+                "name": "Is this tool free?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, Advanced Favicon Generator is 100% free and processes images locally in your browser."
+                }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+<link rel="stylesheet" href="./index.css">
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/client": "https://aistudiocdn.com/react-dom@^19.2.0/client",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+  }
+}
+</script>
+  <script type="module" crossorigin src="./assets/index-B6uAN79U.js"></script>
+
+    <style>
+      /* Cosmic Animations */
+      @keyframes move-twink-back {
+        from {background-position:0 0;}
+        to {background-position:-10000px 5000px;}
+      }
+      @keyframes clouds-move {
+        from {background-position:0 0;}
+        to {background-position:10000px 0;}
+      }
+      @keyframes gradient-shift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      
+      .stars, .twinkling, .clouds {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        pointer-events: none;
+        z-index: -1;
+      }
+      
+      .stars {
+        background: #000 url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png') repeat top center;
+        z-index: -3;
+      }
+      
+      .twinkling {
+        background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png') repeat top center;
+        z-index: -2;
+        animation: move-twink-back 200s linear infinite;
+        opacity: 0.5;
+      }
+      
+      .clouds {
+        background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/clouds3.png') repeat top center;
+        z-index: -1;
+        opacity: 0.4;
+        animation: clouds-move 200s linear infinite;
+      }
+      
+      .gradient-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(30, 27, 75, 0.7) 0%, rgba(49, 46, 129, 0.4) 50%, rgba(88, 28, 135, 0.6) 100%);
+        z-index: -1;
+        pointer-events: none;
+      }
+      
+      /* Scrollbar */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0f172a; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #4f46e5; 
+        border-radius: 5px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #6366f1; 
+      }
+    </style>
+
+</head>
+<body class="bg-[#020617] text-white antialiased overflow-x-hidden">
+    
+        <div class="star-layer-1"></div>
+        <div class="star-layer-2"></div>
+    </div>
+    <div id="root"></div>
+
+  <div class="stars"></div>
+  <div class="twinkling"></div>
+  <div class="clouds"></div>
+  <div class="gradient-overlay"></div>
+
+</body>
+</html>

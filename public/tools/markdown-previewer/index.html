@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doodax Markdown Previewer - Professional Real-Time Editor</title>
+    <meta name="description" content="Doodax Markdown Previewer is a powerful, real-time Markdown editor and HTML converter. Features a stunning galaxy interface, live preview, export tools, and SEO resources for developers and writers.">
+    <meta name="keywords" content="markdown editor, online markdown previewer, markdown to html, doodax, developer tools, real-time editor, syntax highlighting, seo markdown guide">
+    <meta name="author" content="HSINI MOHAMED">
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        /* Modern Gradient Animation */
+        @keyframes gradient-flow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        .doodax-bg {
+            background: linear-gradient(-45deg, #0f172a, #1e1b4b, #312e81, #0f172a);
+            background-size: 400% 400%;
+            animation: gradient-flow 15s ease infinite;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 90px 40px, #fff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 130px 80px, #fff, rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 200px 200px;
+            z-index: -1;
+            opacity: 0.6;
+            animation: twinkle 5s infinite;
+        }
+
+        @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-up {
+            animation: fade-in-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(31, 41, 55, 0.5); 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4f46e5; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4338ca; 
+        }
+
+        /* Typography Override */
+        .prose-doodax {
+            color: #e2e8f0;
+        }
+        .prose-doodax h1, .prose-doodax h2, .prose-doodax h3, .prose-doodax h4 {
+            color: #f8fafc;
+            font-weight: 700;
+        }
+        .prose-doodax a { color: #818cf8; text-decoration: none; }
+        .prose-doodax a:hover { text-decoration: underline; }
+        .prose-doodax code { color: #c084fc; background: rgba(0,0,0,0.3); padding: 2px 4px; border-radius: 4px; }
+        .prose-doodax pre { background: #0f172a; border: 1px solid #334155; }
+        .prose-doodax blockquote { border-left-color: #6366f1; color: #cbd5e1; font-style: italic; }
+        .prose-doodax strong { color: #f1f5f9; }
+        .prose-doodax table { width: 100%; text-align: left; border-collapse: collapse; }
+        .prose-doodax th { border-bottom: 2px solid #475569; padding: 8px; }
+        .prose-doodax td { border-bottom: 1px solid #334155; padding: 8px; }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "url": "https://doodax.com/",
+          "name": "Doodax Markdown Previewer",
+          "description": "Professional Markdown editing and previewing tool.",
+          "publisher": {
+            "@type": "Person",
+            "name": "HSINI MOHAMED"
+          }
+        },
+        {
+          "@type": "WebApplication",
+          "name": "Doodax Markdown Previewer",
+          "operatingSystem": "All",
+          "applicationCategory": "DeveloperApplication",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "description": "A browser-based Markdown editor with real-time HTML preview, export capabilities, and extensive documentation.",
+          "author": {
+              "@type": "Person",
+              "name": "HSINI MOHAMED",
+              "url": "https://github.com/hsinidev"
+          }
+        }
+      ]
+    }
+    </script>
+
+<link rel="stylesheet" href="./index.css">
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@18.3.1",
+    "react-dom/": "https://esm.sh/react-dom@18.3.1",
+    "react/": "https://esm.sh/react@18.3.1"
+  }
+}
+</script>
+  <script type="module" crossorigin src="./assets/index-D7da3LMw.js"></script>
+</head>
+<body class="bg-gray-900 text-gray-100 antialiased font-sans">
+    <div id="root"></div>
+</body>
+</html>

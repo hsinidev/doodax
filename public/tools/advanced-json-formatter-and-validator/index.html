@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- SEO Metadata -->
+    <title>Advanced JSON Formatter & Validator | Doodax</title>
+    <meta name="description" content="The ultimate free online JSON Formatter and Validator. Beautify, debug, minify, and validate JSON data instantly. Secure client-side processing, syntax highlighting, and error detection. Trusted by developers at Doodax." />
+    <meta name="keywords" content="JSON Formatter, JSON Validator, JSON Beautifier, Pretty Print JSON, JSON Lint, Debug JSON, JSON Viewer, Format JSON, Validate JSON, Minify JSON, JSON Editor, Online JSON Tool, Doodax" />
+    <meta name="author" content="HSINI MOHAMED" />
+    <link rel="canonical" href="https://doodax.com" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://doodax.com" />
+    <meta property="og:title" content="Advanced JSON Formatter & Validator | Doodax" />
+    <meta property="og:description" content="Professional tool to format, validate, and debug JSON data. Features multiple formatting options, error highlighting, and secure client-side processing." />
+    <meta property="og:image" content="https://doodax.com/og-image.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://doodax.com" />
+    <meta property="twitter:title" content="Advanced JSON Formatter & Validator" />
+    <meta property="twitter:description" content="Format, validate, and fix JSON instantly with our advanced online tool." />
+    <meta property="twitter:image" content="https://doodax.com/twitter-image.png" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Advanced JSON Formatter & Validator",
+      "url": "https://doodax.com",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "HSINI MOHAMED",
+        "url": "https://github.com/hsinidev"
+      },
+      "description": "A professional tool to format, validate, pretty-print, and debug JSON data entirely in the browser."
+    }
+    </script>
+
+    
+  <link rel="stylesheet" href="./index.css">
+    <script type="importmap">
+    {
+      "imports": {
+        "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+        "react/": "https://aistudiocdn.com/react@^19.2.0/",
+        "react": "https://aistudiocdn.com/react@^19.2.0"
+      }
+    }
+    </script>
+  <script type="module" crossorigin src="./assets/index-DzzJLRbs.js"></script>
+
+    <style>
+      /* Cosmic Animations */
+      @keyframes move-twink-back {
+        from {background-position:0 0;}
+        to {background-position:-10000px 5000px;}
+      }
+      @keyframes clouds-move {
+        from {background-position:0 0;}
+        to {background-position:10000px 0;}
+      }
+      @keyframes gradient-shift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      
+      .stars, .twinkling, .clouds {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        pointer-events: none;
+        z-index: -1;
+      }
+      
+      .stars {
+        background: #000 url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png') repeat top center;
+        z-index: -3;
+      }
+      
+      .twinkling {
+        background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png') repeat top center;
+        z-index: -2;
+        animation: move-twink-back 200s linear infinite;
+        opacity: 0.5;
+      }
+      
+      .clouds {
+        background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/clouds3.png') repeat top center;
+        z-index: -1;
+        opacity: 0.4;
+        animation: clouds-move 200s linear infinite;
+      }
+      
+      .gradient-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(30, 27, 75, 0.7) 0%, rgba(49, 46, 129, 0.4) 50%, rgba(88, 28, 135, 0.6) 100%);
+        z-index: -1;
+        pointer-events: none;
+      }
+      
+      /* Scrollbar */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0f172a; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #4f46e5; 
+        border-radius: 5px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #6366f1; 
+      }
+    </style>
+
+</head>
+  <body class="bg-[#020617] text-white antialiased overflow-x-hidden">
+    <!-- Background Layers -->
+    
+    
+    <div id="root" class="relative z-0 min-h-screen flex flex-col"></div>
+  
+  <div class="stars"></div>
+  <div class="twinkling"></div>
+  <div class="clouds"></div>
+  <div class="gradient-overlay"></div>
+
+</body>
+</html>

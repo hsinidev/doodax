@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 297" fill="none">
+    <rect width="210" height="297" fill="#eff6ff"/> <!-- bg-blue-50 -->
+    
+    <!-- Sidebar -->
+    <rect x="0" y="0" width="60" height="297" fill="#3b82f6"/>
+    
+    <!-- Logo area in sidebar -->
+    <circle cx="30" cy="30" r="15" fill="white" opacity="0.2"/>
+    
+    <!-- Main Content -->
+    <rect x="80" y="30" width="100" height="10" rx="1" fill="#1e40af"/>
+    <rect x="80" y="45" width="60" height="4" rx="1" fill="#60a5fa"/>
+    
+    <!-- Client Info -->
+    <rect x="80" y="80" width="40" height="5" rx="1" fill="#1e3a8a"/>
+    <rect x="80" y="90" width="80" height="3" rx="1" fill="#64748b"/>
+    <rect x="80" y="96" width="60" height="3" rx="1" fill="#64748b"/>
+    
+    <!-- Table -->
+    <rect x="70" y="120" width="130" height="8" rx="1" fill="#bfdbfe"/>
+    
+    <rect x="80" y="140" width="80" height="4" rx="1" fill="#334155"/>
+    <rect x="180" y="140" width="15" height="4" rx="1" fill="#334155"/>
+    <rect x="70" y="150" width="130" height="1" fill="#dbeafe"/>
+    
+    <rect x="80" y="160" width="60" height="4" rx="1" fill="#334155"/>
+    <rect x="180" y="160" width="15" height="4" rx="1" fill="#334155"/>
+    
+    <!-- Total Bubble -->
+    <rect x="140" y="200" width="60" height="25" rx="4" fill="#2563eb"/>
+    <text x="150" y="217" font-family="sans-serif" font-weight="bold" font-size="10" fill="white">TOTAL</text>
+</svg>

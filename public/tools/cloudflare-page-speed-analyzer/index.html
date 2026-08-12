@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Page Speed Analyzer | Test Core Web Vitals & Performance (LCP, FCP, CLS)</title>
+    <meta name="description" content="Free Cloudflare Page Speed Analyzer. Test website performance, analyze Core Web Vitals (LCP, FCP, CLS), view historical trends, and optimize SEO.">
+    <meta name="keywords" content="page speed test, core web vitals check, website performance analyzer, lcp fcp cls, cloudflare speed test, seo tools, web vitals history">
+    <meta name="author" content="HSINI MOHAMED">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Page Speed Analyzer | Test Core Web Vitals & Performance">
+    <meta property="og:description" content="Instantly analyze your website's performance with our free Page Speed Analyzer. Get detailed Core Web Vitals reports, track trends, and improve SEO.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://doodax.com/">
+    <meta property="og:site_name" content="Doodax Page Speed">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Page Speed Analyzer">
+    <meta name="twitter:description" content="Test your website speed and Core Web Vitals instantly.">
+
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+    <link rel="canonical" href="https://doodax.com/" />
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Cloudflare Page Speed Analyzer",
+      "url": "https://doodax.com",
+      "description": "A powerful web application to analyze website performance and Core Web Vitals.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "HSINI MOHAMED",
+        "url": "https://github.com/hsinidev"
+      }
+    }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            background-color: #0f172a;
+        }
+        
+        /* Immersive Galaxy Background */
+        .galaxy-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+            z-index: -2;
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            background: url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        .twinkling {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            background: transparent url(http://www.script-tutorials.com/demos/360/images/twinkling.png) repeat top center;
+            z-index: -1;
+            animation: move-twink-back 200s linear infinite;
+            opacity: 0.6;
+        }
+
+        .nebula-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: 
+                radial-gradient(circle at 50% 50%, rgba(76, 29, 149, 0.2), transparent 60%),
+                radial-gradient(circle at 80% 20%, rgba(14, 165, 233, 0.15), transparent 50%),
+                radial-gradient(circle at 20% 80%, rgba(236, 72, 153, 0.15), transparent 50%);
+            filter: blur(40px);
+            z-index: -1;
+            animation: pulseNebula 10s ease-in-out infinite alternate;
+        }
+
+        @keyframes move-twink-back {
+            from {background-position:0 0;}
+            to {background-position:-10000px 5000px;}
+        }
+
+        @keyframes pulseNebula {
+            0% { opacity: 0.5; transform: scale(1); }
+            100% { opacity: 0.8; transform: scale(1.1); }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 5px;
+            border: 2px solid #0f172a;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+    </style>
+
+<link rel="stylesheet" href="./index.css">
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "recharts": "https://aistudiocdn.com/recharts@^3.3.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.263.1"
+  }
+}
+</script>
+  <script type="module" crossorigin src="./assets/index-Dw_OS2B_.js"></script>
+
+    <style>
+      /* Cosmic Animations */
+      @keyframes move-twink-back {
+        from {background-position:0 0;}
+        to {background-position:-10000px 5000px;}
+      }
+      @keyframes clouds-move {
+        from {background-position:0 0;}
+        to {background-position:10000px 0;}
+      }
+      @keyframes gradient-shift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      
+      .stars, .twinkling, .clouds {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        pointer-events: none;
+        z-index: -1;
+      }
+      
+      .stars {
+        background: #000 url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png') repeat top center;
+        z-index: -3;
+      }
+      
+      .twinkling {
+        background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png') repeat top center;
+        z-index: -2;
+        animation: move-twink-back 200s linear infinite;
+        opacity: 0.5;
+      }
+      
+      .clouds {
+        background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/clouds3.png') repeat top center;
+        z-index: -1;
+        opacity: 0.4;
+        animation: clouds-move 200s linear infinite;
+      }
+      
+      .gradient-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(30, 27, 75, 0.7) 0%, rgba(49, 46, 129, 0.4) 50%, rgba(88, 28, 135, 0.6) 100%);
+        z-index: -1;
+        pointer-events: none;
+      }
+      
+      /* Scrollbar */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0f172a; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #4f46e5; 
+        border-radius: 5px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #6366f1; 
+      }
+    </style>
+
+</head>
+<body class="text-white antialiased">
+    <div class="galaxy-bg"></div>
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    <div class="nebula-layer"></div>
+    <div id="root"></div>
+
+  <div class="stars"></div>
+  <div class="twinkling"></div>
+  <div class="clouds"></div>
+  <div class="gradient-overlay"></div>
+
+</body>
+</html>

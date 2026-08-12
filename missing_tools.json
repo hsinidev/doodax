@@ -1,0 +1,974 @@
+[
+  {
+    "name": "42 Network",
+    "role": "42 Network Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "42-network",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Advanced Base64 Encoder_decoder",
+    "role": "Advanced Base64 Encoder_decoder Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "advanced-base64-encoder_decoder",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Advanced Css Minifier & Beautifier",
+    "role": "Advanced Css Minifier & Beautifier Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "advanced-css-minifier-&-beautifier",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Advanced Favicon Generator",
+    "role": "Advanced Favicon Generator Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "advanced-favicon-generator",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Advanced Json Formatter And Validator",
+    "role": "Advanced Json Formatter And Validator Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "advanced-json-formatter-and-validator",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Age Calculator",
+    "role": "Age Calculator Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "age-calculator",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Ai Blog Post Generator",
+    "role": "Ai Blog Post Generator Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "ai-blog-post-generator",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Ai Business Card Maker",
+    "role": "Ai Business Card Maker Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "ai-business-card-maker",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Ai Cover Letter Generator",
+    "role": "Ai Cover Letter Generator Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "ai-cover-letter-generator",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Ai Email Sequence Generator",
+    "role": "Ai Email Sequence Generator Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "ai-email-sequence-generator",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Ai Image Caption Generator",
+    "role": "Ai Image Caption Generator Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "ai-image-caption-generator",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Ai Multimodal Product Description Generator",
+    "role": "Ai Multimodal Product Description Generator Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "ai-multimodal-product-description-generator",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Ai Text Summarizer",
+    "role": "Ai Text Summarizer Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "ai-text-summarizer",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Ai Youtube Scriptwriter",
+    "role": "Ai Youtube Scriptwriter Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "ai-youtube-scriptwriter",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Ai Youtube Video Idea Generator",
+    "role": "Ai Youtube Video Idea Generator Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "ai-youtube-video-idea-generator",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Base64 Image Converter",
+    "role": "Base64 Image Converter Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "base64-image-converter",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Binary Converter",
+    "role": "Binary Converter Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "binary-converter",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Business Permit Finder",
+    "role": "Business Permit Finder Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "business-permit-finder",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Client Side Image Optimizer",
+    "role": "Client Side Image Optimizer Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "client-side-image-optimizer",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Cloudflare Page Speed Analyzer",
+    "role": "Cloudflare Page Speed Analyzer Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "cloudflare-page-speed-analyzer",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Code Vibe Assistant",
+    "role": "Code Vibe Assistant Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "code-vibe-assistant",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Convert Audio To Base64",
+    "role": "Convert Audio To Base64 Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "convert-audio-to-base64",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Cosmic Color Contrast Checker",
+    "role": "Cosmic Color Contrast Checker Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "cosmic-color-contrast-checker",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Cosmic Color Palette Generator",
+    "role": "Cosmic Color Palette Generator Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "cosmic-color-palette-generator",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Cosmic Countdown Timer",
+    "role": "Cosmic Countdown Timer Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "cosmic-countdown-timer",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Cosmic Counter Character",
+    "role": "Cosmic Counter Character Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "cosmic-counter-character",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Cosmic Date Difference Calculator",
+    "role": "Cosmic Date Difference Calculator Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "cosmic-date-difference-calculator",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Cosmic Pass Password Strength Generator",
+    "role": "Cosmic Pass Password Strength Generator Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "cosmic-pass-password-strength-generator",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Cosmic World Clock Dashboard",
+    "role": "Cosmic World Clock Dashboard Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "cosmic-world-clock-dashboard",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Date Calculator",
+    "role": "Date Calculator Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "date-calculator",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Date Difference Calculator",
+    "role": "Date Difference Calculator Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "date-difference-calculator",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Debt Payoff Calculator",
+    "role": "Debt Payoff Calculator Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "debt-payoff-calculator",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Domain Availability Checker",
+    "role": "Domain Availability Checker Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "domain-availability-checker",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Effortless Meeting Minutes",
+    "role": "Effortless Meeting Minutes Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "effortless-meeting-minutes",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Foia Request Letter Generator",
+    "role": "Foia Request Letter Generator Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "foia-request-letter-generator",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Game Data Json Generator",
+    "role": "Game Data Json Generator Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "game-data-json-generator",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Gemini Image Editor",
+    "role": "Gemini Image Editor Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "gemini-image-editor",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Glassmorphism 7 Day Weather Forecast",
+    "role": "Glassmorphism 7 Day Weather Forecast Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "glassmorphism-7-day-weather-forecast",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Inflation Calculator",
+    "role": "Inflation Calculator Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "inflation-calculator",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Intelliconvert",
+    "role": "Intelliconvert Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "intelliconvert",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Interactive Color",
+    "role": "Interactive Color Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "interactive-color",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Internetspeedtester",
+    "role": "Internetspeedtester Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "internetspeedtester",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Invoice Number Generator",
+    "role": "Invoice Number Generator Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "invoice-number-generator",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Ip Geolocation Finder",
+    "role": "Ip Geolocation Finder Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "ip-geolocation-finder",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Job Application Assistant",
+    "role": "Job Application Assistant Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "job-application-assistant",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Letter Of Intent",
+    "role": "Letter Of Intent Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "letter-of-intent",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Live Cryptocurrency Converter",
+    "role": "Live Cryptocurrency Converter Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "live-cryptocurrency-converter",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Live Currency Converter",
+    "role": "Live Currency Converter Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "live-currency-converter",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Live Metal Prices",
+    "role": "Live Metal Prices Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "live-metal-prices",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Llm Prompt Simulator",
+    "role": "Llm Prompt Simulator Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "llm-prompt-simulator",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Markdown Previewer",
+    "role": "Markdown Previewer Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "markdown-previewer",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Mortgage Calculator",
+    "role": "Mortgage Calculator Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "mortgage-calculator",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Name Generator",
+    "role": "Name Generator Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "name-generator",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Next Gen Content Platform",
+    "role": "Next Gen Content Platform Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "next-gen-content-platform",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Notary Finder",
+    "role": "Notary Finder Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "notary-finder",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Omniconvert Ai",
+    "role": "Omniconvert Ai Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "omniconvert-ai",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Online Whiteboard",
+    "role": "Online Whiteboard Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "online-whiteboard",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Pagespeed Insights Analyzer",
+    "role": "Pagespeed Insights Analyzer Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "pagespeed-insights-analyzer",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Passport Photo Resizer",
+    "role": "Passport Photo Resizer Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "passport-photo-resizer",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Paycheck Calculator",
+    "role": "Paycheck Calculator Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "paycheck-calculator",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Pdf Merger Splitter",
+    "role": "Pdf Merger Splitter Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "pdf-merger-splitter",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Percentage Change Calculator",
+    "role": "Percentage Change Calculator Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "percentage-change-calculator",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Powered Will Generator",
+    "role": "Powered Will Generator Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "powered-will-generator",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Professional Invoice Generator",
+    "role": "Professional Invoice Generator Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "professional-invoice-generator",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Project Management Tool",
+    "role": "Project Management Tool Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "project-management-tool",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Proposal Generator",
+    "role": "Proposal Generator Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "proposal-generator",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Qr Code Generator",
+    "role": "Qr Code Generator Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "qr-code-generator",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Random Image Placeholder Fetcher",
+    "role": "Random Image Placeholder Fetcher Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "random-image-placeholder-fetcher",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Random Number Generator",
+    "role": "Random Number Generator Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "random-number-generator",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Readability Checker",
+    "role": "Readability Checker Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "readability-checker",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Real Time Email Validator",
+    "role": "Real Time Email Validator Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "real-time-email-validator",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Recipe Unit Converter",
+    "role": "Recipe Unit Converter Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "recipe-unit-converter",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Registration Status",
+    "role": "Registration Status Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "registration-status",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Resume Builder",
+    "role": "Resume Builder Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "resume-builder",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Retirement Savings Planner",
+    "role": "Retirement Savings Planner Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "retirement-savings-planner",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Return Calculator",
+    "role": "Return Calculator Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "return-calculator",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Robots Txt Generator",
+    "role": "Robots Txt Generator Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "robots-txt-generator",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Savings Goal Calculator",
+    "role": "Savings Goal Calculator Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "savings-goal-calculator",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Sentiment Analysis",
+    "role": "Sentiment Analysis Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "sentiment-analysis",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Sha 256 Hash Generator",
+    "role": "Sha 256 Hash Generator Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "sha-256-hash-generator",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Simple Crm Dashboard",
+    "role": "Simple Crm Dashboard Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "simple-crm-dashboard",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Simple Crm Placeholder",
+    "role": "Simple Crm Placeholder Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "simple-crm-placeholder",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Simple Language Translator",
+    "role": "Simple Language Translator Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "simple-language-translator",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Simple Sentiment Analyzer",
+    "role": "Simple Sentiment Analyzer Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "simple-sentiment-analyzer",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Single Link Broken",
+    "role": "Single Link Broken Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "single-link-broken",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Sitemap Generator",
+    "role": "Sitemap Generator Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "sitemap-generator",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Small Claims Generator",
+    "role": "Small Claims Generator Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "small-claims-generator",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Social Media Campaign Generator",
+    "role": "Social Media Campaign Generator Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "social-media-campaign-generator",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Social Media Image Resizer Cropper",
+    "role": "Social Media Image Resizer Cropper Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "social-media-image-resizer-cropper",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Stellar Net Worth",
+    "role": "Stellar Net Worth Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "stellar-net-worth",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Stellar Stock",
+    "role": "Stellar Stock Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "stellar-stock",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Stellar Yield Calculator",
+    "role": "Stellar Yield Calculator Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "stellar-yield-calculator",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Stem Hub Free Math & Science Calculators",
+    "role": "Stem Hub Free Math & Science Calculators Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "stem-hub-free-math-&-science-calculators",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Text Simplification Tool",
+    "role": "Text Simplification Tool Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "text-simplification-tool",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Thumbnail Grabber",
+    "role": "Thumbnail Grabber Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "thumbnail-grabber",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Time To Read Calculator",
+    "role": "Time To Read Calculator Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "time-to-read-calculator",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Tip Calculator Bill Splitter",
+    "role": "Tip Calculator Bill Splitter Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "tip-calculator-bill-splitter",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Ultimate Time Zone Converter",
+    "role": "Ultimate Time Zone Converter Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "ultimate-time-zone-converter",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Ultimate Uuid Generator",
+    "role": "Ultimate Uuid Generator Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "ultimate-uuid-generator",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Url Redirect Chain Analyzer",
+    "role": "Url Redirect Chain Analyzer Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "url-redirect-chain-analyzer",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Us Holiday",
+    "role": "Us Holiday Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "us-holiday",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Utm Link Builder",
+    "role": "Utm Link Builder Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "utm-link-builder",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Vat Sales Tax Calculator",
+    "role": "Vat Sales Tax Calculator Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "vat-sales-tax-calculator",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Website Status Checks",
+    "role": "Website Status Checks Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "website-status-checks",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Website Thumbnail Fetcher",
+    "role": "Website Thumbnail Fetcher Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "website-thumbnail-fetcher",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "Word Finder Dictionary",
+    "role": "Word Finder Dictionary Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "word-finder-dictionary",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "World Clock Dashboard",
+    "role": "World Clock Dashboard Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "world-clock-dashboard",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  },
+  {
+    "name": "World Time Zone Clock",
+    "role": "World Time Zone Clock Tool",
+    "coreTechnology": "HTML/JS",
+    "fileName": "world-time-zone-clock",
+    "icon": "<span>🔧</span>",
+    "category": "Utilities",
+    "isStatic": true
+  }
+]

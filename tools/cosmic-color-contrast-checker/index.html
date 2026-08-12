@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="./assets/favicon-BNwjtzF1.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0f172a" />
+    
+    <!-- Primary Meta Tags -->
+    <title>Doodax Color Contrast Checker | WCAG 2.1 AA/AAA Accessibility Tool</title>
+    <meta name="description" content="Instant WCAG 2.1 color contrast checker with AI-powered suggestions. Ensure your web designs are accessible and compliant with Doodax. Free, privacy-focused, and developer-friendly." />
+    <meta name="keywords" content="Doodax, Color Contrast Checker, WCAG 2.1, Accessibility, a11y, Contrast Ratio Calculator, Web Design Tool, Inclusive Design, SEO Tool" />
+    <meta name="author" content="HSINI MOHAMED" />
+    <link rel="canonical" href="https://doodax.com" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://doodax.com">
+    <meta property="og:title" content="Doodax Color Contrast Checker">
+    <meta property="og:description" content="Validate your color palettes against WCAG 2.1 standards instantly. The most beautiful and easy-to-use contrast checker on the web.">
+    <meta property="og:image" content="https://doodax.com/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://doodax.com">
+    <meta property="twitter:title" content="Doodax Color Contrast Checker">
+    <meta property="twitter:description" content="Validate your color palettes against WCAG 2.1 standards instantly.">
+    <meta property="twitter:image" content="https://doodax.com/og-image.jpg">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            colors: {
+              galaxy: {
+                900: '#0f172a',
+                800: '#1e1b4b',
+                700: '#312e81',
+              }
+            },
+            animation: {
+              'blob': 'blob 7s infinite',
+              'fade-in': 'fadeIn 0.5s ease-out forwards',
+              'fade-in-down': 'fadeInDown 0.8s ease-out forwards',
+            },
+            keyframes: {
+              blob: {
+                '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                '100%': { transform: 'translate(0px, 0px) scale(1)' },
+              },
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              fadeInDown: {
+                '0%': { opacity: '0', transform: 'translateY(-20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* Galaxy Background Animations */
+      @keyframes move-twink-back {
+        from {background-position:0 0;}
+        to {background-position:-10000px 5000px;}
+      }
+      @keyframes move-clouds-back {
+        from {background-position:0 0;}
+        to {background-position:10000px 0;}
+      }
+      .stars, .twinkling, .clouds {
+        position:fixed;
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+        width:100%;
+        height:100%;
+        display:block;
+      }
+      .stars {
+        background:#000 url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
+        z-index:-3;
+      }
+      .twinkling{
+        background:transparent url(http://www.script-tutorials.com/demos/360/images/twinkling.png) repeat top center;
+        z-index:-2;
+        animation:move-twink-back 200s linear infinite;
+        opacity: 0.5;
+      }
+      .clouds{
+        background:transparent url(http://www.script-tutorials.com/demos/360/images/clouds3.png) repeat top center;
+        z-index:-1;
+        animation:move-clouds-back 200s linear infinite;
+        opacity: 0.2;
+      }
+      
+      .cosmic-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+        z-index: -4;
+      }
+    </style>
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "name": "Doodax Color Contrast Checker",
+          "url": "https://doodax.com",
+          "description": "An advanced, accessible tool to check color contrast ratios against WCAG 2.1 AA and AAA standards with AI suggestions.",
+          "applicationCategory": "DesignTool",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "author": {
+            "@type": "Person",
+            "name": "HSINI MOHAMED",
+            "url": "https://github.com/hsinidev"
+          }
+        },
+        {
+          "@type": "Article",
+          "headline": "The Ultimate Guide to Web Accessibility and Color Contrast (WCAG 2.1)",
+          "image": "https://doodax.com/og-image.jpg",
+          "author": "Doodax Team",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Doodax",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://doodax.com/favicon.svg"
+            }
+          },
+          "datePublished": "2023-10-27",
+          "dateModified": "2023-10-27",
+          "description": "A comprehensive guide on WCAG 2.1 compliance, understanding color contrast ratios, and optimizing web design for accessibility and SEO."
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is WCAG 2.1 AA Compliance?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "WCAG 2.1 AA requires a contrast ratio of at least 4.5:1 for normal text and 3:1 for large text."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why is color contrast important?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Good color contrast ensures that text is readable by users with visual impairments, color blindness, or those viewing screens in poor lighting conditions."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does Doodax check contrast?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Doodax calculates the relative luminance of the foreground and background colors using the standard W3C formula to determine the contrast ratio."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+  <link rel="stylesheet" href="./index.css">
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://esm.sh/react@18.3.1",
+        "react-dom/client": "https://esm.sh/react-dom@18.3.1client",
+        "react-dom/": "https://esm.sh/react-dom@18.3.1",
+        "react/": "https://esm.sh/react@18.3.1",
+        "@google/genai": "https://aistudiocdn.com/@google/genai@^1.29.0"
+      }
+    }
+    </script>
+  <script type="module" crossorigin src="./assets/index-DoZwoERw.js"></script>
+</head>
+  <body class="bg-gray-900 text-white antialiased overflow-x-hidden selection:bg-purple-500 selection:text-white">
+    <div id="root"></div>
+  </body>
+</html>

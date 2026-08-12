@@ -1,0 +1,6 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400 group-hover:text-white transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.32 0L12 2.69z" />
+  <path d="M12 22a8 8 0 0 0 5.66-13.66" />
+  <path d="M12 2a8 8 0 0 0-5.66 2.34" />
+</svg>

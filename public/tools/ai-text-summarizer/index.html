@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Text Summarizer | Instant Summaries with Private LLMs</title>
+    <meta name="description" content="Free AI Text Summarizer. Instantly summarize long articles and documents using your own Ollama Cloud or external LLM endpoint. Secure, private, and accurate.">
+    <meta name="keywords" content="ai summarizer, text summarizer, summarize text, llm summarizer, ollama cloud, article summarizer, free summarizer, online tool, ai text reduction, abstractive summarization">
+    <meta name="author" content="HSINI MOHAMED">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://doodax.com/ai-summarizer/">
+    <meta property="og:title" content="AI Text Summarizer | Instant & Accurate">
+    <meta property="og:description" content="Instantly summarize text by connecting to your own external LLM service like Ollama Cloud. Ultimate privacy and control.">
+    <meta property="og:image" content="https://doodax.com/ai-summarizer/favicon.svg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://doodax.com/ai-summarizer/">
+    <meta property="twitter:title" content="AI Text Summarizer | Instant & Accurate">
+    <meta property="twitter:description" content="Instantly summarize text by connecting to your own external LLM service like Ollama Cloud. Ultimate privacy and control.">
+    <meta property="twitter:image" content="https://doodax.com/ai-summarizer/favicon.svg">
+
+    <link rel="icon" href="./assets/favicon-CKnKQocS.svg" type="image/svg+xml">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #050510;
+            overflow-x: hidden;
+        }
+        /* Galaxy Canvas */
+        #starfield {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Glassmorphism Utilities */
+        .glass-panel {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal {
+            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(0.95);
+        }
+        .modal.is-open {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
+        }
+
+        /* FAQ Animation */
+        .faq-item .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
+        }
+        .faq-item.open .faq-answer {
+            max-height: 1000px;
+            transition: max-height 0.8s ease-in-out;
+        }
+        .faq-item .faq-arrow {
+            transition: transform 0.3s ease;
+        }
+        .faq-item.open .faq-arrow {
+            transform: rotate(180deg);
+        }
+
+        /* SEO Read More Logic */
+        .seo-container {
+            position: relative;
+        }
+        .seo-content-wrapper {
+            max-height: 80px; /* Shows approx 2-3 lines */
+            overflow: hidden;
+            position: relative;
+            transition: max-height 1s ease-in-out;
+        }
+        .seo-content-wrapper::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: linear-gradient(to bottom, transparent, rgba(17, 24, 39, 0.95));
+            pointer-events: none;
+            transition: opacity 0.5s;
+        }
+        .seo-content-wrapper.expanded {
+            max-height: 20000px; /* Large enough for full article */
+        }
+        .seo-content-wrapper.expanded::after {
+            opacity: 0;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4f46e5; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6366f1; 
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "url": "https://doodax.com/ai-summarizer",
+          "name": "AI Text Summarizer",
+          "description": "A free online tool to summarize text using configurable AI models like Ollama Cloud.",
+          "publisher": {
+            "@type": "Organization",
+            "name": "HSINI MOHAMED",
+            "url": "https://doodax.com",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://doodax.com/ai-summarizer/favicon.svg"
+            },
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "email": "hsini.web@gmail.com",
+                "contactType": "customer support"
+            }
+          }
+        },
+        {
+          "@type": "WebApplication",
+          "name": "AI Text Summarizer",
+          "operatingSystem": "All",
+          "applicationCategory": "ProductivityApplication",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "description": "Instantly summarize text by connecting to your own external LLM service like Ollama Cloud. Provides options for summary length and style."
+        },
+        {
+          "@type": "Article",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://doodax.com/ai-summarizer"
+          },
+          "headline": "The Ultimate Guide to AI Text Summarization: Models, Methods, and Benefits",
+          "author": {
+            "@type": "Person",
+            "name": "HSINI MOHAMED",
+            "url": "https://github.com/hsinidev"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "HSINI MOHAMED",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://doodax.com/ai-summarizer/favicon.svg"
+            }
+          },
+          "datePublished": "2024-05-15",
+          "dateModified": "2024-05-15",
+          "articleBody": "In an era of digital information overload, AI text summarization has emerged as a critical tool for productivity..."
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is AI text summarization?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "AI text summarization is the process of using artificial intelligence, particularly natural language processing (NLP), to create a concise and coherent summary of a longer text."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do I use my own API key?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Simply paste your LLM endpoint URL (e.g., from Ollama or Cloudflare Workers) into the configuration box. Your browser communicates directly with your endpoint."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+<link rel="stylesheet" href="./index.css">
+  <script type="module" crossorigin src="./assets/index-B5Qt9EMX.js"></script>
+</head>
+<body class="text-gray-200 font-sans antialiased selection:bg-indigo-500 selection:text-white">
+    
+    <!-- Galaxy Canvas Background -->
+    <canvas id="starfield"></canvas>
+
+    <div class="relative min-h-screen flex flex-col items-center p-4 sm:p-6 lg:p-8">
+        
+        <!-- Header -->
+        <header class="w-full max-w-6xl mx-auto flex justify-between items-center py-5 px-6 glass-panel rounded-full mb-8 z-10">
+            <div class="flex items-center space-x-3">
+                <div class="bg-indigo-600 p-1.5 rounded-lg shadow-lg shadow-indigo-500/50">
+                    <img src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3e%3cdefs%3e%3clinearGradient%20id='grad'%20x1='0%25'%20y1='0%25'%20x2='100%25'%20y2='100%25'%3e%3cstop%20offset='0%25'%20style='stop-color:%236366f1;stop-opacity:1'%20/%3e%3cstop%20offset='100%25'%20style='stop-color:%23a855f7;stop-opacity:1'%20/%3e%3c/linearGradient%3e%3c/defs%3e%3crect%20width='100'%20height='100'%20rx='20'%20fill='%230f172a'%20/%3e%3crect%20x='10'%20y='10'%20width='80'%20height='80'%20rx='15'%20fill='url(%23grad)'%20opacity='0.2'%20/%3e%3cpath%20d='M30%2035H70M30%2050H70M30%2065H50'%20stroke='url(%23grad)'%20stroke-width='8'%20stroke-linecap='round'%20/%3e%3ccircle%20cx='75'%20cy='75'%20r='8'%20fill='%23fff'%20/%3e%3c/svg%3e" alt="Logo" class="h-6 w-6">
+                </div>
+                <span class="text-xl font-bold text-white tracking-wide">AI Summarizer</span>
+            </div>
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-300">
+                <button class="hover:text-white hover:scale-105 transition-all modal-trigger" data-modal-id="modal-about">About</button>
+                <button class="hover:text-white hover:scale-105 transition-all modal-trigger" data-modal-id="modal-guide">Guide</button>
+                <button class="hover:text-white hover:scale-105 transition-all modal-trigger" data-modal-id="modal-contact">Contact</button>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden p-2 text-gray-300 hover:text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </header>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden w-full max-w-6xl mx-auto mb-6 glass-panel rounded-xl p-4 z-20 absolute top-24">
+             <nav class="flex flex-col space-y-4 text-center">
+                <button class="hover:text-white transition-colors modal-trigger" data-modal-id="modal-about">About</button>
+                <button class="hover:text-white transition-colors modal-trigger" data-modal-id="modal-guide">Guide</button>
+                <button class="hover:text-white transition-colors modal-trigger" data-modal-id="modal-contact">Contact</button>
+                <div class="h-px bg-gray-700 my-2"></div>
+                <button class="hover:text-white transition-colors modal-trigger" data-modal-id="modal-privacy">Privacy</button>
+                <button class="hover:text-white transition-colors modal-trigger" data-modal-id="modal-tos">Terms</button>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <main class="w-full max-w-6xl mx-auto flex-grow flex flex-col items-center">
+            
+            <!-- Hero Section -->
+            <div class="text-center mb-10 mt-4 space-y-4">
+                <span class="inline-block py-1 px-3 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 text-xs font-semibold tracking-wider uppercase mb-2">Private & Secure Summarization</span>
+                <h1 class="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-indigo-200 to-indigo-400 drop-shadow-sm pb-2">
+                    Simplify Complexity.<br>Summarize Instantly.
+                </h1>
+                <p class="text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed">
+                    Connect your own LLM endpoint. Transform long documents into concise insights without sacrificing data privacy.
+                </p>
+            </div>
+
+            <!-- Config Bar -->
+            <div class="w-full glass-panel rounded-2xl p-6 mb-8 shadow-2xl">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-end">
+                    <!-- API Config -->
+                    <div class="md:col-span-6">
+                        <label for="api-endpoint" class="block text-xs font-semibold text-indigo-300 uppercase tracking-wider mb-2">LLM Endpoint URL</label>
+                        <div class="relative">
+                            <input type="text" id="api-endpoint" class="w-full bg-gray-900/50 border border-gray-600 rounded-lg pl-4 pr-10 py-3 text-white placeholder-gray-600 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition" placeholder="https://your-ollama-url.com/api/generate">
+                            <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                                <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Controls -->
+                    <div class="md:col-span-3">
+                         <label for="summary-length" class="block text-xs font-semibold text-indigo-300 uppercase tracking-wider mb-2">Length: <span id="summary-length-value" class="text-white">3</span> sentences</label>
+                         <input type="range" id="summary-length" min="1" max="10" value="3" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-indigo-500">
+                    </div>
+                    <div class="md:col-span-3">
+                        <label class="block text-xs font-semibold text-indigo-300 uppercase tracking-wider mb-3">Style</label>
+                        <div class="flex bg-gray-900/50 p-1 rounded-lg border border-gray-600">
+                            <label class="flex-1 text-center cursor-pointer">
+                                <input type="radio" name="output-style" value="paragraph" class="hidden peer" checked>
+                                <span class="block py-1.5 text-xs font-medium rounded text-gray-400 peer-checked:bg-indigo-600 peer-checked:text-white transition-all">Paragraph</span>
+                            </label>
+                            <label class="flex-1 text-center cursor-pointer">
+                                <input type="radio" name="output-style" value="bullets" class="hidden peer">
+                                <span class="block py-1.5 text-xs font-medium rounded text-gray-400 peer-checked:bg-indigo-600 peer-checked:text-white transition-all">Bullets</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Workspace -->
+            <div class="w-full grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                <!-- Input Panel -->
+                <div class="glass-panel rounded-2xl p-1 flex flex-col group focus-within:ring-2 focus-within:ring-indigo-500/50 transition-all">
+                    <div class="flex justify-between items-center px-4 py-3 border-b border-gray-700/30">
+                         <div class="flex items-center space-x-2">
+                            <span class="w-2 h-2 rounded-full bg-yellow-400"></span>
+                            <h2 class="text-sm font-semibold text-gray-200">Source Text</h2>
+                         </div>
+                         <div id="text-counter" class="text-xs text-gray-500 font-mono">0 w | 0 ch</div>
+                    </div>
+                    <textarea id="input-text" class="w-full h-96 flex-grow bg-transparent text-gray-300 p-4 resize-none focus:outline-none placeholder-gray-600/70" placeholder="Paste your article, email, or report here..."></textarea>
+                </div>
+
+                <!-- Output Panel -->
+                <div class="glass-panel rounded-2xl p-1 flex flex-col group">
+                     <div class="flex justify-between items-center px-4 py-3 border-b border-gray-700/30 bg-indigo-900/20 rounded-t-xl">
+                         <div class="flex items-center space-x-2">
+                            <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                            <h2 class="text-sm font-semibold text-white">AI Output</h2>
+                         </div>
+                         <button id="copy-button" class="text-xs flex items-center space-x-1 text-gray-400 hover:text-white transition-colors bg-gray-800/50 hover:bg-gray-700 px-2 py-1 rounded">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                            <span>Copy</span>
+                         </button>
+                    </div>
+                    <textarea id="output-text" class="w-full h-96 flex-grow bg-transparent text-indigo-100 p-4 resize-none focus:outline-none" placeholder="Your summary will appear here..." readonly></textarea>
+                </div>
+            </div>
+
+            <!-- Action Area -->
+            <div class="w-full flex flex-col items-center mb-16">
+                <button id="summarize-button" class="group relative px-8 py-4 bg-white text-indigo-900 font-bold rounded-full text-lg shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(99,102,241,0.6)] hover:scale-105 transition-all duration-300 overflow-hidden">
+                    <span class="relative z-10 flex items-center space-x-2">
+                        <span>Summarize Now</span>
+                        <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </span>
+                    <div class="absolute inset-0 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"></div>
+                </button>
+                
+                <div id="loader" class="hidden mt-4">
+                    <div class="flex items-center space-x-2 text-indigo-300">
+                        <svg class="animate-spin h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        <span>Processing with your AI...</span>
+                    </div>
+                </div>
+                
+                <div id="error-message" class="w-full max-w-lg mt-4 text-center text-red-300 bg-red-900/30 border border-red-500/50 rounded-lg p-3 text-sm hidden"></div>
+            </div>
+
+            <!-- SEO Content Section (Collapsible) -->
+            <div class="w-full glass-panel rounded-2xl p-8 mb-12 seo-container">
+                <div class="flex justify-between items-center mb-6 border-b border-gray-700/50 pb-4">
+                    <h2 class="text-2xl font-bold text-white">The Ultimate Guide to AI Summarization</h2>
+                    <span class="text-sm text-gray-400 uppercase tracking-widest">In-Depth Guide</span>
+                </div>
+
+                <!-- Content Wrapper with max-height transition -->
+                <div id="seo-content-wrapper" class="seo-content-wrapper prose prose-invert max-w-none prose-a:text-indigo-400 hover:prose-a:text-indigo-300">
+                    
+                    <h3>Table of Contents</h3>
+                    <ul class="columns-1 md:columns-2 gap-8">
+                        <li><a href="#intro">Introduction to AI Summarization</a></li>
+                        <li><a href="#how-it-works">How Large Language Models Work</a></li>
+                        <li><a href="#benefits">Key Benefits of Using AI Summarizers</a></li>
+                        <li><a href="#privacy">Privacy & Security: The "Bring Your Own Key" Advantage</a></li>
+                        <li><a href="#use-cases">Top Use Cases for Professionals</a></li>
+                        <li><a href="#comparison">Comparison: Extractive vs. Abstractive</a></li>
+                        <li><a href="#faq-section">Frequently Asked Questions (FAQ)</a></li>
+                    </ul>
+
+                    <h3 id="intro">Introduction to AI Summarization</h3>
+                    <p>In the digital age, we are constantly bombarded with information. From lengthy academic papers and corporate reports to endless news feeds, the volume of text we need to process is overwhelming. <strong>AI Text Summarization</strong> creates a concise, coherent, and accurate summary of a longer document, enabling users to grasp the main points without reading the entire text.</p>
+                    <p>This tool utilizes the power of Generative AI to understand context, nuance, and key themes, delivering summaries that are not just shorter, but often clearer than the original.</p>
+
+                    <h3 id="how-it-works">How Large Language Models (LLMs) Work</h3>
+                    <p>Modern summarization relies on LLMs like Llama 3, GPT-4, or Mistral. These models are trained on vast datasets of human text. Unlike older "extractive" methods that simply cut and paste sentences, modern "abstractive" models generate <em>new</em> sentences.</p>
+                    <p>When you input text into this tool, the AI analyzes the semantic relationship between words. It identifies the core arguments and reconstructs them in a condensed format, much like a human editor would.</p>
+
+                    <h3 id="benefits">Key Benefits of Using AI Summarizers</h3>
+                    <ul>
+                        <li><strong>Time Efficiency:</strong> Reduce reading time by up to 90%.</li>
+                        <li><strong>Enhanced Productivity:</strong> Process more documents in less time.</li>
+                        <li><strong>Cognitive Load Reduction:</strong> Focus only on essential information.</li>
+                        <li><strong>Scalability:</strong> Summarize thousands of documents automatically via API.</li>
+                    </ul>
+
+                    <h3 id="privacy">Privacy & Security: The "Bring Your Own Key" Advantage</h3>
+                    <p>Most online summarizers require you to upload your data to their servers. This poses a significant privacy risk for sensitive legal, medical, or corporate documents.</p>
+                    <p><strong>Doodax AI Summarizer is different.</strong> We use a "Bring Your Own Endpoint" (BYOE) architecture. The application runs entirely in your browser. When you click "Summarize," your browser sends the text <em>directly</em> to your specified API endpoint (e.g., your private Ollama instance or Cloudflare Worker). <strong>Your data never touches our servers.</strong></p>
+
+                    <h3 id="use-cases">Top Use Cases for Professionals</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+                        <div class="bg-gray-800/50 p-4 rounded-lg">
+                            <h4 class="mt-0 text-white">🎓 Students & Researchers</h4>
+                            <p class="text-sm">Quickly digest abstract papers and literature reviews to find relevant sources faster.</p>
+                        </div>
+                        <div class="bg-gray-800/50 p-4 rounded-lg">
+                            <h4 class="mt-0 text-white">💼 Business Executives</h4>
+                            <p class="text-sm">Summarize long email chains, market reports, and competitor analysis documents.</p>
+                        </div>
+                        <div class="bg-gray-800/50 p-4 rounded-lg">
+                            <h4 class="mt-0 text-white">⚖️ Legal Professionals</h4>
+                            <p class="text-sm">Condense case files, depositions, and contracts into manageable briefs.</p>
+                        </div>
+                        <div class="bg-gray-800/50 p-4 rounded-lg">
+                            <h4 class="mt-0 text-white">📰 Content Creators</h4>
+                            <p class="text-sm">Generate social media snippets or newsletters from long-form blog posts.</p>
+                        </div>
+                    </div>
+
+                    <h3 id="comparison">Comparison: Extractive vs. Abstractive Summarization</h3>
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="border-b border-gray-600">
+                                <th class="py-2">Feature</th>
+                                <th class="py-2">Extractive (Old School)</th>
+                                <th class="py-2">Abstractive (AI Powered)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-800">
+                                <td class="py-2 font-semibold">Method</td>
+                                <td class="py-2">Selects existing sentences</td>
+                                <td class="py-2">Writes new sentences</td>
+                            </tr>
+                            <tr class="border-b border-gray-800">
+                                <td class="py-2 font-semibold">Flow</td>
+                                <td class="py-2">Often disjointed</td>
+                                <td class="py-2">Natural and human-like</td>
+                            </tr>
+                            <tr class="border-b border-gray-800">
+                                <td class="py-2 font-semibold">Accuracy</td>
+                                <td class="py-2">High fidelity to source</td>
+                                <td class="py-2">High (captures meaning)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3 id="faq-section" class="mt-8">Frequently Asked Questions (FAQ)</h3>
+                    <div class="not-prose space-y-3">
+                        <div class="faq-item bg-gray-900/50 rounded-lg border border-gray-700 overflow-hidden">
+                            <button class="faq-question w-full flex justify-between items-center p-4 text-left font-semibold hover:bg-gray-800/50 transition">
+                                <span>Is this tool free?</span>
+                                <svg class="faq-arrow w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="faq-answer px-4 text-gray-400">
+                                <p class="pb-4">Yes, the interface is 100% free. You only pay for your own API usage (if using a paid provider like OpenAI) or it is free if you self-host using Ollama.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item bg-gray-900/50 rounded-lg border border-gray-700 overflow-hidden">
+                            <button class="faq-question w-full flex justify-between items-center p-4 text-left font-semibold hover:bg-gray-800/50 transition">
+                                <span>Does it work with multiple languages?</span>
+                                <svg class="faq-arrow w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="faq-answer px-4 text-gray-400">
+                                <p class="pb-4">Yes! Most modern LLMs are multilingual. You can paste text in Spanish, French, German, etc., and ask for a summary in English (or vice versa) simply by prompting appropriately.</p>
+                            </div>
+                        </div>
+                         <div class="faq-item bg-gray-900/50 rounded-lg border border-gray-700 overflow-hidden">
+                            <button class="faq-question w-full flex justify-between items-center p-4 text-left font-semibold hover:bg-gray-800/50 transition">
+                                <span>Is my data safe?</span>
+                                <svg class="faq-arrow w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="faq-answer px-4 text-gray-400">
+                                <p class="pb-4">Absolutely. We do not store any logs. Your text is sent directly from your browser to your chosen API endpoint.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p class="mt-8 text-sm text-gray-500 italic">Last Updated: October 2024</p>
+                </div>
+
+                <!-- Read More Button -->
+                <div class="text-center mt-4">
+                    <button id="read-more-button" class="inline-flex items-center space-x-2 text-indigo-400 font-semibold hover:text-white transition-colors">
+                        <span>Read More</span>
+                        <svg class="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                </div>
+            </div>
+
+        </main>
+        
+        <!-- Footer -->
+        <footer class="w-full max-w-6xl mx-auto mt-12 py-8 border-t border-gray-700/30">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm text-gray-500 text-center md:text-left">
+                <div>
+                    <h4 class="text-white font-bold mb-4">AI Summarizer</h4>
+                    <p class="mb-4">The privacy-first solution for text condensation. Built for the modern web.</p>
+                    <p class="text-indigo-400">Powered by <a href="https://github.com/hsinidev" target="_blank" class="font-bold hover:underline">HSINI MOHAMED</a></p>
+                </div>
+                <div class="flex flex-col space-y-2 md:items-center">
+                    <h4 class="text-white font-bold mb-2">Legal & Info</h4>
+                    <button class="hover:text-indigo-400 transition-colors modal-trigger" data-modal-id="modal-privacy">Privacy Policy</button>
+                    <button class="hover:text-indigo-400 transition-colors modal-trigger" data-modal-id="modal-tos">Terms of Service</button>
+                    <button class="hover:text-indigo-400 transition-colors modal-trigger" data-modal-id="modal-dmca">DMCA</button>
+                </div>
+                <div class="flex flex-col space-y-2 md:items-end">
+                    <h4 class="text-white font-bold mb-2">Connect</h4>
+                    <a href="https://doodax.com" target="_blank" class="hover:text-indigo-400 transition-colors">doodax.com</a>
+                    <a href="mailto:hsini.web@gmail.com" class="hover:text-indigo-400 transition-colors">hsini.web@gmail.com</a>
+                    <div class="flex space-x-4 mt-2">
+                        <!-- GitHub Icon -->
+                        <a href="https://github.com/hsinidev" target="_blank" class="text-gray-400 hover:text-white">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <!-- Modals Container -->
+    <div id="modal-container">
+        <!-- Generic Modal Structure (Content injected dynamically or separate blocks) -->
+        
+        <!-- About Modal -->
+        <div id="modal-about" class="modal fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+            <div class="glass-panel w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-xl shadow-2xl transform transition-all">
+                <div class="p-8">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-2xl font-bold text-white">About Us</h3>
+                        <button class="modal-close text-gray-400 hover:text-white text-2xl">&times;</button>
+                    </div>
+                    <div class="space-y-4 text-gray-300 leading-relaxed">
+                        <p>Welcome to <strong>AI Text Summarizer</strong>, a project dedicated to making advanced artificial intelligence accessible, privacy-conscious, and easy to use.</p>
+                        <p>This tool was architected by <strong>HSINI MOHAMED</strong> with a clear mission: to empower users to process information without surrendering their data sovereignty. Unlike commercial summarizers that harvest your data, our "Bring Your Own Key" (BYOK) architecture ensures that your documents travel directly from your browser to your trusted API endpoint.</p>
+                        <p>We believe in the future of the decentralized web, where tools serve the user, not the other way around.</p>
+                        <div class="mt-6 pt-6 border-t border-gray-700">
+                             <p class="text-sm">Visit our main portfolio: <a href="https://doodax.com" class="text-indigo-400 hover:underline">doodax.com</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Modal -->
+        <div id="modal-contact" class="modal fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+            <div class="glass-panel w-full max-w-2xl rounded-xl shadow-2xl">
+                <div class="p-8">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-2xl font-bold text-white">Contact Support</h3>
+                        <button class="modal-close text-gray-400 hover:text-white text-2xl">&times;</button>
+                    </div>
+                    <div class="space-y-4 text-gray-300">
+                        <p>We value your feedback and are here to assist with any technical issues or feature requests.</p>
+                        <ul class="space-y-3 mt-4">
+                            <li class="flex items-center space-x-3">
+                                <span class="text-indigo-400">📧</span>
+                                <span>Email: <a href="mailto:hsini.web@gmail.com" class="text-white hover:underline">hsini.web@gmail.com</a></span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <span class="text-indigo-400">🌐</span>
+                                <span>Website: <a href="https://doodax.com" class="text-white hover:underline">doodax.com</a></span>
+                            </li>
+                        </ul>
+                        <p class="text-sm text-gray-500 mt-4">Response time is typically within 24-48 hours.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Guide Modal -->
+        <div id="modal-guide" class="modal fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+            <div class="glass-panel w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-xl">
+                <div class="p-8">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-2xl font-bold text-white">User Guide</h3>
+                        <button class="modal-close text-gray-400 hover:text-white text-2xl">&times;</button>
+                    </div>
+                    <ol class="list-decimal list-inside space-y-4 text-gray-300">
+                        <li class="pl-2"><span class="text-white font-semibold">Configuration:</span> Paste your LLM API URL into the endpoint field. If you are using Ollama locally, use your ngrok or local network address.</li>
+                        <li class="pl-2"><span class="text-white font-semibold">Parameters:</span> Adjust the slider to control summary length. Select "Bullet Points" for list-style outputs or "Paragraph" for a narrative flow.</li>
+                        <li class="pl-2"><span class="text-white font-semibold">Input:</span> Paste your text into the left panel. The counter will update automatically.</li>
+                        <li class="pl-2"><span class="text-white font-semibold">Generate:</span> Click "Summarize Now". The app will connect to your endpoint and stream the result.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <!-- Privacy Policy Modal -->
+        <div id="modal-privacy" class="modal fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+            <div class="glass-panel w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-xl">
+                <div class="p-8">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-2xl font-bold text-white">Privacy Policy</h3>
+                        <button class="modal-close text-gray-400 hover:text-white text-2xl">&times;</button>
+                    </div>
+                    <div class="prose prose-invert prose-sm max-w-none">
+                        <p><strong>Last Updated: October 2024</strong></p>
+                        <p>Your privacy is our priority. This Privacy Policy explains how Doodax AI Summarizer handles your data.</p>
+                        <h4>1. Data Collection</h4>
+                        <p>We do not collect, store, or transmit your input text, generated summaries, or API keys to our servers. This application runs entirely client-side.</p>
+                        <h4>2. Local Storage</h4>
+                        <p>We use your browser's Local Storage solely to save your preferred API Endpoint URL for your convenience. You can clear this at any time by clearing your browser cache.</p>
+                        <h4>3. Third-Party Connections</h4>
+                        <p>When you click "Summarize", your browser makes a direct network request to the URL you provided. We have no access to this traffic.</p>
+                        <h4>4. Contact</h4>
+                        <p>For privacy concerns, contact hsini.web@gmail.com.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ToS Modal -->
+        <div id="modal-tos" class="modal fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+            <div class="glass-panel w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-xl">
+                <div class="p-8">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-2xl font-bold text-white">Terms of Service</h3>
+                        <button class="modal-close text-gray-400 hover:text-white text-2xl">&times;</button>
+                    </div>
+                    <div class="prose prose-invert prose-sm max-w-none">
+                        <p>By using AI Text Summarizer, you agree to these terms.</p>
+                        <h4>1. Usage</h4>
+                        <p>You agree to use this tool only for lawful purposes. You are responsible for the content you submit to your LLM provider.</p>
+                        <h4>2. Disclaimer</h4>
+                        <p>This tool is provided "as is". HSINI MOHAMED makes no warranties regarding the accuracy of summaries generated by third-party AI models.</p>
+                        <h4>3. Liability</h4>
+                        <p>We are not liable for any damages arising from the use or inability to use this service.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+         <!-- DMCA Modal -->
+        <div id="modal-dmca" class="modal fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+            <div class="glass-panel w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-xl">
+                <div class="p-8">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-2xl font-bold text-white">DMCA Notice</h3>
+                        <button class="modal-close text-gray-400 hover:text-white text-2xl">&times;</button>
+                    </div>
+                    <div class="prose prose-invert prose-sm max-w-none">
+                        <p>We respect intellectual property rights. Since we do not host user content, we cannot remove content processed by users on their own devices. However, if you believe this website infringes on your rights, please contact:</p>
+                        <p><strong>Email:</strong> hsini.web@gmail.com</p>
+                        <p><strong>Website:</strong> doodax.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // --- Galaxy Background Animation ---
+        const canvas = document.getElementById('starfield');
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let stars = [];
+        
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+            initStars();
+        }
+
+        function initStars() {
+            stars = [];
+            const count = Math.floor((width * height) / 3000); // Dense starfield
+            for (let i = 0; i < count; i++) {
+                stars.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    z: Math.random() * 2 + 0.5, // Depth
+                    size: Math.random() * 1.5,
+                    color: Math.random() > 0.8 ? '#a5b4fc' : '#ffffff', // Occasional indigo star
+                    alpha: Math.random(),
+                    speed: Math.random() * 0.05 + 0.01
+                });
+            }
+        }
+
+        function animate() {
+            ctx.fillStyle = '#050510'; // Deep space background
+            ctx.fillRect(0, 0, width, height);
+
+            stars.forEach(star => {
+                ctx.globalAlpha = star.alpha;
+                ctx.fillStyle = star.color;
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Move stars slowly
+                star.y -= star.speed * star.z;
+                // Twinkle
+                star.alpha += (Math.random() - 0.5) * 0.05;
+                if (star.alpha < 0.2) star.alpha = 0.2;
+                if (star.alpha > 1) star.alpha = 1;
+
+                // Reset if off screen
+                if (star.y < 0) {
+                    star.y = height;
+                    star.x = Math.random() * width;
+                }
+            });
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', resize);
+        resize();
+        animate();
+
+
+        // --- App Logic ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const apiEndpointInput = document.getElementById('api-endpoint');
+            const summaryLengthSlider = document.getElementById('summary-length');
+            const summaryLengthValue = document.getElementById('summary-length-value');
+            const inputTextarea = document.getElementById('input-text');
+            const outputTextarea = document.getElementById('output-text');
+            const summarizeButton = document.getElementById('summarize-button');
+            const loader = document.getElementById('loader');
+            const errorMessageDiv = document.getElementById('error-message');
+            const textCounter = document.getElementById('text-counter');
+            const copyButton = document.getElementById('copy-button');
+            const readMoreButton = document.getElementById('read-more-button');
+            const seoContentWrapper = document.getElementById('seo-content-wrapper');
+            const API_ENDPOINT_KEY = 'ai_summarizer_api_endpoint';
+
+            // Init
+            const savedEndpoint = localStorage.getItem(API_ENDPOINT_KEY);
+            if (savedEndpoint) apiEndpointInput.value = savedEndpoint;
+
+            // Update sliders/counters
+            summaryLengthSlider.addEventListener('input', () => {
+                summaryLengthValue.textContent = summaryLengthSlider.value;
+            });
+
+            inputTextarea.addEventListener('input', () => {
+                const text = inputTextarea.value;
+                const words = text.trim().split(/\s+/).filter(Boolean).length;
+                const chars = text.length;
+                textCounter.textContent = `${words} w | ${chars} ch`;
+            });
+
+            // Expand/Collapse SEO Article
+            readMoreButton.addEventListener('click', () => {
+                const isExpanded = seoContentWrapper.classList.toggle('expanded');
+                if (isExpanded) {
+                    readMoreButton.innerHTML = '<span>Show Less</span><svg class="w-4 h-4 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>';
+                } else {
+                    readMoreButton.innerHTML = '<span>Read More</span><svg class="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>';
+                    // Optional: Scroll back to title
+                    document.querySelector('.seo-container').scrollIntoView({behavior: 'smooth'});
+                }
+            });
+
+            // FAQ Toggles
+            document.querySelectorAll('.faq-question').forEach(button => {
+                button.addEventListener('click', () => {
+                    const item = button.closest('.faq-item');
+                    const isOpen = item.classList.contains('open');
+                    // Close others
+                    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+                    if (!isOpen) item.classList.add('open');
+                });
+            });
+
+            // Modals
+            const modalTriggers = document.querySelectorAll('.modal-trigger');
+            const modalCloses = document.querySelectorAll('.modal-close');
+            
+            modalTriggers.forEach(trigger => {
+                trigger.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const id = trigger.getAttribute('data-modal-id');
+                    document.getElementById(id).classList.add('is-open');
+                });
+            });
+
+            modalCloses.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    btn.closest('.modal').classList.remove('is-open');
+                });
+            });
+
+            window.addEventListener('click', (e) => {
+                if (e.target.classList.contains('modal')) {
+                    e.target.classList.remove('is-open');
+                }
+            });
+            
+            // Mobile Menu
+            document.getElementById('mobile-menu-button').addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.toggle('hidden');
+            });
+
+            // Copy Function
+            copyButton.addEventListener('click', () => {
+                if (!outputTextarea.value) return;
+                navigator.clipboard.writeText(outputTextarea.value).then(() => {
+                    const originalHTML = copyButton.innerHTML;
+                    copyButton.innerHTML = `<svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span class="text-green-400">Copied!</span>`;
+                    setTimeout(() => copyButton.innerHTML = originalHTML, 2000);
+                });
+            });
+
+            // Summarize Function
+            summarizeButton.addEventListener('click', async () => {
+                const endpoint = apiEndpointInput.value.trim();
+                const text = inputTextarea.value.trim();
+                const length = summaryLengthSlider.value;
+                const style = document.querySelector('input[name="output-style"]:checked').value;
+
+                if (!endpoint) return showError("Please enter your API Endpoint URL.");
+                if (!text) return showError("Please paste some text to summarize.");
+
+                localStorage.setItem(API_ENDPOINT_KEY, endpoint);
+                setLoading(true);
+                outputTextarea.value = '';
+
+                // Construct Prompt
+                const prompt = `Summarize the following text into approximately ${length} sentences. Output style: ${style === 'bullets' ? 'bullet points' : 'concise paragraph'}.\n\nText:\n${text}`;
+
+                // Determine payload structure based on simple heuristics or default to Ollama
+                // Default Ollama format
+                const payload = {
+                    model: "llama3", // User can change this in code if needed, or we could add a UI field
+                    prompt: prompt,
+                    stream: false
+                };
+
+                // NOTE: If using OpenAI-compatible endpoints, user might need to adjust code to:
+                // const payload = { model: "gpt-3.5-turbo", messages: [{role: "user", content: prompt}] };
+
+                try {
+                    const response = await fetch(endpoint, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) throw new Error(`API Error: ${response.status}`);
+                    
+                    const data = await response.json();
+                    
+                    // Flexible parsing
+                    const result = data.response || data.summary || (data.choices && data.choices[0]?.message?.content) || JSON.stringify(data);
+                    
+                    outputTextarea.value = result;
+                    // Auto scroll to output
+                    outputTextarea.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                } catch (err) {
+                    console.error(err);
+                    showError("Connection Failed. Verify your Endpoint URL and CORS settings.");
+                } finally {
+                    setLoading(false);
+                }
+            });
+
+            function setLoading(state) {
+                if (state) {
+                    summarizeButton.classList.add('opacity-0', 'pointer-events-none');
+                    loader.classList.remove('hidden');
+                    errorMessageDiv.classList.add('hidden');
+                } else {
+                    summarizeButton.classList.remove('opacity-0', 'pointer-events-none');
+                    loader.classList.add('hidden');
+                }
+            }
+
+            function showError(msg) {
+                errorMessageDiv.textContent = msg;
+                errorMessageDiv.classList.remove('hidden');
+            }
+        });
+    </script>
+</body>
+</html>

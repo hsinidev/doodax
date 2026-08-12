@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Live Metal Prices | Gold, Silver, Platinum Calculator - Doodax.com</title>
+    <meta name="description" content="Doodax.com: The ultimate real-time precious metal price tracker and converter. Monitor live rates for Gold (XAU), Silver (XAG), Platinum, and Palladium in USD, EUR, and 25+ currencies. Fast, accurate, and user-friendly financial tool." />
+    <meta name="keywords" content="gold price, silver price, platinum price, metal converter, live metal rates, precious metals, gold calculator, silver calculator, XAU, XAG, commodities, finance, investment, doodax" />
+    <meta property="og:title" content="Live Metal Prices | Gold, Silver, Platinum Calculator - Doodax.com" />
+    <meta property="og:description" content="Track live prices of precious metals like Gold, Silver, and Platinum against world currencies. Real-time simulated data in a sleek, galaxy-themed dashboard." />
+    <meta property="og:url" content="https://doodax.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://doodax.com/og-image.png" />
+    <link rel="canonical" href="https://doodax.com/" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      /* Custom scrollbar for modals and content */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0f172a; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #334155; 
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #475569; 
+      }
+      
+      /* Utilities */
+      .text-glow {
+        text-shadow: 0 0 10px rgba(253, 224, 71, 0.3);
+      }
+    </style>
+  <link rel="stylesheet" href="./index.css">
+    <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@18.2.0",
+    "react-dom/": "https://esm.sh/react-dom@18.2.0/",
+    "react/": "https://esm.sh/react@18.2.0/"
+  }
+}
+</script>
+  <script type="module" crossorigin src="./assets/index-DjqU5pfL.js"></script>
+
+    <style>
+      /* Cosmic Animations */
+      @keyframes move-twink-back {
+        from {background-position:0 0;}
+        to {background-position:-10000px 5000px;}
+      }
+      @keyframes clouds-move {
+        from {background-position:0 0;}
+        to {background-position:10000px 0;}
+      }
+      @keyframes gradient-shift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      
+      .stars, .twinkling, .clouds {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        pointer-events: none;
+        z-index: -1;
+      }
+      
+      .stars {
+        background: #000 url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png') repeat top center;
+        z-index: -3;
+      }
+      
+      .twinkling {
+        background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png') repeat top center;
+        z-index: -2;
+        animation: move-twink-back 200s linear infinite;
+        opacity: 0.5;
+      }
+      
+      .clouds {
+        background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/clouds3.png') repeat top center;
+        z-index: -1;
+        opacity: 0.4;
+        animation: clouds-move 200s linear infinite;
+      }
+      
+      .gradient-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(30, 27, 75, 0.7) 0%, rgba(49, 46, 129, 0.4) 50%, rgba(88, 28, 135, 0.6) 100%);
+        z-index: -1;
+        pointer-events: none;
+      }
+      
+      /* Scrollbar */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0f172a; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #4f46e5; 
+        border-radius: 5px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #6366f1; 
+      }
+    </style>
+
+</head>
+  <body class="bg-slate-950 text-white overflow-x-hidden antialiased selection:bg-yellow-500/30 selection:text-yellow-200">
+    <div id="root"></div>
+  
+  <div class="stars"></div>
+  <div class="twinkling"></div>
+  <div class="clouds"></div>
+  <div class="gradient-overlay"></div>
+
+
+    <!-- Back to Home Link -->
+    <a href="https://doodax.com" class="fixed top-4 left-4 z-50 flex items-center gap-2 px-4 py-2 bg-slate-900/50 backdrop-blur-md border border-slate-700/50 rounded-full text-slate-300 hover:text-white hover:bg-slate-800/50 transition-all duration-300 group" style="text-decoration: none;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:-translate-x-1 transition-transform">
+        <path d="m12 19-7-7 7-7"/>
+        <path d="M19 12H5"/>
+      </svg>
+      <span class="text-sm font-medium">Back to Home</span>
+    </a>
+
+  </body>
+</html>

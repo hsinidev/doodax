@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="./assets/favicon-CRtLGJ_A.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stellar Yield | Professional Rental Yield & ROI Calculator</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="The ultimate real estate investment tool. Instantly calculate Gross and Net Rental Yield, Cash Flow, and ROI. Features a modern, secure, client-side interface." />
+    <meta name="keywords" content="rental yield calculator, roi calculator, real estate investment, cap rate, cash on cash return, property analysis, investment property, doodax, stellar yield" />
+    <meta name="author" content="HSINI MOHAMED" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://YieldCalculator.doodax.com/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://YieldCalculator.doodax.com/" />
+    <meta property="og:title" content="Stellar Yield | Professional Rental Yield Calculator" />
+    <meta property="og:description" content="Maximize your real estate returns. Instantly calculate yield and cash flow with our professional, privacy-focused tool." />
+    <meta property="og:image" content="https://placehold.co/1200x630/0f0019/A855F7/png?text=Stellar%20Yield%20Calc" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://YieldCalculator.doodax.com/" />
+    <meta property="twitter:title" content="Stellar Yield | Professional Rental Yield Calculator" />
+    <meta property="twitter:description" content="Maximize your real estate returns. Instantly calculate yield and cash flow with our professional, privacy-focused tool." />
+    <meta property="twitter:image" content="https://placehold.co/1200x630/0f0019/A855F7/png?text=Stellar%20Yield%20Calc" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            animation: {
+              fadeIn: 'fadeIn 0.5s ease-out',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0', transform: 'translateY(10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* Deep Space Nebula Background */
+      body {
+        background-color: #050508;
+      }
+      
+      .nebula-bg {
+        background: 
+          radial-gradient(circle at 15% 50%, rgba(76, 29, 149, 0.15) 0%, transparent 50%),
+          radial-gradient(circle at 85% 30%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+          radial-gradient(circle at 50% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+        filter: blur(40px);
+        animation: pulse-nebula 15s ease-in-out infinite alternate;
+      }
+
+      @keyframes pulse-nebula {
+        0% { opacity: 0.8; }
+        100% { opacity: 1; }
+      }
+
+      /* Star Fields */
+      @keyframes move-stars-slow {
+        from { background-position: 0 0; }
+        to { background-position: -2000px 1000px; }
+      }
+      @keyframes move-stars-fast {
+        from { background-position: 0 0; }
+        to { background-position: -4000px 2000px; }
+      }
+
+      .stars {
+        background-image: 
+          radial-gradient(1px 1px at 20px 30px, #ffffff, rgba(0,0,0,0)),
+          radial-gradient(1px 1px at 40px 70px, #ffffff, rgba(0,0,0,0)),
+          radial-gradient(1px 1px at 50px 160px, #ffffff, rgba(0,0,0,0)),
+          radial-gradient(1.5px 1.5px at 90px 40px, #ffffff, rgba(0,0,0,0)),
+          radial-gradient(1px 1px at 130px 80px, #ffffff, rgba(0,0,0,0));
+        background-size: 200px 200px;
+        animation: move-stars-slow 200s linear infinite;
+        opacity: 0.5;
+      }
+      
+      .stars2 {
+        background-image: 
+          radial-gradient(2px 2px at 100px 50px, #ffffff, rgba(0,0,0,0)),
+          radial-gradient(2px 2px at 100px 150px, #ffffff, rgba(0,0,0,0)),
+          radial-gradient(2px 2px at 50px 100px, #ffffff, rgba(0,0,0,0));
+        background-size: 300px 300px;
+        animation: move-stars-fast 150s linear infinite;
+        opacity: 0.3;
+      }
+
+      /* Scrollbar */
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 8px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: rgba(31, 41, 55, 0.5); 
+        border-radius: 4px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #4c1d95; 
+        border-radius: 4px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: #6d28d9; 
+      }
+    </style>
+
+<link rel="stylesheet" href="./index.css">
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@18.3.1",
+    "react": "https://esm.sh/react@18.3.1",
+    "react-dom/": "https://esm.sh/react-dom@18.3.1"
+  }
+}
+</script>
+  <script type="module" crossorigin src="./assets/index-C7hjUStS.js"></script>
+</head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+  </body>
+</html>

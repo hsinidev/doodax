@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced CSS Minifier & Beautifier | Free Online CSS Compressor</title>
+    <meta name="description" content="Free online CSS Minifier and Beautifier tool. Compress CSS to reduce file size or format messy code for readability. Features customizable indentation, privacy-first processing, and a modern dark UI.">
+    <meta name="keywords" content="css minifier, css beautifier, css formatter, css compressor, optimize css, online css tool, css tidy, clean css, format css, web development tools, free css tool">
+    <meta name="author" content="HSINI MOHAMED">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://doodax.com/">
+    <link rel="icon" href="./assets/favicon-BYYrHYqf.svg" type="image/svg+xml">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background-color: #050510;
+            overflow-x: hidden;
+            margin: 0;
+            min-height: 100vh;
+            color: #e2e8f0;
+        }
+
+        /* Galaxy Background Animation */
+        .galaxy-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+            overflow: hidden;
+        }
+        
+        .stars {
+            width: 1px;
+            height: 1px;
+            background: transparent;
+            box-shadow: 1744px 122px #FFF , 134px 1321px #FFF , 92px 859px #FFF;
+            animation: animStar 50s linear infinite;
+        }
+        
+        .stars2 {
+            width: 2px;
+            height: 2px;
+            background: transparent;
+            box-shadow: 1544px 222px #FFF , 334px 121px #FFF , 492px 159px #FFF;
+            animation: animStar 100s linear infinite;
+        }
+        
+        .stars3 {
+            width: 3px;
+            height: 3px;
+            background: transparent;
+            box-shadow: 44px 222px #FFF , 1334px 1121px #FFF , 992px 259px #FFF;
+            animation: animStar 150s linear infinite;
+        }
+        
+        .nebula {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 50% 50%, rgba(76, 29, 149, 0.15), transparent 60%),
+                radial-gradient(circle at 80% 20%, rgba(56, 189, 248, 0.1), transparent 50%),
+                radial-gradient(circle at 20% 80%, rgba(236, 72, 153, 0.1), transparent 50%);
+            filter: blur(60px);
+            animation: nebulaPulse 20s ease-in-out infinite alternate;
+        }
+
+        @keyframes animStar {
+            from { transform: translateY(0px); }
+            to { transform: translateY(-2000px); }
+        }
+
+        @keyframes nebulaPulse {
+            0% { opacity: 0.5; transform: scale(1); }
+            100% { opacity: 0.8; transform: scale(1.1); }
+        }
+
+        .editor-textarea {
+            font-family: 'Courier New', Courier, monospace;
+            tab-size: 4;
+            -moz-tab-size: 4;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1f2937; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4b5563; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6b7280; 
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "name": "Advanced CSS Minifier & Beautifier",
+          "url": "https://doodax.com/",
+          "description": "A powerful online tool to minify, compress, and beautify CSS code with advanced formatting options.",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://doodax.com/?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "WebApplication",
+          "name": "Advanced CSS Minifier & Beautifier",
+          "url": "https://doodax.com/",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "All",
+          "browserRequirements": "Requires a modern web browser (Chrome, Firefox, Safari, Edge).",
+          "description": "An online CSS formatter and compressor that helps developers optimize their stylesheets for production or improve readability during development.",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "featureList": [
+            "CSS Minification",
+            "CSS Beautification",
+            "File Download",
+            "Syntax Highlighting",
+            "Privacy Focused"
+          ],
+          "author": {
+              "@type": "Person",
+              "name": "HSINI MOHAMED",
+              "url": "https://github.com/hsinidev"
+          }
+        },
+        {
+          "@type": "Article",
+          "headline": "The Ultimate Guide to CSS Minification and Beautification",
+          "url": "https://doodax.com/#article",
+          "author": {
+            "@type": "Person",
+            "name": "HSINI MOHAMED",
+            "url": "https://github.com/hsinidev"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "doodax.com",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://doodax.com/favicon.svg"
+            },
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "email": "hsini.web@gmail.com",
+                "contactType": "customer support"
+            }
+          },
+          "datePublished": "2023-10-27",
+          "dateModified": "2023-10-27",
+          "mainEntityOfPage": "https://doodax.com/",
+          "articleBody": "Discover why CSS minification is crucial for web performance and how beautification aids in development. This guide covers everything from manual techniques to automated tools, best practices, and common pitfalls."
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is CSS minification?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "CSS minification is the process of removing all unnecessary characters from CSS source code without changing its functionality. This includes removing white space, comments, and newlines. The goal is to reduce the file size, which leads to faster page load times."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why is it important to beautify CSS?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Beautifying or formatting CSS makes the code readable and maintainable for developers. It adds proper indentation and line breaks, organizing the code into a clear structure. This is essential for debugging, collaboration, and understanding complex stylesheets."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does minifying CSS break my website?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "When done correctly with a reliable tool, minification will not break your website. It only removes characters that are ignored by the browser. However, a faulty minifier could potentially alter your code's functionality, so it's important to test your site after minifying your CSS."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is my data safe with this tool?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, absolutely. This tool processes all CSS code locally within your browser using JavaScript. No code is ever uploaded to a server, ensuring 100% privacy and security for your intellectual property."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+<link rel="stylesheet" href="./index.css">
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/"
+  }
+}
+</script>
+  <script type="module" crossorigin src="./assets/index-CF2sW2z6.js"></script>
+
+    <style>
+      /* Cosmic Animations */
+      @keyframes move-twink-back {
+        from {background-position:0 0;}
+        to {background-position:-10000px 5000px;}
+      }
+      @keyframes clouds-move {
+        from {background-position:0 0;}
+        to {background-position:10000px 0;}
+      }
+      @keyframes gradient-shift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      
+      .stars, .twinkling, .clouds {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        pointer-events: none;
+        z-index: -1;
+      }
+      
+      .stars {
+        background: #000 url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png') repeat top center;
+        z-index: -3;
+      }
+      
+      .twinkling {
+        background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png') repeat top center;
+        z-index: -2;
+        animation: move-twink-back 200s linear infinite;
+        opacity: 0.5;
+      }
+      
+      .clouds {
+        background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/clouds3.png') repeat top center;
+        z-index: -1;
+        opacity: 0.4;
+        animation: clouds-move 200s linear infinite;
+      }
+      
+      .gradient-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(30, 27, 75, 0.7) 0%, rgba(49, 46, 129, 0.4) 50%, rgba(88, 28, 135, 0.6) 100%);
+        z-index: -1;
+        pointer-events: none;
+      }
+      
+      /* Scrollbar */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0f172a; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #4f46e5; 
+        border-radius: 5px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #6366f1; 
+      }
+    </style>
+
+</head>
+<body class="text-gray-200 antialiased selection:bg-purple-500 selection:text-white">
+    <div class="galaxy-bg">
+        <div class="nebula"></div>
+        <div class="stars"></div>
+        <div class="stars2"></div>
+        <div class="stars3"></div>
+    </div>
+    <div id="root"></div>
+
+  <div class="stars"></div>
+  <div class="twinkling"></div>
+  <div class="clouds"></div>
+  <div class="gradient-overlay"></div>
+
+
+    <!-- Back to Home Link -->
+    <a href="https://doodax.com" class="fixed top-4 left-4 z-50 flex items-center gap-2 px-4 py-2 bg-slate-900/50 backdrop-blur-md border border-slate-700/50 rounded-full text-slate-300 hover:text-white hover:bg-slate-800/50 transition-all duration-300 group" style="text-decoration: none;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:-translate-x-1 transition-transform">
+        <path d="m12 19-7-7 7-7"/>
+        <path d="M19 12H5"/>
+      </svg>
+      <span class="text-sm font-medium">Back to Home</span>
+    </a>
+
+  </body>
+</html>

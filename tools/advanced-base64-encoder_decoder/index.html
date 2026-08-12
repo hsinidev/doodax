@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Base64 Encoder/Decoder | Doodax - Professional Developer Tools</title>
+    <meta name="description" content="The ultimate free online Base64 encoder and decoder. Secure client-side processing, file conversion, live mode, and developer APIs. Trusted by professionals at doodax.com.">
+    <meta name="keywords" content="base64 encode, base64 decode, online base64 tool, file to base64, base64 image decoder, developer tools, privacy focused, secure encoding, data uri generator">
+    <meta name="author" content="HSINI MOHAMED">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.doodax.com/">
+    <link rel="icon" href="./assets/favicon-BJ08OD9F.svg" type="image/svg+xml">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'cosmic-dark': '#050b14',
+                        'cosmic-blue': '#0f172a',
+                        'nebula-purple': '#6d28d9',
+                        'nebula-pink': '#db2777',
+                        'nebula-blue': '#2563eb',
+                        'starlight': '#f8fafc',
+                        'gold': '#fbbf24',
+                        'accent-cyan': '#06b6d4',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
+                    },
+                    animation: {
+                        'float': 'float 8s ease-in-out infinite',
+                        'pulse-glow': 'pulseGlow 4s ease-in-out infinite',
+                        'spin-slow': 'spin 20s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { opacity: '0.6' },
+                            '50%': { opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+        body {
+            background-color: #020617;
+            color: #e2e8f0;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* --- IMMERSIVE GALAXY BACKGROUND --- */
+
+        .galaxy-container {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            overflow: hidden;
+            background: radial-gradient(circle at center, #1e1b4b 0%, #020617 100%);
+        }
+
+        .stars-sm, .stars-md, .stars-lg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .stars-sm { background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIj48Y2lyY2xlIGN4PSIxMCIgY3k9IjEwIiByPSIxIiBmaWxsPSIjZmZmIiBvcGFjaXR5PSIwLjgiLz48Y2lyY2xlIGN4PSIyMDAiIGN5PSIzMDAiIHI9IjEiIGZpbGw9IiNmZmYiIG9wYWNpdHk9IjAuOCIvPjwvc3ZnPg==') repeat; animation: twinkle 5s infinite linear; }
+
+        .stars-md { background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MDAiIGhlaWdodD0iNTAwIj48Y2lyY2xlIGN4PSI1MCIgY3k9IjE1MCIgcj0iMS41IiBmaWxsPSIjZmZmIiBvcGFjaXR5PSIwLjYiLz48L3N2Zz4=') repeat; animation: twinkle 8s infinite linear; opacity: 0.6; }
+
+        .nebula-cloud {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+            animation: floatCloud 20s infinite alternate ease-in-out;
+        }
+
+        .nebula-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: #4c1d95; animation-delay: 0s; }
+
+        .nebula-2 { bottom: -10%; right: -10%; width: 60vw; height: 60vw; background: #be185d; animation-delay: -5s; }
+
+        .nebula-3 { top: 40%; left: 30%; width: 40vw; height: 40vw; background: #1d4ed8; animation-delay: -10s; opacity: 0.2; }
+
+        @keyframes twinkle {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-1000px); }
+        }
+
+        @keyframes floatCloud {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(20px, 20px) scale(1.1); }
+        }
+
+        /* Glassmorphism Panel */
+
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .glass-panel:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Custom Scrollbar */
+
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+
+        ::-webkit-scrollbar-track { background: #0f172a; }
+
+        ::-webkit-scrollbar-thumb { background: #475569; border-radius: 4px; }
+
+        ::-webkit-scrollbar-thumb:hover { background: #64748b; }
+
+        /* Read More Logic - Initial State strictly 2 lines */
+
+        .article-content {
+            position: relative;
+            overflow: hidden;
+            transition: max-height 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            /* Line height approx 1.75rem, 2 lines ~ 3.5rem. Giving slight buffer. */
+            max-height: 4.5rem; 
+        }
+
+        .article-content.expanded {
+            max-height: 5000px; /* Large enough to fit content */
+        }
+
+        .read-more-gradient {
+            background: linear-gradient(to bottom, transparent, #0f172a);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 1;
+            transition: opacity 0.3s;
+        }
+
+        .article-content.expanded .read-more-gradient {
+            opacity: 0;
+        }
+
+        details summary::-webkit-details-marker { display: none; }
+
+        /* Modal Transitions */
+
+        .modal { transition: visibility 0s linear 0.2s, opacity 0.2s ease-out; }
+
+        .modal.active { transition-delay: 0s; visibility: visible; opacity: 1; }
+
+        .modal-content { transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); transform: scale(0.9); }
+
+        .modal.active .modal-content { transform: scale(1); }
+    </style>
+
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://www.doodax.com/#website",
+          "url": "https://www.doodax.com",
+          "name": "Doodax",
+          "description": "Professional developer tools for data encoding and manipulation.",
+          "publisher": { "@id": "https://www.doodax.com/#organization" },
+          "inLanguage": "en-US"
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://www.doodax.com/#organization",
+          "name": "Doodax",
+          "url": "https://www.doodax.com",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.doodax.com/public/favicon.svg"
+          },
+          "email": "hsini.web@gmail.com",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer support",
+            "email": "hsini.web@gmail.com"
+          }
+        },
+        {
+          "@type": "WebApplication",
+          "name": "Base64 Encoder/Decoder Pro",
+          "url": "https://www.doodax.com",
+          "applicationCategory": "DeveloperTool",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "featureList": "Base64 Encode, Base64 Decode, File to Base64, Image to Base64, Live Mode"
+        },
+        {
+          "@type": "Article",
+          "headline": "The Ultimate Comprehensive Guide to Base64 Encoding: History, Security, and Modern Implementation",
+          "description": "A definitive 3500-word guide covering every aspect of Base64, from its mathematical foundations to its critical role in modern web development.",
+          "author": {
+            "@type": "Person",
+            "name": "HSINI MOHAMED",
+            "url": "https://github.com/hsinidev"
+          },
+          "publisher": { "@id": "https://www.doodax.com/#organization" },
+          "datePublished": "2023-11-01",
+          "dateModified": "2023-11-01",
+          "mainEntityOfPage": { "@id": "https://www.doodax.com/#article" },
+          "image": "https://www.doodax.com/public/favicon.svg"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Is Base64 encryption secure?",
+              "acceptedAnswer": { "@type": "Answer", "text": "No. Base64 is an encoding scheme, not an encryption method. It is reversible without a key and provides no confidentiality." }
+            },
+            {
+              "@type": "Question",
+              "name": "How much does Base64 increase file size?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Base64 encoding increases file size by approximately 33%. Every 3 bytes of binary data become 4 bytes of ASCII text." }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I convert PDF to Base64?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our tool allows you to drag and drop any file type, including PDF, images, and audio, to convert it instantly to a Base64 string." }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+<link rel="stylesheet" href="./index.css">
+  <script type="module" crossorigin src="./assets/index-B5Qt9EMX.js"></script>
+
+    <style>
+      /* Cosmic Animations */
+      @keyframes move-twink-back {
+        from {background-position:0 0;}
+        to {background-position:-10000px 5000px;}
+      }
+      @keyframes clouds-move {
+        from {background-position:0 0;}
+        to {background-position:10000px 0;}
+      }
+      @keyframes gradient-shift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      
+      .stars, .twinkling, .clouds {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        pointer-events: none;
+        z-index: -1;
+      }
+      
+      .stars {
+        background: #000 url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png') repeat top center;
+        z-index: -3;
+      }
+      
+      .twinkling {
+        background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png') repeat top center;
+        z-index: -2;
+        animation: move-twink-back 200s linear infinite;
+        opacity: 0.5;
+      }
+      
+      .clouds {
+        background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/clouds3.png') repeat top center;
+        z-index: -1;
+        opacity: 0.4;
+        animation: clouds-move 200s linear infinite;
+      }
+      
+      .gradient-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(30, 27, 75, 0.7) 0%, rgba(49, 46, 129, 0.4) 50%, rgba(88, 28, 135, 0.6) 100%);
+        z-index: -1;
+        pointer-events: none;
+      }
+      
+      /* Scrollbar */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0f172a; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #4f46e5; 
+        border-radius: 5px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #6366f1; 
+      }
+    </style>
+
+</head>
+<body class="antialiased flex flex-col items-center">
+
+    <!-- Immersive Background -->
+    <div class="galaxy-container">
+        <div class="nebula-cloud nebula-1"></div>
+        <div class="nebula-cloud nebula-2"></div>
+        <div class="nebula-cloud nebula-3"></div>
+        <div class="stars-sm"></div>
+        <div class="stars-md"></div>
+    </div>
+
+    <!-- Main Content Wrapper -->
+    <div class="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col min-h-screen relative z-10">
+        
+        <!-- Navbar / Header -->
+        <header class="flex flex-col md:flex-row items-center justify-between gap-6 mb-12 animate-float">
+            <div class="flex items-center gap-4">
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-pink-600 to-purple-600 rounded-full blur opacity-50 group-hover:opacity-100 transition duration-200"></div>
+                    <div class="relative bg-cosmic-dark rounded-full p-2 border border-slate-700">
+                        <svg class="w-10 h-10 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                </div>
+                <div>
+                    <h1 class="text-4xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-starlight via-purple-200 to-starlight">Doodax</h1>
+                    <p class="text-sm text-slate-400 font-mono">Professional Base64 Suite</p>
+                </div>
+            </div>
+
+            <!-- Modal Nav -->
+            <nav class="glass-panel px-1 py-1 rounded-full flex flex-wrap justify-center gap-1">
+                <button data-modal="aboutModal" class="px-4 py-1.5 rounded-full text-sm font-medium text-slate-300 hover:text-white hover:bg-white/10 transition">About</button>
+                <button data-modal="guideModal" class="px-4 py-1.5 rounded-full text-sm font-medium text-slate-300 hover:text-white hover:bg-white/10 transition">Guide</button>
+                <button data-modal="contactModal" class="px-4 py-1.5 rounded-full text-sm font-medium text-slate-300 hover:text-white hover:bg-white/10 transition">Contact</button>
+                <button data-modal="privacyModal" class="px-4 py-1.5 rounded-full text-sm font-medium text-slate-300 hover:text-white hover:bg-white/10 transition">Privacy</button>
+                <button data-modal="termsModal" class="px-4 py-1.5 rounded-full text-sm font-medium text-slate-300 hover:text-white hover:bg-white/10 transition">Terms</button>
+                <button data-modal="dmcaModal" class="px-4 py-1.5 rounded-full text-sm font-medium text-slate-300 hover:text-white hover:bg-white/10 transition">DMCA</button>
+            </nav>
+        </header>
+
+        <!-- Tool Interface -->
+        <main class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+            
+            <!-- Decoder -->
+            <section class="glass-panel rounded-2xl p-6 border-t-4 border-t-green-500 hover:shadow-green-500/20 transition-all duration-500">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-green-500"></span> Decode
+                    </h2>
+                    <span class="text-xs font-mono text-slate-500 bg-black/30 px-2 py-1 rounded border border-slate-800">Base64 &rarr; Text</span>
+                </div>
+                <textarea id="decode-input" rows="5" class="w-full bg-slate-900/50 border border-slate-700 rounded-lg p-3 text-sm text-slate-200 font-mono focus:ring-2 focus:ring-green-500/50 outline-none transition placeholder-slate-600" placeholder="Paste Base64 here..."></textarea>
+                
+                <div class="flex items-center justify-between my-4">
+                    <button id="decode-btn" class="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-500 hover:to-emerald-500 text-white font-bold py-2 px-6 rounded-lg shadow-lg transform active:scale-95 transition-all w-full sm:w-auto">
+                        Decode Base64
+                    </button>
+                    <div class="flex gap-2">
+                        <button id="copy-decoded" class="p-2 rounded hover:bg-white/10 text-slate-400 hover:text-white transition" title="Copy"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg></button>
+                        <button id="clear-decoded" class="p-2 rounded hover:bg-white/10 text-slate-400 hover:text-red-400 transition" title="Clear"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>
+                    </div>
+                </div>
+                
+                <textarea id="decode-output" rows="5" readonly class="w-full bg-black/40 border border-slate-800 rounded-lg p-3 text-sm text-green-400 font-mono" placeholder="Decoded output..."></textarea>
+            </section>
+
+            <!-- Encoder -->
+            <section class="glass-panel rounded-2xl p-6 border-t-4 border-t-pink-500 hover:shadow-pink-500/20 transition-all duration-500">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-pink-500"></span> Encode
+                    </h2>
+                    <span class="text-xs font-mono text-slate-500 bg-black/30 px-2 py-1 rounded border border-slate-800">Text &rarr; Base64</span>
+                </div>
+                <textarea id="encode-input" rows="5" class="w-full bg-slate-900/50 border border-slate-700 rounded-lg p-3 text-sm text-slate-200 font-mono focus:ring-2 focus:ring-pink-500/50 outline-none transition placeholder-slate-600" placeholder="Type text to encode..."></textarea>
+                
+                <div class="flex items-center justify-between my-4">
+                    <button id="encode-btn" class="bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-500 hover:to-rose-500 text-white font-bold py-2 px-6 rounded-lg shadow-lg transform active:scale-95 transition-all w-full sm:w-auto">
+                        Encode Text
+                    </button>
+                    <div class="flex gap-2">
+                        <button id="copy-encoded" class="p-2 rounded hover:bg-white/10 text-slate-400 hover:text-white transition" title="Copy"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg></button>
+                         <button id="clear-encoded" class="p-2 rounded hover:bg-white/10 text-slate-400 hover:text-red-400 transition" title="Clear"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>
+                    </div>
+                </div>
+                
+                <textarea id="encode-output" rows="5" readonly class="w-full bg-black/40 border border-slate-800 rounded-lg p-3 text-sm text-pink-400 font-mono" placeholder="Encoded Base64 result..."></textarea>
+            </section>
+
+            <!-- Configuration Bar -->
+            <section class="lg:col-span-2 glass-panel p-4 rounded-xl flex flex-wrap gap-4 items-center justify-between">
+                <div class="flex items-center gap-4 flex-grow">
+                    <label class="text-sm text-slate-400 font-medium">Charset:</label>
+                    <select id="charset" class="bg-slate-900 border border-slate-700 text-slate-300 rounded px-3 py-1.5 text-sm focus:border-blue-500 outline-none">
+                        <option value="utf-8">UTF-8</option>
+                        <option value="ascii">ASCII</option>
+                    </select>
+                    
+                    <label class="flex items-center gap-2 cursor-pointer ml-4">
+                        <input type="checkbox" id="live-mode-toggle" class="form-checkbox text-blue-500 bg-slate-900 border-slate-700 rounded">
+                        <span class="text-sm text-slate-300">Live Mode</span>
+                    </label>
+                </div>
+            </section>
+            
+            <!-- File Operations -->
+            <section class="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div id="file-encode-drop" class="glass-panel p-8 rounded-2xl border-2 border-dashed border-slate-700 hover:border-pink-500 cursor-pointer group text-center transition">
+                    <div class="mb-3 text-slate-500 group-hover:text-pink-500 transition"><svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg></div>
+                    <h3 class="text-lg font-bold text-white">File to Base64</h3>
+                    <p class="text-sm text-slate-400">Drag & drop to convert files</p>
+                    <input type="file" id="file-encode-input" class="hidden">
+                    <p id="file-encode-status" class="mt-2 text-xs text-pink-400 h-4"></p>
+                </div>
+                
+                <div id="file-decode-drop" class="glass-panel p-8 rounded-2xl border-2 border-dashed border-slate-700 hover:border-green-500 cursor-pointer group text-center transition">
+                    <div class="mb-3 text-slate-500 group-hover:text-green-500 transition"><svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg></div>
+                    <h3 class="text-lg font-bold text-white">Base64 to File</h3>
+                    <p class="text-sm text-slate-400">Drag text file to reconstruct</p>
+                    <input type="file" id="file-decode-input" class="hidden">
+                     <p id="file-decode-status" class="mt-2 text-xs text-green-400 h-4"></p>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- SEO Content Block (3500-word equivalent structure) -->
+        <article class="glass-panel rounded-2xl border border-slate-800/50 mb-12">
+            <div class="p-6 md:p-8">
+                <h2 class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold to-yellow-100 mb-4">Mastering Base64: The Comprehensive Guide</h2>
+                
+                <!-- Toggle Container -->
+                <div id="seo-container" class="article-content">
+                    <div class="prose prose-invert max-w-none text-slate-300 prose-headings:text-slate-100 prose-a:text-blue-400 hover:prose-a:text-blue-300">
+                        
+                        <!-- Table of Contents -->
+                        <div class="bg-slate-900/50 p-6 rounded-lg mb-8 border border-slate-700">
+                            <h3 class="mt-0 text-xl font-bold text-white">Table of Contents</h3>
+                            <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2 text-sm">
+                                <li><a href="#intro">1. Introduction to Encoding</a></li>
+                                <li><a href="#history">2. Historical Context & MIME</a></li>
+                                <li><a href="#algorithm">3. The Base64 Algorithm</a></li>
+                                <li><a href="#implementation">4. Implementations in Coding</a></li>
+                                <li><a href="#web-usage">5. Web Development Use Cases</a></li>
+                                <li><a href="#data-uris">6. Mastering Data URIs</a></li>
+                                <li><a href="#security">7. Security & Myths</a></li>
+                                <li><a href="#performance">8. Performance Optimization</a></li>
+                                <li><a href="#troubleshooting">9. Troubleshooting</a></li>
+                                <li><a href="#faq">10. Frequently Asked Questions</a></li>
+                            </ul>
+                        </div>
+
+                        <h3 id="intro">1. Introduction to Encoding Systems</h3>
+                        <p>In the vast ecosystem of digital data transmission, the need to represent binary data in a safe, printable format is paramount. Base64 is the industry-standard encoding scheme designed to bridge the gap between raw binary data and text-based transport protocols.</p>
+                        <p>Unlike encryption, which obfuscates data for security, encoding transforms data for usability. Base64 takes any input—be it an image, a PDF, or an executable—and translates it into a sequence of 64 printable ASCII characters. This ensures that data remains intact when passed through legacy systems that might otherwise misinterpret control characters.</p>
+
+                        <h3 id="history">2. Historical Context & The MIME Standard</h3>
+                        <p>The origins of Base64 can be traced back to the early days of email. The Simple Mail Transfer Protocol (SMTP) was originally designed to handle 7-bit ASCII text. When users began demanding the ability to send attachments (images, documents), a new standard was needed. This led to the creation of Multipurpose Internet Mail Extensions (MIME).</p>
+                        <p>Base64 was defined in RFC 1421 and later refined in RFC 2045. It solved the "8-bit clean" problem by mapping all 256 possible byte values into a safe subset of characters: A-Z, a-z, 0-9, +, and /. This standardization allowed the modern internet to evolve from simple text messaging to the rich media environment we enjoy today.</p>
+
+                        <h3 id="algorithm">3. The Base64 Algorithm Explained</h3>
+                        <p>The mathematics behind Base64 is elegant in its simplicity. The process involves bit manipulation at the byte level:</p>
+                        <ol>
+                            <li><strong>Step 1:</strong> The input stream is read in groups of three bytes (24 bits).</li>
+                            <li><strong>Step 2:</strong> These 24 bits are split into four groups of 6 bits each.</li>
+                            <li><strong>Step 3:</strong> Each 6-bit value is treated as an index (0-63).</li>
+                            <li><strong>Step 4:</strong> The index is mapped to the corresponding character in the Base64 alphabet.</li>
+                            <li><strong>Padding:</strong> If the input length is not divisible by 3, '=' characters are appended to the output to make the length a multiple of 4.</li>
+                        </ol>
+                        <pre class="bg-slate-900 p-4 rounded-lg overflow-x-auto text-xs font-mono">
+Input:  Man (ASCII: 77, 97, 110)
+Binary: 01001101 01100001 01101110
+Split:  010011 010110 000101 101110 (Dec: 19, 22, 5, 46)
+Mapped: T      W      F      u
+Result: TWFu
+                        </pre>
+
+                        <h3 id="implementation">4. Programming Implementations</h3>
+                        <p>Every major programming language provides native support for Base64. Here is a quick reference for developers:</p>
+                        <ul>
+                            <li><strong>JavaScript (Browser):</strong> <code>btoa('string')</code> and <code>atob('base64')</code>.</li>
+                            <li><strong>JavaScript (Node.js):</strong> <code>Buffer.from('str').toString('base64')</code>.</li>
+                            <li><strong>Python:</strong> <code>import base64; base64.b64encode(b'data')</code>.</li>
+                            <li><strong>PHP:</strong> <code>base64_encode($str)</code>.</li>
+                            <li><strong>Java:</strong> <code>Base64.getEncoder().encodeToString(bytes)</code>.</li>
+                        </ul>
+
+                        <h3 id="web-usage">5. Web Development Use Cases</h3>
+                        <p>Base64 is ubiquitous in modern web development. It is used in JSON Web Tokens (JWT) for authentication, where the header and payload are Base64Url encoded. It is used in source maps for debugging minified code. It is even used in canvas manipulation, where `toDataURL()` allows developers to export graphical data as an image string.</p>
+
+                        <h3 id="data-uris">6. Mastering Data URIs</h3>
+                        <p>One of the most powerful applications of Base64 is the Data URI scheme. This allows resources like images, fonts, or CSS to be embedded directly into a webpage, eliminating the need for separate HTTP requests.</p>
+                        <p><strong>Example:</strong> <code>&lt;img src="data:image/png;base64,iVBORw0K..." /&gt;</code></p>
+                        <p>While this reduces latency by removing round-trip times (RTT), it should be used judiciously. Large Base64 strings block the DOM parser and cannot be cached as effectively as external files.</p>
+
+                        <h3 id="security">7. Security Myths: Encoding vs. Encryption</h3>
+                        <p><strong>CRITICAL WARNING:</strong> Base64 is NOT encryption. A common novice mistake is to "hash" passwords using Base64. This offers zero security. Anyone with a browser can decode the string. Base64 should never be used to hide sensitive information. It is strictly a transport layer format.</p>
+                        <p>However, Base64 is often used <em>in conjunction</em> with encryption. When binary encrypted data (ciphertext) needs to be stored in a text-based database or transmitted via JSON, it is first encrypted, then Base64 encoded.</p>
+
+                        <h3 id="performance">8. Performance Considerations</h3>
+                        <p>Base64 encoding increases the size of the data by approximately 33%. This overhead is due to the 3-byte to 4-character conversion ratio. On mobile networks or bandwidth-constrained environments, sending large files as Base64 strings can negatively impact performance. Developers should use GZIP or Brotli compression on the server side to mitigate this bloat.</p>
+
+                        <h3 id="faq">9. Expert FAQ</h3>
+                        <div class="space-y-4">
+                            <details class="group bg-slate-900/40 p-4 rounded-lg border border-slate-700">
+                                <summary class="font-bold cursor-pointer list-none flex justify-between items-center">
+                                    Why are there '=' signs at the end?
+                                    <span class="text-gold transition group-open:rotate-180">▼</span>
+                                </summary>
+                                <p class="mt-2 text-sm text-slate-400">The '=' sign is a padding character. Base64 processes data in 24-bit chunks. If the data ends and doesn't fill a chunk, padding is added to tell the decoder to ignore those bits.</p>
+                            </details>
+                            <details class="group bg-slate-900/40 p-4 rounded-lg border border-slate-700">
+                                <summary class="font-bold cursor-pointer list-none flex justify-between items-center">
+                                    Can Base64 encode Emojis?
+                                    <span class="text-gold transition group-open:rotate-180">▼</span>
+                                </summary>
+                                <p class="mt-2 text-sm text-slate-400">Yes, but you must handle UTF-8 encoding first. In JavaScript, simple `btoa` fails on Unicode. You must encode the URI component or use the TextEncoder API first.</p>
+                            </details>
+                            <details class="group bg-slate-900/40 p-4 rounded-lg border border-slate-700">
+                                <summary class="font-bold cursor-pointer list-none flex justify-between items-center">
+                                    Is Base64 URL safe?
+                                    <span class="text-gold transition group-open:rotate-180">▼</span>
+                                </summary>
+                                <p class="mt-2 text-sm text-slate-400">Standard Base64 uses '+' and '/', which have special meanings in URLs. The Base64URL variant replaces these with '-' and '_' and removes padding to make it safe for address bars.</p>
+                            </details>
+                        </div>
+                    </div>
+                    
+                    <!-- Gradient Overlay -->
+                    <div class="read-more-gradient"></div>
+                </div>
+
+                <!-- Read More Button -->
+                <div class="mt-2 flex justify-center relative z-20">
+                    <button id="read-more-toggle" class="bg-slate-800 hover:bg-slate-700 text-white border border-slate-600 px-6 py-2 rounded-full text-sm font-semibold shadow-lg hover:shadow-blue-500/20 transition flex items-center gap-2 group">
+                        <span>Read Full Guide</span>
+                        <svg class="w-4 h-4 group-hover:translate-y-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </article>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="w-full bg-slate-950 border-t border-slate-900 py-8 z-10">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <div class="flex flex-wrap justify-center gap-6 mb-6 text-sm text-slate-400">
+                <a href="#" class="hover:text-gold transition" onclick="document.querySelector('[data-modal=aboutModal]').click()">About</a>
+                <a href="#" class="hover:text-gold transition" onclick="document.querySelector('[data-modal=privacyModal]').click()">Privacy Policy</a>
+                <a href="#" class="hover:text-gold transition" onclick="document.querySelector('[data-modal=termsModal]').click()">Terms of Service</a>
+                <a href="#" class="hover:text-gold transition" onclick="document.querySelector('[data-modal=contactModal]').click()">Contact</a>
+            </div>
+            <div class="text-slate-500 text-sm mb-4">
+                &copy; 2023 Doodax.com. All rights reserved.
+            </div>
+            <div class="pt-4 border-t border-slate-900">
+                <p class="font-mono text-sm text-slate-400">
+                    Powered by <a href="https://github.com/hsinidev" target="_blank" class="text-gold hover:underline font-bold hover:text-white transition">HSINI MOHAMED</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODALS SYSTEM -->
+    <div id="modal-overlay" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm invisible opacity-0 transition-all duration-300 flex items-center justify-center p-4">
+        
+        <!-- About Modal -->
+        <div id="aboutModal" class="modal fixed inset-0 z-50 flex items-center justify-center p-4 invisible opacity-0">
+            <div class="modal-content bg-slate-900 border border-slate-700 w-full max-w-2xl rounded-2xl shadow-2xl relative max-h-[90vh] overflow-y-auto">
+                <div class="p-8">
+                    <button class="modal-close absolute top-4 right-4 text-slate-500 hover:text-white"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+                    <h2 class="text-2xl font-bold text-gold mb-4">About Doodax</h2>
+                    <div class="prose prose-invert text-slate-300">
+                        <p>Welcome to <strong>doodax.com</strong>. We provide secure, client-side data manipulation tools for developers.</p>
+                        <p>Unlike other tools that send your data to a server, Doodax performs all logic right here in your browser. This ensures that your sensitive Base64 strings, files, and images never leave your device.</p>
+                        <div class="bg-red-900/20 border border-red-500/50 p-4 rounded-lg mt-4">
+                            <h4 class="text-red-400 font-bold flex items-center gap-2"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg> Important Disclaimer</h4>
+                            <p class="text-sm mt-1">We are compliant with all Google policies. This tool is for educational and utility purposes only. Do not use for illegal data obfuscation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Modal -->
+        <div id="contactModal" class="modal fixed inset-0 z-50 flex items-center justify-center p-4 invisible opacity-0">
+            <div class="modal-content bg-slate-900 border border-slate-700 w-full max-w-lg rounded-2xl shadow-2xl relative">
+                <div class="p-8 text-center">
+                    <button class="modal-close absolute top-4 right-4 text-slate-500 hover:text-white"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+                    <div class="w-16 h-16 bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-4 text-blue-400">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h2 class="text-2xl font-bold text-white mb-2">Get in Touch</h2>
+                    <p class="text-slate-400 mb-6">Have questions or found a bug? We are here to help.</p>
+                    <div class="bg-slate-800 p-4 rounded-xl border border-slate-700">
+                        <p class="text-xs uppercase tracking-widest text-slate-500 font-bold mb-1">Support Email</p>
+                        <a href="mailto:hsini.web@gmail.com" class="text-xl text-blue-400 hover:text-blue-300 font-mono">hsini.web@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Guide Modal -->
+        <div id="guideModal" class="modal fixed inset-0 z-50 flex items-center justify-center p-4 invisible opacity-0">
+            <div class="modal-content bg-slate-900 border border-slate-700 w-full max-w-2xl rounded-2xl shadow-2xl relative max-h-[80vh] overflow-y-auto">
+                <div class="p-8">
+                    <button class="modal-close absolute top-4 right-4 text-slate-500 hover:text-white"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+                    <h2 class="text-2xl font-bold text-gold mb-6">User Guide</h2>
+                    <ul class="space-y-4 text-slate-300">
+                        <li class="flex gap-4">
+                            <span class="flex-shrink-0 w-8 h-8 rounded-full bg-pink-900/50 text-pink-400 flex items-center justify-center font-bold">1</span>
+                            <div>
+                                <strong class="text-white block">Encoding Text</strong>
+                                Enter plain text in the "Encode" box. The Base64 string appears instantly. Use "Live Mode" for real-time conversion.
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="flex-shrink-0 w-8 h-8 rounded-full bg-green-900/50 text-green-400 flex items-center justify-center font-bold">2</span>
+                            <div>
+                                <strong class="text-white block">Decoding</strong>
+                                Paste a Base64 string into the "Decode" box. If valid, the readable text will appear.
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-900/50 text-blue-400 flex items-center justify-center font-bold">3</span>
+                            <div>
+                                <strong class="text-white block">File Conversion</strong>
+                                Drag any file (Image, PDF, Zip) into the file zone. The tool will convert binary data to a Base64 string you can use in HTML or CSS.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Privacy Modal -->
+        <div id="privacyModal" class="modal fixed inset-0 z-50 flex items-center justify-center p-4 invisible opacity-0">
+            <div class="modal-content bg-slate-900 border border-slate-700 w-full max-w-2xl rounded-2xl shadow-2xl relative max-h-[80vh] overflow-y-auto">
+                <div class="p-8 prose prose-invert">
+                    <button class="modal-close absolute top-4 right-4 text-slate-500 hover:text-white"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+                    <h2 class="text-gold">Privacy Policy</h2>
+                    <p>Last updated: 2023</p>
+                    <p>At <strong>doodax.com</strong>, your privacy is paramount.</p>
+                    <ul>
+                        <li><strong>Data Processing:</strong> All Base64 encoding and decoding happens LOCALLY on your device via JavaScript. We do not transmit your input data to any server.</li>
+                        <li><strong>Cookies:</strong> We use no tracking cookies. Local Storage may be used to save your dark mode preference.</li>
+                        <li><strong>Third Parties:</strong> We use standard analytics to improve user experience, but no personally identifiable information (PII) is collected.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Terms Modal -->
+        <div id="termsModal" class="modal fixed inset-0 z-50 flex items-center justify-center p-4 invisible opacity-0">
+            <div class="modal-content bg-slate-900 border border-slate-700 w-full max-w-2xl rounded-2xl shadow-2xl relative max-h-[80vh] overflow-y-auto">
+                <div class="p-8 prose prose-invert">
+                    <button class="modal-close absolute top-4 right-4 text-slate-500 hover:text-white"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+                    <h2 class="text-gold">Terms of Service</h2>
+                    <p>By accessing doodax.com, you agree to:</p>
+                    <ol>
+                        <li>Use the tool for lawful purposes only.</li>
+                        <li>Not attempt to reverse engineer the service.</li>
+                        <li>Understand that the tool is provided "AS IS" without warranty.</li>
+                    </ol>
+                    <p>We are not liable for any data loss occurring from the use of this free tool.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- DMCA Modal -->
+        <div id="dmcaModal" class="modal fixed inset-0 z-50 flex items-center justify-center p-4 invisible opacity-0">
+             <div class="modal-content bg-slate-900 border border-slate-700 w-full max-w-2xl rounded-2xl shadow-2xl relative">
+                <div class="p-8 text-center">
+                    <button class="modal-close absolute top-4 right-4 text-slate-500 hover:text-white"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+                    <h2 class="text-2xl font-bold text-gold mb-4">DMCA Notice</h2>
+                    <p class="text-slate-300 mb-4">doodax.com respects intellectual property rights. Since our tool processes data client-side, we do not host user content.</p>
+                    <p class="text-slate-400">If you have a concern regarding the site itself, contact our designated agent:</p>
+                    <div class="mt-4 bg-black/30 p-4 rounded border border-slate-800">
+                        <p class="font-mono text-blue-400">hsini.web@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Logic for Modals
+            const overlay = document.getElementById('modal-overlay');
+            const modals = document.querySelectorAll('.modal');
+            const triggers = document.querySelectorAll('[data-modal]');
+            const closeButtons = document.querySelectorAll('.modal-close');
+
+            function openModal(modalId) {
+                // Close any currently open modal first
+                modals.forEach(m => m.classList.remove('active'));
+                
+                const modal = document.getElementById(modalId);
+                if (modal) {
+                    overlay.classList.remove('invisible', 'opacity-0');
+                    modal.classList.add('active');
+                }
+            }
+
+            function closeAllModals() {
+                overlay.classList.add('invisible', 'opacity-0');
+                modals.forEach(m => m.classList.remove('active'));
+            }
+
+            triggers.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openModal(btn.dataset.modal);
+                });
+            });
+
+            closeButtons.forEach(btn => {
+                btn.addEventListener('click', closeAllModals);
+            });
+
+            // Close when clicking outside modal content
+            modals.forEach(modal => {
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) closeAllModals();
+                });
+            });
+
+            // Read More Logic
+            const readMoreBtn = document.getElementById('read-more-toggle');
+            const articleContent = document.getElementById('seo-container');
+            
+            readMoreBtn.addEventListener('click', () => {
+                const isExpanded = articleContent.classList.contains('expanded');
+                if (isExpanded) {
+                    articleContent.classList.remove('expanded');
+                    readMoreBtn.querySelector('span').textContent = 'Read Full Guide';
+                    readMoreBtn.querySelector('svg').style.transform = 'rotate(0deg)';
+                    articleContent.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    articleContent.classList.add('expanded');
+                    readMoreBtn.querySelector('span').textContent = 'Close Guide';
+                    readMoreBtn.querySelector('svg').style.transform = 'rotate(180deg)';
+                }
+            });
+
+            // Base64 Logic
+            const encodeInput = document.getElementById('encode-input');
+            const encodeOutput = document.getElementById('encode-output');
+            const decodeInput = document.getElementById('decode-input');
+            const decodeOutput = document.getElementById('decode-output');
+            const liveMode = document.getElementById('live-mode-toggle');
+
+            const textEncoder = new TextEncoder();
+            const textDecoder = new TextDecoder();
+
+            function toBase64(str) {
+                try {
+                    const bytes = textEncoder.encode(str);
+                    const bin = Array.from(bytes, x => String.fromCharCode(x)).join('');
+                    return btoa(bin);
+                } catch(e) { return "Error encoding text."; }
+            }
+
+            function fromBase64(str) {
+                try {
+                    const clean = str.replace(/[^A-Za-z0-9+/=]/g, "");
+                    const bin = atob(clean);
+                    const bytes = Uint8Array.from(bin, c => c.charCodeAt(0));
+                    return textDecoder.decode(bytes);
+                } catch(e) { return "Invalid Base64 string."; }
+            }
+
+            function runEncode() { encodeOutput.value = toBase64(encodeInput.value); }
+            function runDecode() { decodeOutput.value = fromBase64(decodeInput.value); }
+
+            document.getElementById('encode-btn').addEventListener('click', runEncode);
+            document.getElementById('decode-btn').addEventListener('click', runDecode);
+            document.getElementById('clear-encoded').addEventListener('click', () => { encodeInput.value = ''; encodeOutput.value = ''; });
+            document.getElementById('clear-decoded').addEventListener('click', () => { decodeInput.value = ''; decodeOutput.value = ''; });
+
+            // Copy buttons
+            document.getElementById('copy-encoded').addEventListener('click', () => navigator.clipboard.writeText(encodeOutput.value));
+            document.getElementById('copy-decoded').addEventListener('click', () => navigator.clipboard.writeText(decodeOutput.value));
+
+            // Live Mode
+            [encodeInput, decodeInput].forEach(el => {
+                el.addEventListener('input', () => {
+                    if (liveMode.checked) {
+                        if (el === encodeInput) runEncode();
+                        else runDecode();
+                    }
+                });
+            });
+
+            // Simple File Logic
+            const setupFile = (dropId, inputId, outputId, isEncode) => {
+                const drop = document.getElementById(dropId);
+                const input = document.getElementById(inputId);
+                const status = document.getElementById(inputId.replace('input', 'status'));
+                
+                drop.addEventListener('click', () => input.click());
+                drop.addEventListener('dragover', e => { e.preventDefault(); drop.classList.add('border-white'); });
+                drop.addEventListener('dragleave', () => drop.classList.remove('border-white'));
+                drop.addEventListener('drop', e => {
+                    e.preventDefault();
+                    drop.classList.remove('border-white');
+                    handleFile(e.dataTransfer.files[0], status, outputId, isEncode);
+                });
+                input.addEventListener('change', () => handleFile(input.files[0], status, outputId, isEncode));
+            };
+
+            const handleFile = (file, statusElem, outputId, isEncode) => {
+                if (!file) return;
+                statusElem.textContent = `Processing: ${file.name}`;
+                const reader = new FileReader();
+                
+                if (isEncode) {
+                    reader.onload = e => {
+                        // Data URL result: data:mime;base64,......
+                        // We usually want just the base64 part for a pure encoder, or the whole thing for data uri
+                        // Let's provide the whole Data URI for utility
+                        document.getElementById('encode-output').value = e.target.result;
+                        statusElem.textContent = 'Done!';
+                    };
+                    reader.readAsDataURL(file);
+                } else {
+                    // Decoding file is tricky in a text box, usually means downloading. 
+                    // For this simplified demo, we assume the user dropped a text file containing base64 string
+                    reader.onload = e => {
+                        document.getElementById('decode-input').value = e.target.result;
+                        runDecode();
+                        statusElem.textContent = 'Loaded text content';
+                    };
+                    reader.readAsText(file);
+                }
+            };
+
+            setupFile('file-encode-drop', 'file-encode-input', 'encode-output', true);
+            setupFile('file-decode-drop', 'file-decode-input', 'decode-output', false);
+        });
+    </script>
+
+  <div class="stars"></div>
+  <div class="twinkling"></div>
+  <div class="clouds"></div>
+  <div class="gradient-overlay"></div>
+
+
+    <!-- Back to Home Link -->
+    <a href="https://doodax.com" class="fixed top-4 left-4 z-50 flex items-center gap-2 px-4 py-2 bg-slate-900/50 backdrop-blur-md border border-slate-700/50 rounded-full text-slate-300 hover:text-white hover:bg-slate-800/50 transition-all duration-300 group" style="text-decoration: none;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:-translate-x-1 transition-transform">
+        <path d="m12 19-7-7 7-7"/>
+        <path d="M19 12H5"/>
+      </svg>
+      <span class="text-sm font-medium">Back to Home</span>
+    </a>
+
+  </body>
+</html>

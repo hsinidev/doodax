@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="./favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    
+    <!-- Primary Meta Tags -->
+    <title>Cosmic Random Name Generator - Customizable & Bulk Lists</title>
+    <meta name="description" content="Generate unique random names instantly for your development projects, creative writing, or testing needs. Our free tool offers bulk generation, gender filters, and multiple formats in a sleek, cosmic-themed interface. Secure, private, and powerful." />
+    <meta name="keywords" content="random name generator, name generator, fake name generator, placeholder data, mock data, test data, developer tools" />
+    <meta name="author" content="HSINI MOHAMED" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://example.com/" />
+    <meta property="og:title" content="Cosmic Random Name Generator - Customizable & Bulk Lists" />
+    <meta property="og:description" content="Generate unique random names instantly for your development projects, creative writing, or testing needs." />
+    <meta property="og:image" content="https://example.com/cosmic-og-image.png" /> <!-- Placeholder OG image -->
+    <meta property="og:site_name" content="Cosmic Name Generator" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://example.com/" />
+    <meta property="twitter:title" content="Cosmic Random Name Generator - Customizable & Bulk Lists" />
+    <meta property="twitter:description" content="Generate unique random names instantly for your development projects, creative writing, or testing needs." />
+    <meta property="twitter:image" content="https://example.com/cosmic-og-image.png" /> <!-- Placeholder Twitter image -->
+    <meta name="twitter:creator" content="@hsinidev" />
+
+
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @keyframes move-twink-back {
+        from { background-position: 0 0; }
+        to { background-position: -10000px 5000px; }
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: scale(0.95); }
+        to { opacity: 1; transform: scale(1); }
+      }
+      .modal-content-animation {
+        animation: fadeIn 0.3s ease-out forwards;
+      }
+      .cosmic-background {
+        background: #000 url(https://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
+        animation: move-twink-back 200s linear infinite;
+        z-index: -2;
+      }
+      .cosmic-background::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background: url(https://www.script-tutorials.com/demos/360/images/twinkling.png) repeat top center;
+        animation: move-twink-back 200s linear infinite;
+      }
+    </style>
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Cosmic Random Name Generator",
+      "url": "https://example.com/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://example.com/",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Random Name Generator Tool",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires HTML5 support",
+      "description": "A free online tool to generate random names for testing, development, and creative projects. Supports gender selection, name format, and bulk generation.",
+      "featureList": [
+        "Bulk name generation (1-50 at a time)",
+        "Gender-specific filtering (Male, Female, Any)",
+        "Format selection (Full Name, First Name Only, Last Name Only)",
+        "Instant copy-to-clipboard functionality"
+      ],
+      "offers": {
+        "@type": "Offer",
+        "price": "0"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "The Importance of Placeholder Data in Software Development, Testing, and Privacy",
+      "author": {
+        "@type": "Person",
+        "name": "HSINI MOHAMED"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Cosmic Name Generator",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://example.com/favicon.svg"
+        }
+      },
+      "datePublished": "2023-10-27",
+      "mainEntityOfPage": "https://example.com/"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is placeholder data?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Placeholder data, often called mock or dummy data, is non-sensitive, fabricated information used to populate databases, test software, and design user interfaces before real user data is available. It mimics the structure of real data without compromising privacy."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is it risky to use real data for testing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Using real user data for testing poses significant security and privacy risks. It can lead to accidental data breaches, violating privacy laws like GDPR and CCPA, and eroding user trust. Development environments are often less secure than production, making them vulnerable targets for attackers seeking sensitive information."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does placeholder data improve UI/UX design?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Placeholder data allows designers and developers to test the resilience and appearance of user interfaces with realistic content. It helps identify how layouts handle various data lengths (e.g., long names, different address formats), edge cases, and empty states, ensuring a polished and robust user experience from day one."
+          }
+        }
+      ]
+    }
+    </script>
+  <link rel="stylesheet" href="./index.css">
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://esm.sh/react@18.3.1",
+        "react-dom/": "https://esm.sh/react-dom@18.3.1",
+        "react/": "https://esm.sh/react@18.3.1"
+      }
+    }
+    </script>
+  <script type="module" crossorigin src="./assets/index-D16fxqfi.js"></script>
+</head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <script type="text/babel" data-type="module" data-presets="react,typescript" src="/index.tsx"></script>
+
+    <!-- Back to Home Link -->
+    <a href="https://doodax.com" class="fixed top-4 left-4 z-50 flex items-center gap-2 px-4 py-2 bg-slate-900/50 backdrop-blur-md border border-slate-700/50 rounded-full text-slate-300 hover:text-white hover:bg-slate-800/50 transition-all duration-300 group" style="text-decoration: none;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:-translate-x-1 transition-transform">
+        <path d="m12 19-7-7 7-7"/>
+        <path d="M19 12H5"/>
+      </svg>
+      <span class="text-sm font-medium">Back to Home</span>
+    </a>
+
+  </body>
+</html>

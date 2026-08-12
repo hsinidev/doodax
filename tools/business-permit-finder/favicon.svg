@@ -1,0 +1,8 @@
+
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="100" height="100" rx="20" fill="#083344"/>
+<path d="M25 20H75V80L50 65L25 80V20Z" fill="#0e7490"/>
+<path d="M40 40H70" stroke="white" stroke-width="4" stroke-linecap="round"/>
+<path d="M40 50H70" stroke="white" stroke-width="4" stroke-linecap="round"/>
+<path d="M40 60H60" stroke="white" stroke-width="4" stroke-linecap="round"/>
+</svg>

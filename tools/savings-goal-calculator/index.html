@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon-Dr191Qth.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Savings Goal Calculator | Plan Your Financial Future</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Calculate how long it will take to reach your financial goals with our Savings Goal Calculator. Factor in initial savings, monthly contributions, and interest to get a clear timeline and projection. A free, user-friendly tool for smart financial planning." />
+    <meta name="keywords" content="savings calculator, financial goal, compound interest, investment calculator, retirement planning, financial planning tool, savings goal calculator, interest calculator, wealth building, financial freedom" />
+    <meta name="author" content="HSINI MOHAMED" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://doodax.com/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://doodax.com/" />
+    <meta property="og:title" content="Savings Goal Calculator | Plan Your Financial Future" />
+    <meta property="og:description" content="Instantly calculate the timeline to your financial goals. Our tool helps you visualize the power of compound interest and consistent savings." />
+    <meta property="og:image" content="https://doodax.com/og-image.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://doodax.com/" />
+    <meta property="twitter:title" content="Savings Goal Calculator | Plan Your Financial Future" />
+    <meta property="twitter:description" content="Instantly calculate the timeline to your financial goals. Our tool helps you visualize the power of compound interest and consistent savings." />
+    <meta property="twitter:image" content="https://doodax.com/og-image.png" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Galaxy Background Animation */
+      body {
+        background-color: #000;
+        overflow-x: hidden;
+        color: #E0E0E0;
+        font-family: 'Inter', sans-serif;
+        min-height: 100vh;
+      }
+      
+      .galaxy-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+        overflow: hidden;
+      }
+
+      .stars {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        box-shadow: 
+          10px 10px #FFF, 200px 300px #FFF, 500px 100px #FFF,
+          800px 400px #FFF, 100px 600px #FFF, 900px 150px #FFF,
+          400px 500px #FFF, 700px 200px #FFF, 1100px 50px #FFF,
+          50px 450px #FFF, 300px 800px #FFF, 600px 700px #FFF;
+        animation: animateStars 50s linear infinite;
+      }
+      
+      .stars::after {
+        content: " ";
+        position: absolute;
+        top: 2000px;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        box-shadow: 
+          10px 10px #FFF, 200px 300px #FFF, 500px 100px #FFF,
+          800px 400px #FFF, 100px 600px #FFF, 900px 150px #FFF,
+          400px 500px #FFF, 700px 200px #FFF, 1100px 50px #FFF,
+          50px 450px #FFF, 300px 800px #FFF, 600px 700px #FFF;
+      }
+
+      .nebula {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 80vw;
+        height: 80vh;
+        transform: translate(-50%, -50%);
+        background: radial-gradient(circle, rgba(123, 31, 162, 0.4) 0%, rgba(0, 0, 0, 0) 70%);
+        filter: blur(60px);
+        animation: breathe 10s ease-in-out infinite alternate;
+      }
+      
+      .nebula-2 {
+        position: absolute;
+        top: 20%;
+        left: 20%;
+        width: 60vw;
+        height: 60vh;
+        background: radial-gradient(circle, rgba(50, 100, 255, 0.2) 0%, rgba(0, 0, 0, 0) 70%);
+        filter: blur(80px);
+        animation: float 15s ease-in-out infinite alternate;
+      }
+
+      .nebula-3 {
+        position: absolute;
+        bottom: 10%;
+        right: 10%;
+        width: 70vw;
+        height: 70vh;
+        background: radial-gradient(circle, rgba(255, 0, 100, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+        filter: blur(70px);
+        animation: float 20s ease-in-out infinite alternate-reverse;
+      }
+
+      @keyframes animateStars {
+        from { transform: translateY(0px); }
+        to { transform: translateY(-2000px); }
+      }
+
+      @keyframes breathe {
+        0% { opacity: 0.5; transform: translate(-50%, -50%) scale(0.9); }
+        100% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.1); }
+      }
+      
+      @keyframes float {
+        0% { transform: translate(0, 0); }
+        100% { transform: translate(30px, 30px); }
+      }
+
+      @keyframes fade-in {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      
+      .animate-fade-in {
+        animation: fade-in 0.8s ease-out forwards;
+      }
+      
+      /* Scrollbar Styling */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0f0c29; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #4c1d95; 
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #6d28d9; 
+      }
+    </style>
+
+<link rel="stylesheet" href="./index.css">
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@18.3.1",
+    "react/": "https://esm.sh/react@18.3.1",
+    "react": "https://esm.sh/react@18.3.1"
+  }
+}
+</script>
+  <script type="module" crossorigin src="./assets/index-C3qtdFgi.js"></script>
+</head>
+  <body>
+    <div class="galaxy-bg">
+      <div class="stars"></div>
+      <div class="nebula"></div>
+      <div class="nebula-2"></div>
+      <div class="nebula-3"></div>
+    </div>
+    <div id="root"></div>
+  
+    <!-- Back to Home Link -->
+    <a href="https://doodax.com" class="fixed top-4 left-4 z-50 flex items-center gap-2 px-4 py-2 bg-slate-900/50 backdrop-blur-md border border-slate-700/50 rounded-full text-slate-300 hover:text-white hover:bg-slate-800/50 transition-all duration-300 group" style="text-decoration: none;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:-translate-x-1 transition-transform">
+        <path d="m12 19-7-7 7-7"/>
+        <path d="M19 12H5"/>
+      </svg>
+      <span class="text-sm font-medium">Back to Home</span>
+    </a>
+
+  </body>
+</html>

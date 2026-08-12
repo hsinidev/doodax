@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+
+    <!-- SEO Metadata -->
+    <title>World Time Zone Clock | Real-Time Global Dashboard | doodax.com</title>
+    <meta name="description" content="The ultimate World Time Zone Clock. Track live time in New York, London, Tokyo, and thousands of cities. A professional dashboard for remote teams, traders, and travelers." />
+    <meta name="keywords" content="world clock, time zone converter, current time, time in new york, time in tokyo, time in london, live clock, global time, remote work tool, forex clock" />
+    <meta name="author" content="HSINI MOHAMED" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://doodax.com/" />
+    <meta property="og:title" content="World Time Zone Clock | Real-Time Global Dashboard" />
+    <meta property="og:description" content="Track multiple timezones effortlessly with a sleek, real-time dashboard. Perfect for remote teams, travelers, and market traders." />
+    <meta property="og:image" content="https://doodax.com/og-image.png" />
+    <meta property="og:site_name" content="Doodax World Clock" />
+
+    <!-- Twitter Card -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://doodax.com/" />
+    <meta property="twitter:title" content="World Time Zone Clock | Real-Time Global Dashboard" />
+    <meta property="twitter:description" content="Track multiple timezones effortlessly with a sleek, real-time dashboard. Perfect for remote teams, travelers, and market traders." />
+    <meta property="twitter:image" content="https://doodax.com/og-image.png" />
+    
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "World Time Zone Clock",
+      "url": "https://doodax.com/",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "description": "A sleek and modern world clock application that displays the current time in various cities around the globe.",
+      "author": {
+          "@type": "Person",
+          "name": "HSINI MOHAMED",
+          "url": "https://github.com/hsinidev"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://doodax.com/search?zone={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+  /* Animated Galaxy Background */
+  body {
+    background-color: #0f172a;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  
+  .galaxy-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+    overflow: hidden;
+  }
+
+  .stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    box-shadow: 
+      120px 50px #fff, 
+      1200px 300px #fff, 
+      600px 700px #FFF, 
+      300px 200px #FFF, 
+      900px 100px #FFF, 
+      250px 800px #FFF, 
+      800px 500px #FFF;
+    animation: animStar 100s linear infinite;
+  }
+  
+  .stars::after {
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    box-shadow: 
+      120px 50px #fff, 
+      1200px 300px #fff, 
+      600px 700px #FFF, 
+      300px 200px #FFF, 
+      900px 100px #FFF, 
+      250px 800px #FFF, 
+      800px 500px #FFF;
+  }
+
+  .nebula {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: 
+      radial-gradient(circle at 50% 50%, rgba(76, 29, 149, 0.3), transparent 60%),
+      radial-gradient(circle at 80% 20%, rgba(13, 148, 136, 0.2), transparent 50%),
+      radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.2), transparent 50%);
+    filter: blur(60px);
+    animation: rotateNebula 120s linear infinite;
+    opacity: 0.8;
+  }
+
+  @keyframes animStar {
+    from { transform: translateY(0px); }
+    to { transform: translateY(-2000px); }
+  }
+
+  @keyframes rotateNebula {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #111827; 
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #374151; 
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #4b5563; 
+  }
+</style>
+<link rel="stylesheet" href="./index.css">
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/"
+  }
+}
+</script>
+  <script type="module" crossorigin src="./assets/index-i-H-DgRe.js"></script>
+
+    <style>
+      /* Cosmic Animations */
+      @keyframes move-twink-back {
+        from {background-position:0 0;}
+        to {background-position:-10000px 5000px;}
+      }
+      @keyframes clouds-move {
+        from {background-position:0 0;}
+        to {background-position:10000px 0;}
+      }
+      @keyframes gradient-shift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      
+      .stars, .twinkling, .clouds {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        pointer-events: none;
+        z-index: -1;
+      }
+      
+      .stars {
+        background: #000 url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png') repeat top center;
+        z-index: -3;
+      }
+      
+      .twinkling {
+        background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png') repeat top center;
+        z-index: -2;
+        animation: move-twink-back 200s linear infinite;
+        opacity: 0.5;
+      }
+      
+      .clouds {
+        background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/clouds3.png') repeat top center;
+        z-index: -1;
+        opacity: 0.4;
+        animation: clouds-move 200s linear infinite;
+      }
+      
+      .gradient-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(30, 27, 75, 0.7) 0%, rgba(49, 46, 129, 0.4) 50%, rgba(88, 28, 135, 0.6) 100%);
+        z-index: -1;
+        pointer-events: none;
+      }
+      
+      /* Scrollbar */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0f172a; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #4f46e5; 
+        border-radius: 5px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #6366f1; 
+      }
+    </style>
+
+</head>
+<body class="bg-[#020617] text-white antialiased overflow-x-hidden">
+    <div class="galaxy-bg">
+        <div class="stars"></div>
+        <div class="nebula"></div>
+    </div>
+    <div id="root" class="relative z-10"></div>
+
+  <div class="stars"></div>
+  <div class="twinkling"></div>
+  <div class="clouds"></div>
+  <div class="gradient-overlay"></div>
+
+</body>
+</html>

@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Glass Weather Forecast | 7-Day Accurate Predictions @ doodax.com</title>
+    <meta name="description" content="Experience the most beautiful weather app on the web. Real-time 7-day forecasts, glassmorphism UI, and deep weather insights. Powered by Open-Meteo." />
+    <meta name="keywords" content="weather app, glassmorphism, 7 day forecast, local weather, doodax, open-meteo, weather radar, html5 weather" />
+    <meta name="author" content="Hsini Mohamed" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://doodax.com/" />
+    <meta property="og:title" content="Glass Weather Forecast - Immersive 7-Day Weather" />
+    <meta property="og:description" content="Check local weather with a stunning galaxy-themed interface. Fast, accurate, and free." />
+    <meta property="og:image" content="https://doodax.com/og-image.jpg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://doodax.com/" />
+    <meta property="twitter:title" content="Glass Weather Forecast" />
+    <meta property="twitter:description" content="Check local weather with a stunning galaxy-themed interface." />
+
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon-BYmQw4bq.svg" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Glass Weather Forecast",
+      "url": "https://doodax.com",
+      "author": {
+        "@type": "Person",
+        "name": "Hsini Mohamed",
+        "url": "https://github.com/hsinidev"
+      },
+      "description": "A visually stunning client-side web application providing 7-day weather forecasts with a galaxy-themed glassmorphism UI.",
+      "applicationCategory": "WeatherApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+
+    <style>
+        :root {
+            --card-bg: rgba(20, 20, 35, 0.4);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --text-color: #ffffff;
+            --accent-color: #00d2ff;
+            --glass-blur: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            position: relative;
+            background-color: #050505; /* Fallback */
+        }
+
+        /* --- GALAXY BACKGROUND ANIMATION --- */
+        .galaxy-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+            overflow: hidden;
+            transition: filter 1s ease;
+        }
+
+        .stars {
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            box-shadow: 
+                10vw 50vh 2px #FFF,
+                20vw 20vh 1px #FFF,
+                30vw 80vh 2px #FFF,
+                40vw 40vh 1px #FFF,
+                50vw 90vh 2px #FFF,
+                60vw 30vh 1px #FFF,
+                70vw 70vh 2px #FFF,
+                80vw 10vh 1px #FFF,
+                90vw 60vh 2px #FFF;
+            animation: animStar 100s linear infinite;
+        }
+        
+        .stars:after {
+            content: " ";
+            position: absolute;
+            top: 2000px;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            box-shadow: 
+                10vw 50vh 2px #FFF,
+                20vw 20vh 1px #FFF,
+                30vw 80vh 2px #FFF,
+                40vw 40vh 1px #FFF,
+                50vw 90vh 2px #FFF,
+                60vw 30vh 1px #FFF,
+                70vw 70vh 2px #FFF,
+                80vw 10vh 1px #FFF,
+                90vw 60vh 2px #FFF;
+        }
+
+        .nebula {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 50% 50%, rgba(76, 29, 149, 0.2), transparent 60%),
+                radial-gradient(circle at 80% 20%, rgba(56, 189, 248, 0.15), transparent 50%),
+                radial-gradient(circle at 20% 80%, rgba(236, 72, 153, 0.15), transparent 50%);
+            filter: blur(60px);
+            animation: nebulaPulse 20s ease-in-out infinite alternate;
+        }
+
+        @keyframes animStar {
+            from { transform: translateY(0px); }
+            to { transform: translateY(-2000px); }
+        }
+
+        @keyframes nebulaPulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(1.1); opacity: 1; }
+        }
+
+        /* Weather Tints over Galaxy */
+        body.is-sunny .galaxy-bg { filter: brightness(1.2) sepia(0.2) hue-rotate(-10deg); }
+        body.is-cloudy .galaxy-bg { filter: grayscale(0.6) brightness(0.8); }
+        body.is-rainy .galaxy-bg { filter: hue-rotate(180deg) brightness(0.7) contrast(1.2); }
+        body.is-snowy .galaxy-bg { filter: grayscale(0.2) brightness(1.1) contrast(0.9); }
+        body.is-stormy .galaxy-bg { filter: hue-rotate(220deg) brightness(0.4) contrast(1.5); }
+
+        /* --- LAYOUT --- */
+        .header {
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--card-border);
+            border-radius: 0 0 20px 20px;
+        }
+        .header .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(to right, #fff, #a5f3fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+        }
+        .header nav a {
+            color: #ddd;
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        .header nav a:hover { color: var(--accent-color); }
+
+        .main-container {
+            max-width: 800px;
+            width: 100%;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            flex: 1;
+        }
+
+        /* --- CARDS & GLASSMORPHISM --- */
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            border-radius: 24px;
+            border: 1px solid var(--card-border);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+            padding: 2rem;
+            color: white;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .search-wrapper { position: relative; z-index: 50; }
+        .search-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border-radius: 50px; /* Pill shape */
+        }
+        #city-input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            outline: none;
+        }
+        #city-input::placeholder { color: rgba(255,255,255,0.5); }
+        #get-weather-button {
+            background: var(--accent-color);
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            color: #000;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+        #get-weather-button:hover { transform: scale(1.05); background: white; }
+
+        #suggestions-container {
+            position: absolute;
+            top: 110%;
+            left: 20px;
+            right: 20px;
+            background: rgba(10, 10, 20, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 16px;
+            border: 1px solid var(--card-border);
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+        .suggestion-item {
+            padding: 1rem;
+            cursor: pointer;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            transition: background 0.2s;
+        }
+        .suggestion-item:hover { background: rgba(255,255,255,0.1); }
+
+        /* Weather Display */
+        #current-weather-card {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        #current-weather-card .icon { 
+            font-size: 8rem; 
+            filter: drop-shadow(0 0 20px rgba(255,255,255,0.3));
+            animation: floatIcon 6s ease-in-out infinite;
+        }
+        @keyframes floatIcon {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        #current-weather-card .temp { 
+            font-size: 5rem; 
+            font-weight: 700; 
+            line-height: 1;
+            background: linear-gradient(to bottom, #fff, #ccc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        #current-weather-card .details h2 { font-size: 2rem; margin-bottom: 0.5rem; opacity: 0.9; }
+        #current-weather-card .description { 
+            font-size: 1.4rem; 
+            text-transform: capitalize; 
+            color: var(--accent-color);
+            margin-top: 0.5rem;
+        }
+
+        #forecast-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 1rem;
+        }
+        .day-card {
+            padding: 1rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .day-card:hover { background: rgba(255,255,255,0.1); transform: translateY(-5px); }
+        .day-card .icon { font-size: 2rem; margin: 0.5rem 0; }
+
+        /* --- SEO CONTENT EXPANDER --- */
+        .seo-container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .seo-content-wrapper {
+            background: rgba(0,0,0,0.3);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+        }
+        .seo-text {
+            overflow: hidden;
+            max-height: 100px; /* Approx 2 lines + padding */
+            transition: max-height 0.8s ease-in-out;
+            position: relative;
+        }
+        .seo-text.expanded {
+            max-height: 8000px; /* Large enough to fit full content */
+        }
+        .seo-text::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background: linear-gradient(to bottom, transparent, #090a0f);
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+        .seo-text.expanded::after { opacity: 0; }
+        
+        .read-more-btn {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            margin-top: 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--accent-color);
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background 0.3s;
+        }
+        .read-more-btn:hover { background: rgba(255,255,255,0.2); }
+
+        /* --- FOOTER --- */
+        .footer {
+            margin-top: auto;
+            padding: 3rem 1rem;
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(10px);
+            text-align: center;
+            border-top: 1px solid var(--card-border);
+        }
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .footer-links a { color: #aaa; text-decoration: none; font-size: 0.9rem; }
+        .footer-links a:hover { color: white; text-decoration: underline; }
+        .powered-by { 
+            color: #777; 
+            font-size: 0.9rem; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        .powered-by a { color: var(--accent-color); text-decoration: none; font-weight: 600; }
+
+        /* Loading & Error */
+        .loader {
+            border: 4px solid rgba(255,255,255,0.1);
+            border-top: 4px solid var(--accent-color);
+            border-radius: 50%;
+            width: 40px; height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 2rem auto;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        
+        .hidden { display: none !important; }
+
+        /* Modals */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+            z-index: 100;
+        }
+        .modal {
+            position: fixed;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%; max-width: 700px;
+            max-height: 85vh;
+            overflow-y: auto;
+            z-index: 101;
+            background: #1a1b26;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .modal h2 { color: var(--accent-color); margin-bottom: 1rem; }
+        .modal p { line-height: 1.6; margin-bottom: 1rem; color: #ddd; }
+        .modal .close-button {
+            position: absolute; top: 15px; right: 20px;
+            background: none; border: none;
+            color: white; font-size: 1.5rem; cursor: pointer;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            #current-weather-card { grid-template-columns: 1fr; text-align: center; gap: 1rem; }
+            .header { flex-direction: column; gap: 1rem; }
+            .header nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+            .header nav a { margin: 0; }
+        }
+        
+        /* Typography for Article */
+        .article-content h1 { font-size: 2.5rem; margin-bottom: 1.5rem; color: #fff; }
+        .article-content h2 { font-size: 1.8rem; margin: 2rem 0 1rem; color: var(--accent-color); border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; }
+        .article-content h3 { font-size: 1.4rem; margin: 1.5rem 0 0.5rem; color: #e0e0e0; }
+        .article-content p { margin-bottom: 1rem; line-height: 1.8; color: #ccc; font-size: 1.05rem; }
+        .article-content ul, .article-content ol { margin-bottom: 1rem; padding-left: 2rem; color: #ccc; }
+        .article-content li { margin-bottom: 0.5rem; }
+        .toc-box { background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; }
+        .toc-box ul { list-style: none; padding: 0; }
+        .toc-box a { color: var(--accent-color); text-decoration: none; }
+        .toc-box a:hover { text-decoration: underline; }
+    </style>
+<link rel="stylesheet" href="./index.css">
+  <script type="module" crossorigin src="./assets/index-B5Qt9EMX.js"></script>
+
+    <style>
+      /* Cosmic Animations */
+      @keyframes move-twink-back {
+        from {background-position:0 0;}
+        to {background-position:-10000px 5000px;}
+      }
+      @keyframes clouds-move {
+        from {background-position:0 0;}
+        to {background-position:10000px 0;}
+      }
+      @keyframes gradient-shift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      
+      .stars, .twinkling, .clouds {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        pointer-events: none;
+        z-index: -1;
+      }
+      
+      .stars {
+        background: #000 url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png') repeat top center;
+        z-index: -3;
+      }
+      
+      .twinkling {
+        background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png') repeat top center;
+        z-index: -2;
+        animation: move-twink-back 200s linear infinite;
+        opacity: 0.5;
+      }
+      
+      .clouds {
+        background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/clouds3.png') repeat top center;
+        z-index: -1;
+        opacity: 0.4;
+        animation: clouds-move 200s linear infinite;
+      }
+      
+      .gradient-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(30, 27, 75, 0.7) 0%, rgba(49, 46, 129, 0.4) 50%, rgba(88, 28, 135, 0.6) 100%);
+        z-index: -1;
+        pointer-events: none;
+      }
+      
+      /* Scrollbar */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0f172a; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #4f46e5; 
+        border-radius: 5px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #6366f1; 
+      }
+    </style>
+
+</head>
+<body>
+    <div class="galaxy-bg">
+        <div class="stars"></div>
+        <div class="nebula"></div>
+    </div>
+
+    <header class="header">
+        <div class="logo"><i class="fas fa-meteor"></i> doodax.com</div>
+        <nav>
+            <a href="#" data-modal-target="about-modal">About</a>
+            <a href="#" data-modal-target="contact-modal">Contact</a>
+            <a href="#" data-modal-target="blog-modal">Blog</a>
+        </nav>
+    </header>
+
+    <div class="main-container">
+        <div class="search-wrapper">
+            <div class="card search-card">
+                <input id="city-input" type="text" placeholder="Search city (e.g., London, Tokyo)..." aria-label="City Input" autocomplete="off">
+                <button id="get-weather-button" aria-label="Get Weather"><i class="fas fa-search"></i></button>
+            </div>
+            <div id="suggestions-container" class="hidden"></div>
+        </div>
+
+        <div id="loader" class="loader hidden"></div>
+        <div id="error-message" class="error-message hidden" style="text-align: center; color: #ff6b6b;"></div>
+        
+        <div id="weather-display" class="hidden">
+            <div id="current-weather-card" class="card">
+                <!-- Current weather injected here -->
+            </div>
+            <h2 style="margin: 1rem 0 0.5rem 0; font-weight: 600; font-size: 1.2rem; color: #aaa;">7-Day Forecast</h2>
+            <div id="forecast-grid">
+                <!-- Forecast injected here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- SEO ARTICLE SECTION -->
+    <div class="seo-container">
+        <div class="seo-content-wrapper">
+            <div class="seo-text" id="seo-article-text">
+                <article class="article-content" itemscope itemtype="https://schema.org/Article">
+                    <meta itemprop="author" content="Hsini Mohamed">
+                    <meta itemprop="datePublished" content="2023-10-27">
+                    <meta itemprop="headline" content="The Ultimate Guide to Modern Weather Forecasting: Glassmorphism, APIs, and User Experience">
+                    
+                    <h1>The Future of Digital Meteorology: Building the Ultimate Glassmorphism Weather App</h1>
+                    
+                    <div class="toc-box">
+                        <h3>Table of Contents</h3>
+                        <ul>
+                            <li><a href="#intro">1. Introduction to Modern Weather Apps</a></li>
+                            <li><a href="#tech">2. The Technology Stack: HTML5, CSS3, and Open-Meteo</a></li>
+                            <li><a href="#design">3. Why Glassmorphism? The Design Philosophy</a></li>
+                            <li><a href="#accuracy">4. Ensuring Data Accuracy in Real-Time</a></li>
+                            <li><a href="#user-experience">5. Enhancing User Experience (UX)</a></li>
+                            <li><a href="#faq">6. Frequently Asked Questions (FAQ)</a></li>
+                        </ul>
+                    </div>
+
+                    <h2 id="intro">1. Introduction to Modern Weather Apps</h2>
+                    <p>In the digital age, checking the weather has evolved from reading a newspaper or watching the evening news to an instantaneous interaction with our digital devices. At <strong>doodax.com</strong>, we believe that this interaction should be not only informative but also visually immersive. The <strong>Glass Weather Forecast</strong> application represents the pinnacle of client-side web development, merging precise meteorological data with an aesthetic that mimics the ethereal beauty of the atmosphere itself.</p>
+                    <p>Weather affects every aspect of our lives, from what we wear to how we commute. Having a reliable, fast, and beautiful tool to predict these changes is essential. This project aims to centralize weather information in a user-friendly interface that respects privacy and performance.</p>
+
+                    <h2 id="tech">2. The Technology Stack: HTML5, CSS3, and Open-Meteo</h2>
+                    <p>Building a robust weather application requires a solid foundation. We utilized a pure vanilla technology stack to ensure maximum compatibility and speed without the bloat of heavy frameworks.</p>
+                    <h3>The Power of HTML5 and Semantic Web</h3>
+                    <p>The structure of doodax.com is built on semantic HTML5. This ensures that screen readers and search engines can easily parse the content, making the application accessible to everyone. By using proper tags like <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, and <code>&lt;article&gt;</code>, we provide a logical flow to the document.</p>
+                    <h3>CSS3 and Advanced Animations</h3>
+                    <p>The visual magic happens with CSS3. We employ advanced properties such as <code>backdrop-filter</code> to create the frosted glass effect, <code>radial-gradient</code> for the deep space background, and <code>@keyframes</code> for the smooth animations of stars and nebulas. The interface is fully responsive, utilizing Flexbox and CSS Grid to adapt seamlessly from desktop monitors to mobile screens.</p>
+                    <h3>Integration with Open-Meteo API</h3>
+                    <p>Data is the heart of any weather app. We chose the <strong>Open-Meteo API</strong> because it is free, open-source, and incredibly accurate. Unlike other APIs that require complex key management, Open-Meteo allows for direct, secure requests. We fetch data points including:</p>
+                    <ul>
+                        <li>Current Temperature and Weather Code</li>
+                        <li>Daily Max/Min Temperatures</li>
+                        <li>Hourly breakdowns for precise planning</li>
+                        <li>Geolocation data for city search</li>
+                    </ul>
+
+                    <h2 id="design">3. Why Glassmorphism? The Design Philosophy</h2>
+                    <p>Glassmorphism is a design trend that emphasizes light and dark objects placed on top of colorful backgrounds. A background-blur is applied to the objects, which allows the background to shine through, giving them the appearance of frosted glass.</p>
+                    <p>For a weather app, this design language is metaphorically perfect. It represents the transparency of the air and the layers of the atmosphere. By using a galaxy-themed background at <strong>doodax.com</strong>, we place the user in a cosmic perspective, reminding them that local weather is part of a massive, planetary system. The floating cards provide a sense of depth and hierarchy, ensuring the most important information—the current temperature—pops out immediately.</p>
+
+                    <h2 id="accuracy">4. Ensuring Data Accuracy in Real-Time</h2>
+                    <p>Accuracy is paramount. Our application queries the API in real-time. When you search for a city, say "New York" or "Tokyo", we first resolve the latitude and longitude using a Geocoding service. This coordinate pair is then sent to the forecast endpoint.</p>
+                    <p>We handle various weather conditions, mapping numeric WMO codes (World Meteorological Organization) to human-readable descriptions and relevant icons. Whether it's a "Slight Rain" (Code 61) or a "Violent Storm" (Code 95), the UI reflects the severity and type of weather instantly.</p>
+
+                    <h2 id="user-experience">5. Enhancing User Experience (UX)</h2>
+                    <p>A friendly user experience is about reducing friction. We implemented features specifically to make the user feel comfortable:</p>
+                    <ul>
+                        <li><strong>Autocomplete:</strong> As you type, the app suggests cities, preventing spelling errors and saving keystrokes.</li>
+                        <li><strong>Pop-up Modals:</strong> Information like Privacy Policy, Contact, and Guides are loaded in non-intrusive pop-ups, keeping the user on the main page.</li>
+                        <li><strong>Hourly Details:</strong> Instead of cluttering the screen, detailed hourly data is hidden behind a hover interaction, appearing only when the user expresses interest in a specific day.</li>
+                    </ul>
+
+                    <h2 id="faq">6. Frequently Asked Questions (FAQ)</h2>
+                    <div class="faq-item">
+                        <strong>Q: Is this weather app free to use?</strong>
+                        <p>A: Yes, doodax.com is completely free. We do not charge for access to weather data.</p>
+                    </div>
+                    <div class="faq-item">
+                        <strong>Q: How accurate is the 7-day forecast?</strong>
+                        <p>A: We use high-resolution data models from national weather services via Open-Meteo. While forecasts beyond 3 days have natural variability, our data is among the most reliable available publicly.</p>
+                    </div>
+                    <div class="faq-item">
+                        <strong>Q: Does this app track my location?</strong>
+                        <p>A: No. We respect your privacy. You manually enter your city. We do not store your GPS data or personal history.</p>
+                    </div>
+                     <div class="faq-item">
+                        <strong>Q: Who developed this application?</strong>
+                        <p>A: This application was developed by Hsini Mohamed, a passionate web developer focused on creating beautiful, functional digital experiences.</p>
+                    </div>
+
+                    <p>In conclusion, the intersection of modern web technology and meteorological data allows us to create tools that are not just useful, but inspiring. By prioritizing design, privacy, and performance, we hope to make checking the weather a delightful part of your daily routine.</p>
+                </article>
+            </div>
+            <button id="read-more-btn" class="read-more-btn">Read Full Article <i class="fas fa-chevron-down"></i></button>
+        </div>
+    </div>
+
+    <div id="hourly-popup" class="card" style="display:none; position:absolute; z-index:200; pointer-events:none; padding:1rem; gap:1rem; grid-template-columns:repeat(3,1fr);"></div>
+
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="#" data-modal-target="about-modal">About</a>
+            <a href="#" data-modal-target="contact-modal">Contact</a>
+            <a href="#" data-modal-target="guide-modal">Guide</a>
+            <a href="#" data-modal-target="privacy-modal">Privacy Policy</a>
+            <a href="#" data-modal-target="terms-modal">Terms of Service</a>
+            <a href="#" data-modal-target="dmca-modal">DMCA</a>
+        </div>
+        <div class="powered-by">
+            Powered by <a href="https://github.com/hsinidev" target="_blank" rel="noopener noreferrer">HSINI MOHAMED</a>
+        </div>
+    </footer>
+
+    <!-- MODALS -->
+    <div id="modal-overlay" class="modal-overlay hidden"></div>
+    
+    <div id="about-modal" class="modal card hidden">
+        <button class="close-button">&times;</button>
+        <h2>About doodax.com</h2>
+        <p>Welcome to <strong>doodax.com</strong>. We provide a visually immersive weather experience using the latest web technologies.</p>
+        <p>Our mission is to make weather data beautiful and accessible without tracking users or cluttering the interface with ads.</p>
+    </div>
+
+    <div id="contact-modal" class="modal card hidden">
+        <button class="close-button">&times;</button>
+        <h2>Contact Us</h2>
+        <p>We value your feedback. For support, suggestions, or business inquiries regarding doodax.com:</p>
+        <p><strong>Email:</strong> <a href="mailto:hsini.web@gmail.com" style="color:var(--accent-color)">hsini.web@gmail.com</a></p>
+        <p><strong>Developer:</strong> Hsini Mohamed</p>
+    </div>
+
+    <div id="guide-modal" class="modal card hidden">
+        <button class="close-button">&times;</button>
+        <h2>User Guide</h2>
+        <p>1. <strong>Search:</strong> Enter your city in the search bar.</p>
+        <p>2. <strong>View:</strong> See current weather and a 7-day outlook.</p>
+        <p>3. <strong>Details:</strong> Hover over any forecast day to see Morning, Afternoon, and Evening breakdowns.</p>
+    </div>
+
+    <div id="privacy-modal" class="modal card hidden">
+        <button class="close-button">&times;</button>
+        <h2>Privacy Policy</h2>
+        <p>At <strong>doodax.com</strong>, privacy is a priority.</p>
+        <p>1. We do not store personal data.</p>
+        <p>2. Location searches are sent to Open-Meteo for data retrieval but are not linked to your identity.</p>
+        <p>3. No cookies are used for tracking.</p>
+        <p>Contact <strong>hsini.web@gmail.com</strong> for privacy concerns.</p>
+    </div>
+
+    <div id="terms-modal" class="modal card hidden">
+        <button class="close-button">&times;</button>
+        <h2>Terms of Service</h2>
+        <p>By using <strong>doodax.com</strong>, you agree that weather data is for informational purposes only.</p>
+        <p>We are not liable for decisions made based on this data. Data is provided "as-is" via Open-Meteo.</p>
+    </div>
+
+    <div id="dmca-modal" class="modal card hidden">
+        <button class="close-button">&times;</button>
+        <h2>DMCA Policy</h2>
+        <p><strong>doodax.com</strong> respects intellectual property.</p>
+        <p>If you believe content here infringes on your copyright, please contact our agent at <strong>hsini.web@gmail.com</strong>.</p>
+    </div>
+    
+    <div id="blog-modal" class="modal card hidden">
+        <button class="close-button">&times;</button>
+        <h2>Weather Blog</h2>
+        <p>Check out our latest article below the weather display!</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- VARIABLES ---
+            const cityInput = document.getElementById('city-input');
+            const searchButton = document.getElementById('get-weather-button');
+            const suggestionsContainer = document.getElementById('suggestions-container');
+            const loader = document.getElementById('loader');
+            const errorMessage = document.getElementById('error-message');
+            const weatherDisplay = document.getElementById('weather-display');
+            const currentCard = document.getElementById('current-weather-card');
+            const forecastGrid = document.getElementById('forecast-grid');
+            const hourlyPopup = document.getElementById('hourly-popup');
+            
+            // --- READ MORE TOGGLE ---
+            const readMoreBtn = document.getElementById('read-more-btn');
+            const seoText = document.getElementById('seo-article-text');
+            
+            readMoreBtn.addEventListener('click', () => {
+                seoText.classList.toggle('expanded');
+                if (seoText.classList.contains('expanded')) {
+                    readMoreBtn.innerHTML = 'Show Less <i class="fas fa-chevron-up"></i>';
+                } else {
+                    readMoreBtn.innerHTML = 'Read Full Article <i class="fas fa-chevron-down"></i>';
+                    // Scroll back to top of article
+                    document.querySelector('.seo-container').scrollIntoView({behavior: 'smooth'});
+                }
+            });
+
+            // --- API ---
+            const GEO_API = 'https://geocoding-api.open-meteo.com/v1/search';
+            const WEATHER_API = 'https://api.open-meteo.com/v1/forecast';
+
+            async function fetchWeather(city) {
+                const geoRes = await fetch(`${GEO_API}?name=${encodeURIComponent(city)}&count=1`);
+                const geoData = await geoRes.json();
+                if (!geoData.results || !geoData.results.length) throw new Error('City not found');
+                
+                const { latitude, longitude, name, country } = geoData.results[0];
+                const weatherRes = await fetch(`${WEATHER_API}?latitude=${latitude}&longitude=${longitude}&current_weather=true&daily=weathercode,temperature_2m_max,temperature_2m_min&hourly=temperature_2m,weathercode&timezone=auto`);
+                const weatherData = await weatherRes.json();
+                
+                return { name, country, ...weatherData };
+            }
+
+            // --- HELPERS ---
+            function getIcon(code) {
+                if (code === 0) return '☀️';
+                if (code < 3) return '⛅';
+                if (code < 48) return '🌫️';
+                if (code < 67) return '🌧️';
+                if (code < 77) return '❄️';
+                if (code < 86) return '🌧️';
+                if (code < 99) return '⛈️';
+                return '🌡️';
+            }
+
+            function updateTheme(code) {
+                const b = document.body;
+                b.className = '';
+                if(code <= 1) b.classList.add('is-sunny');
+                else if(code <= 3) b.classList.add('is-cloudy');
+                else if(code <= 67) b.classList.add('is-rainy');
+                else if(code <= 86) b.classList.add('is-snowy');
+                else b.classList.add('is-stormy');
+            }
+
+            // --- RENDER ---
+            let currentData = null;
+
+            function render(data) {
+                currentData = data;
+                updateTheme(data.current_weather.weathercode);
+                
+                // Current
+                currentCard.innerHTML = `
+                    <div class="icon">${getIcon(data.current_weather.weathercode)}</div>
+                    <div class="details">
+                        <h2>${data.name}, ${data.country}</h2>
+                        <div class="temp">${Math.round(data.current_weather.temperature)}°C</div>
+                        <div class="description">Wind: ${data.current_weather.windspeed} km/h</div>
+                    </div>
+                `;
+
+                // Forecast
+                forecastGrid.innerHTML = '';
+                data.daily.time.slice(0, 7).forEach((t, i) => {
+                    const date = new Date(t);
+                    const day = date.toLocaleDateString('en-US', { weekday: 'short' });
+                    forecastGrid.innerHTML += `
+                        <div class="card day-card" data-idx="${i}">
+                            <h3>${day}</h3>
+                            <div class="icon">${getIcon(data.daily.weathercode[i])}</div>
+                            <div>${Math.round(data.daily.temperature_2m_max[i])}° / ${Math.round(data.daily.temperature_2m_min[i])}°</div>
+                        </div>
+                    `;
+                });
+                
+                weatherDisplay.classList.remove('hidden');
+            }
+
+            // --- EVENTS ---
+            async function search(q) {
+                if (!q) return;
+                loader.classList.remove('hidden');
+                errorMessage.classList.add('hidden');
+                weatherDisplay.classList.add('hidden');
+                suggestionsContainer.classList.add('hidden');
+                
+                try {
+                    const data = await fetchWeather(q);
+                    render(data);
+                } catch (e) {
+                    errorMessage.textContent = e.message;
+                    errorMessage.classList.remove('hidden');
+                } finally {
+                    loader.classList.add('hidden');
+                }
+            }
+
+            searchButton.addEventListener('click', () => search(cityInput.value));
+            cityInput.addEventListener('keydown', e => e.key === 'Enter' && search(cityInput.value));
+            
+            // Autocomplete
+            let debounce;
+            cityInput.addEventListener('input', (e) => {
+                clearTimeout(debounce);
+                const val = e.target.value.trim();
+                if(val.length < 3) return suggestionsContainer.classList.add('hidden');
+                
+                debounce = setTimeout(async () => {
+                    const res = await fetch(`${GEO_API}?name=${encodeURIComponent(val)}&count=5`);
+                    const data = await res.json();
+                    if(data.results) {
+                        suggestionsContainer.innerHTML = data.results.map(c => 
+                            `<div class="suggestion-item" data-name="${c.name}">${c.name}, ${c.country}</div>`
+                        ).join('');
+                        suggestionsContainer.classList.remove('hidden');
+                    }
+                }, 300);
+            });
+
+            suggestionsContainer.addEventListener('click', e => {
+                const item = e.target.closest('.suggestion-item');
+                if(item) {
+                    cityInput.value = item.dataset.name;
+                    search(item.dataset.name);
+                }
+            });
+
+            // Hover Popup
+            forecastGrid.addEventListener('mousemove', e => {
+                const card = e.target.closest('.day-card');
+                if(card && currentData) {
+                    const idx = parseInt(card.dataset.idx);
+                    const baseHour = idx * 24;
+                    // Morning (8am), Afternoon (2pm), Evening (8pm)
+                    const hours = [8, 14, 20];
+                    const labels = ['Morning', 'Afternoon', 'Evening'];
+                    
+                    hourlyPopup.innerHTML = hours.map((h, i) => `
+                        <div style="text-align:center">
+                            <div style="font-size:0.8rem; color:#aaa">${labels[i]}</div>
+                            <div style="font-size:1.5rem">${getIcon(currentData.hourly.weathercode[baseHour + h])}</div>
+                            <div style="font-weight:bold">${Math.round(currentData.hourly.temperature_2m[baseHour + h])}°</div>
+                        </div>
+                    `).join('');
+                    
+                    const rect = card.getBoundingClientRect();
+                    hourlyPopup.style.left = (rect.left) + 'px';
+                    hourlyPopup.style.top = (rect.bottom + 10) + 'px';
+                    hourlyPopup.style.display = 'grid';
+                }
+            });
+            
+            forecastGrid.addEventListener('mouseleave', () => hourlyPopup.style.display = 'none');
+            document.addEventListener('click', e => !e.target.closest('.search-wrapper') && suggestionsContainer.classList.add('hidden'));
+
+            // Modal Logic
+            const overlay = document.getElementById('modal-overlay');
+            document.querySelectorAll('[data-modal-target]').forEach(b => {
+                b.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    overlay.classList.remove('hidden');
+                    document.getElementById(b.dataset.modalTarget).classList.remove('hidden');
+                });
+            });
+            
+            function closeModals() {
+                overlay.classList.add('hidden');
+                document.querySelectorAll('.modal').forEach(m => m.classList.add('hidden'));
+            }
+            
+            document.querySelectorAll('.close-button').forEach(b => b.addEventListener('click', closeModals));
+            overlay.addEventListener('click', closeModals);
+            
+            // Init
+            search("New York");
+        });
+    </script>
+
+  <div class="stars"></div>
+  <div class="twinkling"></div>
+  <div class="clouds"></div>
+  <div class="gradient-overlay"></div>
+
+</body>
+</html>

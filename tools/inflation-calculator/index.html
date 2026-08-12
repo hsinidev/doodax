@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon-DhmOc5oQ.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inflation Calculator: Purchasing Power Tool</title>
+    <meta name="description" content="Calculate the changing value of money over time with our intuitive Inflation Calculator. See how purchasing power is affected by historical inflation using simulated CPI data. A modern financial tool for planning and analysis."/>
+    <meta name="keywords" content="inflation calculator, purchasing power, cpi, consumer price index, value of money, historical inflation, financial tool, investment calculator, finance, economics, money value" />
+    <meta name="author" content="HSINI MOHAMED" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://inflationcalculator.doodax.com/">
+    <meta property="og:title" content="Inflation Calculator: Purchasing Power Tool">
+    <meta property="og:description" content="Discover the true value of money over time. Instantly calculate historical purchasing power and understand the impact of inflation.">
+    <meta property="og:image" content="https://inflationcalculator.doodax.com/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://inflationcalculator.doodax.com/">
+    <meta property="twitter:title" content="Inflation Calculator: Purchasing Power Tool">
+    <meta property="twitter:description" content="Discover the true value of money over time. Instantly calculate historical purchasing power and understand the impact of inflation.">
+    <meta property="twitter:image" content="https://inflationcalculator.doodax.com/og-image.jpg">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        background-color: #050510;
+        color: #ffffff;
+        overflow-x: hidden;
+      }
+
+      /* Multi-colored Galaxy Background */
+      .galaxy-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+        background: radial-gradient(circle at 50% 50%, #1a1a2e, #000000);
+        overflow: hidden;
+      }
+
+      .nebula {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        opacity: 0.6;
+        animation: float 20s infinite ease-in-out;
+      }
+
+      .nebula:nth-child(1) {
+        width: 50vw;
+        height: 50vw;
+        background: #4c1d95; /* violet */
+        top: -10%;
+        left: -10%;
+        animation-duration: 25s;
+      }
+
+      .nebula:nth-child(2) {
+        width: 40vw;
+        height: 40vw;
+        background: #0f766e; /* teal */
+        bottom: -10%;
+        right: -10%;
+        animation-duration: 30s;
+        animation-delay: -5s;
+      }
+
+      .nebula:nth-child(3) {
+        width: 30vw;
+        height: 30vw;
+        background: #be123c; /* rose */
+        top: 40%;
+        left: 40%;
+        animation-duration: 35s;
+        animation-delay: -10s;
+      }
+      
+      .stars-container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+      }
+      
+      .star {
+        position: absolute;
+        background: white;
+        border-radius: 50%;
+        animation: twinkle 4s infinite;
+      }
+
+      @keyframes float {
+        0%, 100% { transform: translate(0, 0) scale(1); }
+        33% { transform: translate(30px, -50px) scale(1.1); }
+        66% { transform: translate(-20px, 20px) scale(0.9); }
+      }
+
+      @keyframes twinkle {
+        0%, 100% { opacity: 0.3; transform: scale(0.8); }
+        50% { opacity: 1; transform: scale(1.2); }
+      }
+
+      /* Animation for hero text */
+      @keyframes fade-in-down {
+        0% { opacity: 0; transform: translateY(-30px); }
+        100% { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes fade-in-up {
+        0% { opacity: 0; transform: translateY(30px); }
+        100% { opacity: 1; transform: translateY(0); }
+      }
+      .animate-fade-in-down {
+        animation: fade-in-down 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+      }
+      .animate-fade-in-up {
+        animation: fade-in-up 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s forwards;
+        opacity: 0; 
+      }
+      .animate-fade-in {
+        animation: fade-in-up 1.2s ease-out forwards;
+        opacity: 0;
+      }
+
+      /* Scrollbar Styling */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0f172a; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #334155; 
+        border-radius: 5px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #475569; 
+      }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Inflation Calculator: Purchasing Power Tool",
+      "url": "https://inflationcalculator.doodax.com/",
+      "description": "A modern web application to calculate the historical purchasing power of money, demonstrating the effects of inflation over time using simulated CPI data.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://inflationcalculator.doodax.com/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+<link rel="stylesheet" href="./index.css">
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@18.3.1",
+    "react-dom/": "https://esm.sh/react-dom@18.3.1",
+    "react/": "https://esm.sh/react@18.3.1"
+  }
+}
+</script>
+  <script type="module" crossorigin src="./assets/index-FTLk2_Ev.js"></script>
+</head>
+  <body>
+    <div id="root"></div>
+    <script>
+      // Generate stars dynamically
+      document.addEventListener('DOMContentLoaded', () => {
+        const galaxy = document.querySelector('.galaxy-background');
+        if(!galaxy) {
+            const bg = document.createElement('div');
+            bg.className = 'galaxy-background';
+            const s1 = document.createElement('div'); s1.className='nebula';
+            const s2 = document.createElement('div'); s2.className='nebula';
+            const s3 = document.createElement('div'); s3.className='nebula';
+            const starsContainer = document.createElement('div'); starsContainer.className='stars-container';
+            bg.appendChild(s1); bg.appendChild(s2); bg.appendChild(s3);
+            bg.appendChild(starsContainer);
+            document.body.prepend(bg);
+            
+            for(let i=0; i<150; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                const size = Math.random() * 2 + 1;
+                star.style.width = size + 'px';
+                star.style.height = size + 'px';
+                star.style.animationDelay = Math.random() * 5 + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+      });
+    </script>
+  
+    <!-- Back to Home Link -->
+    <a href="https://doodax.com" class="fixed top-4 left-4 z-50 flex items-center gap-2 px-4 py-2 bg-slate-900/50 backdrop-blur-md border border-slate-700/50 rounded-full text-slate-300 hover:text-white hover:bg-slate-800/50 transition-all duration-300 group" style="text-decoration: none;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:-translate-x-1 transition-transform">
+        <path d="m12 19-7-7 7-7"/>
+        <path d="M19 12H5"/>
+      </svg>
+      <span class="text-sm font-medium">Back to Home</span>
+    </a>
+
+  </body>
+</html>

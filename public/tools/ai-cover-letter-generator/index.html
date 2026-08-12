@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Cover Letter Generator | Create Tailored Cover Letters Instantly</title>
+
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="AI Cover Letter Generator | Create Tailored Cover Letters Instantly">
+    <meta name="description" content="Generate professional, personalized cover letters in seconds with our AI-powered tool. Tailored to your resume and specific job descriptions to help you land interviews.">
+    <meta name="keywords" content="AI cover letter generator, free cover letter builder, Gemini AI cover letter, resume to cover letter, job application assistant, personalized cover letter writer">
+    <meta name="author" content="HSINI MOHAMED">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://doodax.com/">
+    <meta property="og:title" content="AI Cover Letter Generator | Create Tailored Cover Letters Instantly">
+    <meta property="og:description" content="Generate professional, personalized cover letters in seconds with our AI-powered tool. Tailored to your resume and specific job descriptions.">
+    <meta property="og:image" content="https://doodax.com/og-image.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://doodax.com/">
+    <meta property="twitter:title" content="AI Cover Letter Generator | Create Tailored Cover Letters Instantly">
+    <meta property="twitter:description" content="Generate professional, personalized cover letters in seconds with our AI-powered tool. Tailored to your resume and specific job descriptions.">
+    <meta property="twitter:image" content="https://doodax.com/og-image.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      :root {
+        --color-bg-dark: #050505;
+        --color-nebula-1: #4c1d95; /* violet-900 */
+        --color-nebula-2: #be185d; /* pink-700 */
+        --color-nebula-3: #1e3a8a; /* blue-900 */
+      }
+      
+      body {
+        font-family: 'Sora', sans-serif;
+        background-color: var(--color-bg-dark);
+        color: #ffffff;
+        overflow-x: hidden;
+      }
+
+      /* Galaxy Background Animation */
+      .galaxy-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+        overflow: hidden;
+        background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+      }
+
+      .stars {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        background: url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
+        z-index: 0;
+        opacity: 0.8;
+      }
+
+      .twinkling {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        background: url(http://www.script-tutorials.com/demos/360/images/twinkling.png) repeat top center;
+        z-index: 1;
+        animation: move-twinkling 200s linear infinite;
+        opacity: 0.6;
+      }
+
+      .nebula-glow {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-image: 
+          radial-gradient(circle at 50% 50%, rgba(76, 29, 149, 0.2), transparent 60%),
+          radial-gradient(circle at 80% 20%, rgba(190, 24, 93, 0.15), transparent 40%),
+          radial-gradient(circle at 20% 80%, rgba(30, 58, 138, 0.2), transparent 40%);
+        filter: blur(40px);
+        z-index: 2;
+        animation: pulse-nebula 10s ease-in-out infinite alternate;
+      }
+
+      @keyframes move-twinkling {
+        from {background-position:0 0;}
+        to {background-position:-10000px 5000px;}
+      }
+
+      @keyframes pulse-nebula {
+        0% { opacity: 0.5; transform: scale(1); }
+        100% { opacity: 0.8; transform: scale(1.1); }
+      }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "url": "https://doodax.com/",
+          "name": "AI Cover Letter Generator",
+          "description": "Generate personalized, professional cover letters using AI, tailored to specific job descriptions and your résumé.",
+          "publisher": {
+            "@type": "Organization",
+            "name": "HSINI MOHAMED",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://doodax.com/logo.png"
+            },
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "email": "hsini.web@gmail.com",
+              "contactType": "customer support"
+            }
+          }
+        },
+        {
+          "@type": "WebApplication",
+          "name": "AI Cover Letter Generator",
+          "url": "https://doodax.com/",
+          "description": "An AI-powered tool to create tailored cover letters instantly.",
+          "applicationCategory": "ProductivityApplication",
+          "operatingSystem": "All",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Is it ethical to use AI for writing a cover letter?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, it is ethical when used as a tool to assist and enhance your own work. The key is to use AI for inspiration, structure, and overcoming writer's block, but always infuse the final product with your own unique voice."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can an AI-generated cover letter pass ATS scans?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Absolutely. Our AI integrates keywords from the job description directly into the letter, significantly improving your chances of passing Applicant Tracking Systems (ATS)."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+<link rel="stylesheet" href="./index.css">
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@18.3.1",
+    "react-dom/": "https://esm.sh/react-dom@18.3.1",
+    "react/": "https://esm.sh/react@18.3.1",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.29.0"
+  }
+}
+</script>
+  <script type="module" crossorigin src="./assets/index-SZ1VP2Pt.js"></script>
+</head>
+  <body>
+    <div class="galaxy-background">
+      <div class="stars"></div>
+      <div class="twinkling"></div>
+      <div class="nebula-glow"></div>
+    </div>
+    <div id="root"></div>
+  </body>
+</html>

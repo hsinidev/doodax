@@ -1,0 +1,7 @@
+{
+  "name": "Doodax - 100 Free Online Tools",
+  "description": "A comprehensive portal featuring 100 free online tools for developers, designers, and professionals. Explore utilities for web development, AI/LLM, finance, time/date calculations, and more, all within a highly scalable, component-based architecture.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}

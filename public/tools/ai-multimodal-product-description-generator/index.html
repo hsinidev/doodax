@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Product Description Generator - Create SEO Copy in Seconds</title>
+    <meta name="description" content="Generate compelling, SEO-friendly e-commerce product descriptions in seconds using Gemini 2.5 Multimodal AI. Upload an image, define your audience, and get high-converting copy instantly." />
+    <meta name="keywords" content="AI product description generator, e-commerce copywriter, free AI copywriting tool, Gemini AI, automated product descriptions, SEO content generator" />
+    <meta name="author" content="Hsini Mohamed" />
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon-DNIaL9yc.svg" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://doodax.com/" />
+    <meta property="og:title" content="AI Product Description Generator" />
+    <meta property="og:description" content="Turn product images into selling copy instantly with AI." />
+    <meta property="og:image" content="https://doodax.com/og-image.jpg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://doodax.com/" />
+    <meta property="twitter:title" content="AI Product Description Generator" />
+    <meta property="twitter:description" content="Turn product images into selling copy instantly with AI." />
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              'primary': '#e11d48',
+              'secondary': '#9333ea',
+              'primary-hover': '#f43f5e',
+              'secondary-hover': '#a855f7',
+              'light': {
+                'frame': 'rgba(255, 255, 255, 0.75)',
+                'text': '#111111',
+                'input-bg': 'rgba(255, 255, 255, 0.9)',
+              },
+              'dark': {
+                'frame': 'rgba(30, 41, 59, 0.75)',
+                'text': '#F1F5F9',
+                'input-bg': 'rgba(15, 23, 42, 0.8)',
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "AI Product Description Generator",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Hsini Mohamed",
+        "url": "https://github.com/hsinidev"
+      }
+    }
+    </script>
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    overflow-x: hidden;
+  }
+  
+  /* Animated Galaxy Background */
+  #galaxy-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+    overflow: hidden;
+  }
+
+  .stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    box-shadow: 
+      12px 15px #FFF, 
+      45px 82px #FFF, 
+      123px 42px #FFF, 
+      245px 123px #FFF, 
+      67px 234px #FFF,
+      432px 12px #FFF,
+      12px 345px #FFF,
+      89px 45px #FFF;
+    animation: animateStars 50s linear infinite;
+  }
+  
+  .stars::after {
+    content: " ";
+    position: absolute;
+    top: 2000px;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    box-shadow: 
+      12px 15px #FFF, 
+      45px 82px #FFF, 
+      123px 42px #FFF, 
+      245px 123px #FFF, 
+      67px 234px #FFF,
+      432px 12px #FFF,
+      12px 345px #FFF,
+      89px 45px #FFF;
+  }
+
+  .nebula {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: 
+      radial-gradient(circle at 50% 50%, rgba(225, 29, 72, 0.15), transparent 60%),
+      radial-gradient(circle at 80% 20%, rgba(147, 51, 234, 0.15), transparent 50%),
+      radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.15), transparent 50%);
+    filter: blur(60px);
+    animation: rotateNebula 120s linear infinite;
+  }
+
+  @keyframes animateStars {
+    from { transform: translateY(0px); }
+    to { transform: translateY(-2000px); }
+  }
+
+  @keyframes rotateNebula {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .backdrop-blur-md {
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+  }
+  
+  /* Scrollbar Styling */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.1);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(147, 51, 234, 0.5);
+    border-radius: 5px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(225, 29, 72, 0.6);
+  }
+</style>
+<link rel="stylesheet" href="./index.css">
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.27.0",
+    "marked": "https://cdn.jsdelivr.net/npm/marked@13.0.0/lib/marked.esm.js",
+    "dompurify": "https://cdn.jsdelivr.net/npm/dompurify@3.1.5/dist/purify.es.mjs"
+  }
+}
+</script>
+  <script type="module" crossorigin src="./assets/index-TJaGFqMc.js"></script>
+
+    <style>
+      /* Cosmic Animations */
+      @keyframes move-twink-back {
+        from {background-position:0 0;}
+        to {background-position:-10000px 5000px;}
+      }
+      @keyframes clouds-move {
+        from {background-position:0 0;}
+        to {background-position:10000px 0;}
+      }
+      @keyframes gradient-shift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      
+      .stars, .twinkling, .clouds {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        pointer-events: none;
+        z-index: -1;
+      }
+      
+      .stars {
+        background: #000 url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png') repeat top center;
+        z-index: -3;
+      }
+      
+      .twinkling {
+        background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png') repeat top center;
+        z-index: -2;
+        animation: move-twink-back 200s linear infinite;
+        opacity: 0.5;
+      }
+      
+      .clouds {
+        background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/clouds3.png') repeat top center;
+        z-index: -1;
+        opacity: 0.4;
+        animation: clouds-move 200s linear infinite;
+      }
+      
+      .gradient-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(30, 27, 75, 0.7) 0%, rgba(49, 46, 129, 0.4) 50%, rgba(88, 28, 135, 0.6) 100%);
+        z-index: -1;
+        pointer-events: none;
+      }
+      
+      /* Scrollbar */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0f172a; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #4f46e5; 
+        border-radius: 5px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #6366f1; 
+      }
+    </style>
+
+</head>
+  <body class="antialiased">
+    <div id="galaxy-background">
+        <div class="nebula"></div>
+        <div class="stars" style="width: 2px; height: 2px; box-shadow: 10vw 10vh #fff, 20vw 80vh #fff, 80vw 10vh #fff, 90vw 90vh #fff, 45vw 45vh #fff, 60vw 20vh #fff, 10vw 40vh #fff;"></div>
+        <div class="stars" style="width: 3px; height: 3px; animation-duration: 100s; opacity: 0.5; box-shadow: 15vw 15vh #fff, 25vw 85vh #fff, 85vw 15vh #fff, 95vw 95vh #fff;"></div>
+    </div>
+    <div id="root"></div>
+  
+  <div class="stars"></div>
+  <div class="twinkling"></div>
+  <div class="clouds"></div>
+  <div class="gradient-overlay"></div>
+
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Date Difference & Age Calculator | Instant Time Duration Tool</title>
+    <meta name="description" content="Calculate the exact time difference between two dates instantly. Get a detailed breakdown in years, months, weeks, days, and hours. Free, accurate, and privacy-focused tool for project planning and age calculation.">
+    <meta name="keywords" content="date difference calculator, age calculator, time between dates, days calculator, calculate duration, time span, date math, leap year calculator, project timeline tool">
+    <link rel="icon" href="./assets/favicon-BVhQceU7.svg" type="image/svg+xml">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes cosmic-drift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+        .cosmic-background {
+            background: radial-gradient(circle at center, #1a1a2e 0%, #0f0c29 40%, #000000 100%);
+            position: relative;
+            overflow-x: hidden;
+        }
+        .cosmic-background::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(125deg, rgba(74, 0, 224, 0.1), rgba(142, 45, 226, 0.1));
+            background-size: 400% 400%;
+            animation: cosmic-drift 20s ease infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background-color: #000;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f0c29;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4a00e0;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #8e2de2;
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "url": "https://doodax.com/",
+          "name": "Date Difference Calculator",
+          "description": "A professional tool to calculate the exact duration between dates.",
+          "publisher": {
+            "@type": "Organization",
+            "name": "HSINI MOHAMED Development",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://doodax.com/favicon.svg"
+            },
+            "sameAs": ["https://github.com/hsinidev"]
+          }
+        },
+        {
+          "@type": "WebApplication",
+          "name": "Date Difference & Age Calculator",
+          "url": "https://doodax.com/",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "All",
+          "browserRequirements": "Requires JavaScript. Compatible with all modern browsers.",
+          "description": "An advanced client-side application to calculate the precise time duration between a start and end date. Features include inclusive/exclusive date options, detailed breakdown (Y/M/D), and total unit conversions.",
+          "featureList": [
+            "Instant client-side calculation",
+            "Years, Months, Days breakdown",
+            "Total weeks and hours calculation",
+            "Leap year adjustment",
+            "Privacy-focused (no data collection)"
+          ],
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "Article",
+          "headline": "The Ultimate Guide to Date Calculation: Logic, Methods, and Use Cases",
+          "description": "A comprehensive deep dive into the mathematics of time, calendrical systems, and how digital tools calculate age and date differences.",
+          "author": {
+            "@type": "Person",
+            "name": "HSINI MOHAMED",
+            "url": "https://doodax.com"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "HSINI MOHAMED Development",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://doodax.com/favicon.svg"
+            }
+          },
+          "datePublished": "2023-10-27",
+          "dateModified": "2023-11-05"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How accurately does this calculator handle leap years?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Our calculator utilizes the native JavaScript Date object, which contains the full Gregorian calendar rules. It accurately accounts for all leap years (every 4 years, excluding century years unless divisible by 400), ensuring precise calculations across centuries."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does the 'Include End Date' option affect the result?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. By default, date calculations measure the span from the start of the first day to the start of the last day (exclusive). Checking 'Include End Date' adds exactly 24 hours (1 day) to the total, effectively counting the final day in the duration."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is my data sent to a server?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. This application is architected as a static Single Page Application (SPA). All processing occurs locally within your browser's JavaScript engine. No date inputs are ever transmitted over the network, ensuring complete privacy."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I calculate the age of a person with this tool?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Absolutely. Enter the person's date of birth as the 'Start Date' and the current date (or a future date) as the 'End Date'. The result will provide their exact age in years, months, and days."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why do months have different days?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The Gregorian calendar aligns with the solar year (approx 365.24 days) and the lunar cycle (approx 29.5 days). To fit 12 months into a solar year, lengths vary between 28, 29, 30, and 31 days. This tool automatically adjusts for these irregularities."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+<link rel="stylesheet" href="./index.css">
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@18.3.1",
+    "react-dom/": "https://esm.sh/react-dom@18.3.1",
+    "react/": "https://esm.sh/react@18.3.1"
+  }
+}
+</script>
+  <script type="module" crossorigin src="./assets/index-__qSfc64.js"></script>
+</head>
+<body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+</body>
+</html>

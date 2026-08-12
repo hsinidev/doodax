@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="STEM Hub (doodax.com) is your ultimate free resource for online calculators. Solve problems in Physics, Chemistry, Biology, Geometry, Finance, and Math. Features interactive 3D models, games, and scientific tools.">
+  <meta name="keywords" content="STEM calculators, online science tools, math games, finance calculator, physics solver, chemistry periodic table, biology 3d models, free education tools, doodax">
+  <meta name="author" content="HSINI MOHAMED">
+  <meta property="og:title" content="STEM Hub - Free Math, Science & Finance Tools">
+  <meta property="og:description" content="Explore thousands of free calculators and interactive learning tools for students and professionals.">
+  <meta property="og:url" content="https://doodax.com/">
+  <meta property="og:type" content="website">
+  
+  <title>STEM Hub | Free Math, Science & Finance Calculators - doodax.com</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- JSON-LD SEO Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "STEM Hub",
+        "url": "https://doodax.com/",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://doodax.com/?s={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "Organization",
+        "name": "doodax.com",
+        "url": "https://doodax.com",
+        "logo": "https://doodax.com/favicon.svg",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "hsini.web@gmail.com",
+          "contactType": "customer support"
+        }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "STEM Hub Calculators",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Web",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #050505;
+      overflow-x: hidden;
+      color: #e2e8f0;
+    }
+    
+    /* Starfield Animation */
+    #star-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+      overflow: hidden;
+    }
+
+    .stars {
+      width: 1px;
+      height: 1px;
+      background: transparent;
+      box-shadow: 1744px 122px #FFF , 134px 1321px #FFF , 92px 859px #FFF;
+      animation: animStar 50s linear infinite;
+    }
+    
+    .stars:after {
+      content: " ";
+      position: absolute;
+      top: 2000px;
+      width: 1px;
+      height: 1px;
+      background: transparent;
+      box-shadow: 1744px 122px #FFF , 134px 1321px #FFF , 92px 859px #FFF;
+    }
+
+    .stars2 {
+      width: 2px;
+      height: 2px;
+      background: transparent;
+      box-shadow: 122px 1744px #FFF , 1321px 134px #FFF , 859px 92px #FFF;
+      animation: animStar 100s linear infinite;
+    }
+    
+    .stars2:after {
+      content: " ";
+      position: absolute;
+      top: 2000px;
+      width: 2px;
+      height: 2px;
+      background: transparent;
+      box-shadow: 122px 1744px #FFF , 1321px 134px #FFF , 859px 92px #FFF;
+    }
+
+    .stars3 {
+      width: 3px;
+      height: 3px;
+      background: transparent;
+      box-shadow: 322px 144px #7c3aed , 221px 34px #4f46e5 , 59px 922px #be185d;
+      animation: animStar 150s linear infinite;
+    }
+    
+    .stars3:after {
+      content: " ";
+      position: absolute;
+      top: 2000px;
+      width: 3px;
+      height: 3px;
+      background: transparent;
+      box-shadow: 322px 144px #7c3aed , 221px 34px #4f46e5 , 59px 922px #be185d;
+    }
+
+    @keyframes animStar {
+      from { transform: translateY(0px); }
+      to { transform: translateY(-2000px); }
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0f172a; 
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #4f46e5; 
+      border-radius: 5px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #4338ca; 
+    }
+  </style>
+  
+
+<link rel="stylesheet" href="./index.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "react": "https://aistudiocdn.com/react@^19.2.0",
+      "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+      "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.5",
+      "react/": "https://aistudiocdn.com/react@^19.2.0/"
+    }
+  }
+  </script>
+  <script type="module" crossorigin src="./assets/index-BagIoTpe.js"></script>
+
+    <style>
+      /* Cosmic Animations */
+      @keyframes move-twink-back {
+        from {background-position:0 0;}
+        to {background-position:-10000px 5000px;}
+      }
+      @keyframes clouds-move {
+        from {background-position:0 0;}
+        to {background-position:10000px 0;}
+      }
+      @keyframes gradient-shift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      
+      .stars, .twinkling, .clouds {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        pointer-events: none;
+        z-index: -1;
+      }
+      
+      .stars {
+        background: #000 url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png') repeat top center;
+        z-index: -3;
+      }
+      
+      .twinkling {
+        background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png') repeat top center;
+        z-index: -2;
+        animation: move-twink-back 200s linear infinite;
+        opacity: 0.5;
+      }
+      
+      .clouds {
+        background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/clouds3.png') repeat top center;
+        z-index: -1;
+        opacity: 0.4;
+        animation: clouds-move 200s linear infinite;
+      }
+      
+      .gradient-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(30, 27, 75, 0.7) 0%, rgba(49, 46, 129, 0.4) 50%, rgba(88, 28, 135, 0.6) 100%);
+        z-index: -1;
+        pointer-events: none;
+      }
+      
+      /* Scrollbar */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0f172a; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #4f46e5; 
+        border-radius: 5px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #6366f1; 
+      }
+    </style>
+
+</head>
+<body class="bg-[#020617] text-white antialiased overflow-x-hidden">
+  <div id="star-container">
+    <div class="stars"></div>
+    <div class="stars2"></div>
+    <div class="stars3"></div>
+  </div>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+
+  <div class="stars"></div>
+  <div class="twinkling"></div>
+  <div class="clouds"></div>
+  <div class="gradient-overlay"></div>
+
+</body>
+</html>

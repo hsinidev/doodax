@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- SEO Meta Tags -->
+    <title>Game Data JSON Generator | Free Developer Tool for Game Portals</title>
+    <meta name="description" content="The ultimate free tool to convert raw game URLs into structured JSON. Automate game names, slugs, icons, and metadata for Doodax.com and other portals." />
+    <meta name="keywords" content="json generator, game developer tool, game data, url to json, automation, seo tool, doodax, game portal script, iframe generator" />
+    <meta name="author" content="HSINI MOHAMED" />
+    <link rel="canonical" href="https://doodax.com/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://doodax.com/" />
+    <meta property="og:title" content="Game Data JSON Generator | Automate Your Portal" />
+    <meta property="og:description" content="Streamline your game portal workflow. Convert URLs to JSON instantly with AI-powered metadata inference." />
+    <meta property="og:image" content="https://doodax.com/og-image.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://doodax.com/" />
+    <meta property="twitter:title" content="Game Data JSON Generator" />
+    <meta property="twitter:description" content="Streamline your game portal workflow. Convert URLs to JSON instantly." />
+    <meta property="twitter:image" content="https://doodax.com/og-image.png" />
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Game Data JSON Generator",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "HSINI MOHAMED",
+        "url": "https://github.com/hsinidev"
+      },
+      "description": "An AI-powered tool to generate structured JSON data from game URLs for web developers."
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background: #000;
+        overflow-x: hidden;
+      }
+
+      /* Galaxy Background Animation */
+      .galaxy-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+        overflow: hidden;
+      }
+
+      .stars {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        box-shadow: 
+          120px 200px #FFF, 
+          400px 300px #FFF, 
+          800px 100px #FFF, 
+          1200px 500px #FFF, 
+          1500px 200px #FFF,
+          200px 800px #FFF,
+          600px 600px #FFF;
+        animation: animStar 100s linear infinite;
+      }
+      
+      .stars::after {
+        content: " ";
+        position: absolute;
+        top: 2000px;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        box-shadow: 
+          120px 200px #FFF, 
+          400px 300px #FFF, 
+          800px 100px #FFF, 
+          1200px 500px #FFF, 
+          1500px 200px #FFF,
+          200px 800px #FFF,
+          600px 600px #FFF;
+      }
+
+      .stars2 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 2px;
+        height: 2px;
+        background: transparent;
+        box-shadow: 
+          100px 200px #FFF, 
+          500px 400px #FFF, 
+          900px 150px #FFF, 
+          1300px 600px #FFF;
+        animation: animStar 150s linear infinite;
+      }
+
+      .nebula {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 60vw;
+        height: 60vw;
+        background: radial-gradient(circle, rgba(142, 45, 226, 0.2) 0%, rgba(74, 0, 224, 0) 70%);
+        transform: translate(-50%, -50%);
+        animation: pulseNebula 15s ease-in-out infinite;
+        border-radius: 50%;
+        filter: blur(60px);
+      }
+
+      .nebula-2 {
+        position: absolute;
+        top: 20%;
+        left: 80%;
+        width: 40vw;
+        height: 40vw;
+        background: radial-gradient(circle, rgba(255, 0, 150, 0.15) 0%, rgba(74, 0, 224, 0) 70%);
+        transform: translate(-50%, -50%);
+        animation: pulseNebula 20s ease-in-out infinite reverse;
+        border-radius: 50%;
+        filter: blur(50px);
+      }
+
+      @keyframes animStar {
+        from { transform: translateY(0px); }
+        to { transform: translateY(-2000px); }
+      }
+
+      @keyframes pulseNebula {
+        0% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+        50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
+        100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+      }
+      
+      /* Scrollbar */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0f0c29; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #4a00e0; 
+        border-radius: 5px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #8e2de2; 
+      }
+    </style>
+<link rel="stylesheet" href="./index.css">
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://aistudiocdn.com/react@^19.2.0",
+        "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+        "react/": "https://aistudiocdn.com/react@^19.2.0/",
+        "@google/genai": "https://aistudiocdn.com/@google/genai@^1.28.0"
+      }
+    }
+    </script>
+  <script type="module" crossorigin src="./assets/index-DIaVvoZO.js"></script>
+
+    <style>
+      /* Cosmic Animations */
+      @keyframes move-twink-back {
+        from {background-position:0 0;}
+        to {background-position:-10000px 5000px;}
+      }
+      @keyframes clouds-move {
+        from {background-position:0 0;}
+        to {background-position:10000px 0;}
+      }
+      @keyframes gradient-shift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      
+      .stars, .twinkling, .clouds {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        pointer-events: none;
+        z-index: -1;
+      }
+      
+      .stars {
+        background: #000 url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png') repeat top center;
+        z-index: -3;
+      }
+      
+      .twinkling {
+        background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png') repeat top center;
+        z-index: -2;
+        animation: move-twink-back 200s linear infinite;
+        opacity: 0.5;
+      }
+      
+      .clouds {
+        background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/clouds3.png') repeat top center;
+        z-index: -1;
+        opacity: 0.4;
+        animation: clouds-move 200s linear infinite;
+      }
+      
+      .gradient-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(30, 27, 75, 0.7) 0%, rgba(49, 46, 129, 0.4) 50%, rgba(88, 28, 135, 0.6) 100%);
+        z-index: -1;
+        pointer-events: none;
+      }
+      
+      /* Scrollbar */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0f172a; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #4f46e5; 
+        border-radius: 5px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #6366f1; 
+      }
+    </style>
+
+</head>
+  <body class="text-gray-200 font-sans antialiased">
+    <div class="galaxy-bg">
+      <div class="stars"></div>
+      <div class="stars2"></div>
+      <div class="nebula"></div>
+      <div class="nebula-2"></div>
+    </div>
+    <div id="root"></div>
+  
+  <div class="stars"></div>
+  <div class="twinkling"></div>
+  <div class="clouds"></div>
+  <div class="gradient-overlay"></div>
+
+</body>
+</html>

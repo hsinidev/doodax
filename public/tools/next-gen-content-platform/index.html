@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI SEO Writing - Rank in Google & Get Cited in ChatGPT</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Boost your traffic with our AI Writing tool. Auto-analyzes SERP competitors to generate SEO-optimized content for Google, ChatGPT, and Perplexity AI. Perfect for bloggers and marketers. Get started free!">
+    <meta name="keywords" content="AI writing tool, SEO optimization, content generation, ChatGPT, AI content, rank in google, SERP analysis, affiliate content, WordPress integration, doodax.com">
+    <meta name="author" content="HSINI MOHAMED">
+    <link rel="canonical" href="https://doodax.com/index.html">
+    <link rel="icon" href="./assets/favicon-DRUAiHgp.svg" type="image/svg+xml">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom Styles & Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0B1120;
+            color: #E2E8F0;
+            overflow-x: hidden;
+        }
+        #galaxy-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+            overflow: hidden;
+        }
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle var(--duration) ease-in-out infinite;
+            opacity: var(--opacity);
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: var(--opacity); transform: scale(1); }
+            50% { opacity: 0.2; transform: scale(0.5); }
+        }
+        .nebula {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+            animation: moveNebula 20s infinite alternate;
+        }
+        @keyframes moveNebula {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(20px, -20px) scale(1.1); }
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #6EE7B7, #3B82F6, #9333EA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .cta-button {
+            background: linear-gradient(to right, #3B82F6, #6D28D9);
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            box-shadow: 0 0 25px rgba(99, 102, 241, 0.6);
+            transform: translateY(-2px);
+        }
+        .feature-card {
+            background-color: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(51, 65, 85, 0.5);
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-4px);
+            border-color: #6366f1;
+            background-color: rgba(30, 41, 59, 0.9);
+        }
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+        details summary .plus-icon, details[open] summary .minus-icon { display: block; }
+        details[open] summary .plus-icon, details summary .minus-icon { display: none; }
+
+        /* Modal Styles */
+        .modal-overlay {
+            transition: opacity 0.3s ease-in-out;
+        }
+        .modal-container {
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            max-height: 85vh;
+        }
+        .modal-hidden {
+            pointer-events: none;
+        }
+        .modal-hidden .modal-overlay {
+            opacity: 0;
+        }
+        .modal-hidden .modal-container {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        
+        /* Article Styles */
+        .article-content {
+            font-size: 1.125rem; /* 18px */
+            line-height: 1.8;
+            color: #cbd5e1;
+        }
+        .article-content h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            color: #fff;
+            letter-spacing: -0.025em;
+        }
+        .article-content h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #e2e8f0;
+        }
+         .article-content h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #94a3b8;
+        }
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+        .article-content ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .article-content li {
+            margin-bottom: 0.5rem;
+        }
+        .article-content a {
+            color: #818cf8;
+            text-decoration: underline;
+            transition: color 0.2s;
+        }
+        .article-content a:hover {
+            color: #a5b4fc;
+        }
+        .article-content table {
+            width: 100%;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            border-collapse: separate;
+            border-spacing: 0;
+            border: 1px solid #334155;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+        .article-content th, .article-content td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #334155;
+        }
+        .article-content th {
+            background-color: #1e293b;
+            color: #fff;
+            font-weight: 600;
+        }
+        .article-content tr:last-child td {
+            border-bottom: none;
+        }
+        
+        /* Read More Fade */
+        .read-more-fade {
+            mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+        }
+    </style>
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "url": "https://doodax.com/index.html",
+          "name": "SEOWriting AI",
+          "description": "The only platform that auto-analyzes SERP competitors and generates content optimized for both traditional search and AI engines (ChatGPT, Perplexity, Google AI).",
+          "author": {
+            "@type": "Person",
+            "name": "HSINI MOHAMED",
+            "url": "https://github.com/hsinidev"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "SEOWriting AI",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://doodax.com/public/favicon.svg"
+            }
+          }
+        },
+        {
+          "@type": "WebApplication",
+          "name": "SEOWriting AI Tool",
+          "operatingSystem": "All",
+          "applicationCategory": "BusinessApplication",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "description": "Generate SEO-optimized content, analyze SERP competitors, and create affiliate articles in one click."
+        },
+        {
+          "@type": "Article",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://doodax.com/index.html#article"
+          },
+          "headline": "The Ultimate Guide to AI-Powered Blog Titles for Maximum SEO Impact",
+          "description": "A comprehensive 3500-word guide on leveraging AI for blog post title generation, click-through-rate optimization, and modern SEO strategy.",
+          "image": "https://i.imgur.com/K3bJm2r.png",
+          "author": {
+            "@type": "Person",
+            "name": "HSINI MOHAMED"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "SEOWriting AI",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://doodax.com/public/favicon.svg"
+            }
+          },
+          "datePublished": "2023-10-28",
+          "dateModified": "2024-05-20"
+        }
+      ]
+    }
+    </script>
+<link rel="stylesheet" href="./index.css">
+  <script type="module" crossorigin src="./assets/index-B5Qt9EMX.js"></script>
+</head>
+<body class="antialiased text-slate-200">
+
+    <!-- Galaxy Background -->
+    <div id="galaxy-bg">
+        <!-- Nebulas -->
+        <div class="nebula bg-purple-600/20 w-[500px] h-[500px] top-[-100px] left-[-100px]"></div>
+        <div class="nebula bg-blue-600/20 w-[600px] h-[600px] bottom-[-200px] right-[-100px]" style="animation-delay: -10s;"></div>
+        <div class="nebula bg-indigo-600/10 w-[800px] h-[800px] top-[40%] left-[30%]" style="animation-delay: -5s;"></div>
+        <!-- Script will add stars -->
+    </div>
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-[#0B1120]/80 backdrop-blur-lg border-b border-slate-800">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+            <div class="flex items-center space-x-2">
+                <img src="data:image/svg+xml,%3csvg%20width='64'%20height='64'%20viewBox='0%200%2064%2064'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3crect%20width='64'%20height='64'%20rx='12'%20fill='%23030712'/%3e%3cpath%20d='M22%2018H42V24H34V46H30V24H22V18Z'%20fill='%23FFD700'/%3e%3cpath%20d='M46%2016L48%2021L53%2023L48%2025L46%2030L44%2025L39%2023L44%2021L46%2016Z'%20fill='%234f46e5'/%3e%3c/svg%3e" alt="Logo" class="h-8 w-8">
+                <span class="text-xl font-bold text-white tracking-tight">SEOWriting</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+                <a href="#features" class="hover:text-white transition-colors">Features</a>
+                <a href="#howitworks" class="hover:text-white transition-colors">How it works</a>
+                <a href="#pricing" class="hover:text-white transition-colors">Pricing</a>
+                <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
+            </div>
+            <a href="#" class="cta-button text-white text-sm font-bold px-6 py-2.5 rounded-full shadow-lg hover:shadow-indigo-500/30">Get Started - It's Free</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="py-20 md:py-32 text-center relative overflow-hidden">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="inline-flex items-center space-x-4 mb-8 bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-full px-4 py-2">
+                    <div class="flex items-center -space-x-1">
+                        <span class="text-yellow-400">★</span><span class="text-yellow-400">★</span><span class="text-yellow-400">★</span><span class="text-yellow-400">★</span><span class="text-yellow-400">★</span>
+                    </div>
+                    <span class="text-sm font-medium text-slate-300">Trusted by 50,000+ creators</span>
+                </div>
+                <h1 class="text-4xl md:text-7xl font-extrabold text-white leading-tight tracking-tight mb-8">
+                    SEO Writing - Rank in Google<br>
+                    <span class="gradient-text">Get Cited in ChatGPT.</span>
+                </h1>
+                <p class="max-w-3xl mx-auto text-lg md:text-xl text-slate-400 mb-10 leading-relaxed">
+                    The only platform that auto-analyzes SERP competitors and generates content optimized for both traditional search and AI engines (ChatGPT, Perplexity, Google AI).
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                    <a href="#" class="cta-button text-white font-bold py-4 px-8 rounded-full shadow-xl shadow-indigo-500/20 text-lg w-full sm:w-auto transform hover:scale-105 transition-transform">Start Writing For Free</a>
+                    <a href="#howitworks" class="bg-slate-800 hover:bg-slate-700 text-white font-semibold py-4 px-8 rounded-full border border-slate-700 transition-all w-full sm:w-auto">View Demo</a>
+                </div>
+
+                <div class="mt-20 max-w-5xl mx-auto bg-slate-900/50 backdrop-blur-xl border border-slate-700/50 rounded-2xl shadow-2xl p-2 sm:p-4">
+                    <div class="aspect-video bg-[#0B1120] rounded-xl flex items-center justify-center p-8 border border-slate-800 relative overflow-hidden group">
+                        <div class="absolute inset-0 bg-grid-slate-800/20 [mask-image:linear-gradient(to_bottom,white,transparent)]"></div>
+                        <div class="w-full max-w-2xl text-center relative z-10">
+                            <h2 class="text-2xl sm:text-4xl font-bold text-white mb-6">What's your <span class="gradient-text">Super Page</span> today?</h2>
+                            <div class="relative group-hover:scale-[1.02] transition-transform duration-500">
+                                <input type="text" placeholder="Enter keyword or instructions..." class="w-full bg-slate-800/80 border border-slate-600 rounded-full py-4 px-8 text-white placeholder-slate-500 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 focus:bg-slate-800 outline-none text-lg shadow-lg">
+                                <button class="absolute right-2 top-1/2 -translate-y-1/2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-full p-3 shadow-lg transition-colors">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Features Section -->
+        <section id="features" class="py-24 relative">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">Everything you need to rank.</h2>
+                    <p class="text-lg text-slate-400">With just a few minutes, you can create unique, highly converting content that will help you succeed in your marketing business.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Feature 1 -->
+                    <div class="feature-card p-8 rounded-2xl">
+                        <div class="bg-indigo-500/20 inline-flex p-4 rounded-xl mb-6"><svg class="w-8 h-8 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path></svg></div>
+                        <h3 class="text-xl font-bold text-white mb-3">One-Click Long-Form Content</h3>
+                        <p class="text-slate-400 leading-relaxed">Create comprehensive 3,000+ word articles, product roundups, or listicles with a single click. Enter a brief, and let the AI handle the research, structure, and writing.</p>
+                    </div>
+                    <!-- Feature 2 -->
+                    <div class="feature-card p-8 rounded-2xl">
+                        <div class="bg-indigo-500/20 inline-flex p-4 rounded-xl mb-6"><svg class="w-8 h-8 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg></div>
+                        <h3 class="text-xl font-bold text-white mb-3">Amazon Product Listings</h3>
+                        <p class="text-slate-400 leading-relaxed">Simply paste an Amazon URL. We extract features, specs, and reviews to generate persuasive affiliate content, comparison tables, and pros/cons lists instantly.</p>
+                    </div>
+                    <!-- Feature 3 -->
+                    <div class="feature-card p-8 rounded-2xl">
+                        <div class="bg-indigo-500/20 inline-flex p-4 rounded-xl mb-6"><svg class="w-8 h-8 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg></div>
+                        <h3 class="text-xl font-bold text-white mb-3">Real-Time SEO Scoring</h3>
+                        <p class="text-slate-400 leading-relaxed">Optimize as you generate. Our tool analyzes top SERP results and guides you to include the exact NLP keywords and entities needed to rank #1.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Article Section (Expanded & Centralized) -->
+        <section id="article" class="py-24 relative">
+             <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+                <div class="bg-slate-900/80 backdrop-blur-md border border-slate-700 rounded-3xl overflow-hidden shadow-2xl relative">
+                    <div class="p-8 md:p-12">
+                        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">The Ultimate Guide to AI-Powered SEO</h2>
+                        
+                        <div id="seo-article-container" class="relative max-h-[160px] overflow-hidden transition-all duration-700 ease-in-out">
+                            <div class="article-content">
+                                <p class="text-lg text-slate-300 mb-8">
+                                    In the rapidly evolving landscape of digital marketing, the convergence of Artificial Intelligence (AI) and Search Engine Optimization (SEO) has created a paradigm shift. This comprehensive guide explores how to leverage next-generation tools to not only rank in traditional search engines like Google but also to secure citations in AI answer engines like ChatGPT, Perplexity, and Google's Search Generative Experience (SGE).
+                                </p>
+
+                                <h3>Table of Contents</h3>
+                                <ul>
+                                    <li><a href="#chapter1">1. The New Era of Search: From Keywords to Entities</a></li>
+                                    <li><a href="#chapter2">2. Understanding Generative Engine Optimization (GEO)</a></li>
+                                    <li><a href="#chapter3">3. Crafting Content for the AI Reader</a></li>
+                                    <li><a href="#chapter4">4. The Role of Structured Data and Schema</a></li>
+                                    <li><a href="#chapter5">5. Advanced Keyword Research Strategy</a></li>
+                                    <li><a href="#chapter6">6. Optimizing for Trust and Authority (E-E-A-T)</a></li>
+                                    <li><a href="#chapter7">7. Case Studies: AI Content Success Stories</a></li>
+                                    <li><a href="#chapter8">8. Future-Proofing Your SEO Strategy</a></li>
+                                    <li><a href="#faq-section">9. Frequently Asked Questions</a></li>
+                                </ul>
+
+                                <h2 id="chapter1">1. The New Era of Search: From Keywords to Entities</h2>
+                                <p>Gone are the days when stuffing a specific keyword into your meta tags guaranteed a spot on the first page. Modern search algorithms, powered by semantic understanding, focus on "entities"—distinct concepts, people, places, or things—and the relationships between them. Google's Knowledge Graph attempts to understand the <em>context</em> of your content, not just the text.</p>
+                                <p>To succeed today, your content must demonstrate a deep understanding of the topic by connecting relevant entities. For example, an article about "Coffee" shouldn't just repeat the word; it should naturally discuss related entities like "Arabica," "Roasting," "Barista," "Caffeine content," and "Fair trade." AI writing tools are particularly adept at this, as they are trained on vast datasets that inherently map these relationships.</p>
+                                
+                                <h2 id="chapter2">2. Understanding Generative Engine Optimization (GEO)</h2>
+                                <p>Generative Engine Optimization (GEO) is the practice of optimizing content specifically for AI-driven search experiences. Unlike traditional SEO, which aims for a blue link click, GEO aims for your content to be the *source* of the direct answer provided by the AI.</p>
+                                <p>Key strategies for GEO include:</p>
+                                <ul>
+                                    <li><strong>Direct Answer Formatting:</strong> structuring content with clear questions and concise, authoritative answers immediately following.</li>
+                                    <li><strong>Statistic Density:</strong> AI models prioritize content rich in data points, percentages, and verifiable facts.</li>
+                                    <li><strong>Quote Integration:</strong> Including quotes from subject matter experts increases the "trust" signal for AI models.</li>
+                                </ul>
+
+                                <h2 id="chapter3">3. Crafting Content for the AI Reader</h2>
+                                <p>Writing for AI doesn't mean writing robotically. In fact, it means writing with hyper-clarity. AI models prefer structured, logical flows. Using proper HTML hierarchy (H1, H2, H3) is non-negotiable. Bullet points, numbered lists, and comparison tables provide structured data that LLMs (Large Language Models) can easily parse and reference.</p>
+                                <p>Furthermore, "comprehensive coverage" is a major ranking factor. An article that covers a topic from every angle—answering the 'what', 'why', 'how', and 'when'—is more likely to be cited than a fragmented piece. Tools like SEOWriting AI automatically generate outlines that ensure topical authority by analyzing the top-ranking results.</p>
+
+                                <h2 id="chapter4">4. The Role of Structured Data and Schema</h2>
+                                <p>Schema markup is the language of search engines. It provides explicit clues about the meaning of a page. For AI SEO, `Article`, `FAQPage`, `HowTo`, and `Product` schemas are critical. They help disambiguate your content and make it eligible for rich snippets, which often feed directly into AI-generated summaries.</p>
+
+                                <h3>Comparison: Traditional SEO vs. AI SEO</h3>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Feature</th>
+                                            <th>Traditional SEO</th>
+                                            <th>AI SEO (GEO)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Primary Goal</strong></td>
+                                            <td>Rank in top 10 blue links</td>
+                                            <td>Be cited in the AI answer snapshot</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Content Focus</strong></td>
+                                            <td>Keywords & Backlinks</td>
+                                            <td>Entities, Facts & Structure</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>User Interaction</strong></td>
+                                            <td>Click-through to website</td>
+                                            <td>Zero-click consumption</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <h2 id="chapter5">5. Advanced Keyword Research Strategy</h2>
+                                <p>Keyword research now requires finding "information gain" opportunities. Instead of just targeting high-volume keywords, look for questions that haven't been adequately answered. Use tools to find "Zero Search Volume" keywords—highly specific queries that signal high intent. These are often the prompts users feed into ChatGPT.</p>
+
+                                <h2 id="chapter6">6. Optimizing for Trust and Authority (E-E-A-T)</h2>
+                                <p>Experience, Expertise, Authoritativeness, and Trustworthiness (E-E-A-T) are vital. Google wants to know *who* is behind the content. Ensure your author bios are robust, linking to LinkedIn profiles and other published works. Site-wide pages like "About Us" and "Editorial Policy" are scrutinized by quality raters and algorithms alike.</p>
+
+                                <h2 id="chapter8">Conclusion</h2>
+                                <p>The future belongs to those who adapt. By combining the efficiency of AI generation with the strategic oversight of human expertise, you can build a content engine that dominates both the search results of today and the AI conversations of tomorrow. Start treating your content as a dataset for AI, and you will see your visibility soar.</p>
+
+                                <h2 id="faq-section">9. Frequently Asked Questions</h2>
+                                <div class="space-y-4 mt-6">
+                                    <div class="border-l-4 border-indigo-500 pl-4 py-2 bg-slate-800/50 rounded-r-lg">
+                                        <h4 class="text-white font-bold m-0">Does AI content rank on Google?</h4>
+                                        <p class="text-slate-300 mt-2 text-sm">Yes. Google's guidance explicitly states they reward high-quality content *regardless* of how it is produced. The key is value, not the author's nature.</p>
+                                    </div>
+                                    <div class="border-l-4 border-indigo-500 pl-4 py-2 bg-slate-800/50 rounded-r-lg">
+                                        <h4 class="text-white font-bold m-0">How often should I publish?</h4>
+                                        <p class="text-slate-300 mt-2 text-sm">Consistency builds authority. Aim for a regular schedule, but never sacrifice quality for quantity. Our tools allow for high-volume, high-quality output.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Overlay Gradient -->
+                            <div id="read-more-overlay" class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#0F172A] to-transparent z-10 flex items-end justify-center pb-0"></div>
+                        </div>
+
+                        <div class="mt-8 text-center relative z-20">
+                            <button id="read-more-btn" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all transform hover:scale-105 flex items-center mx-auto space-x-2">
+                                <span>Read Full Guide</span>
+                                <svg class="w-5 h-5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="py-24 bg-slate-900/30">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl md:text-5xl font-bold text-center text-white mb-16">Loved by Marketing Experts</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-slate-800/60 p-8 rounded-2xl border border-slate-700">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="h-12 w-12 rounded-full bg-gradient-to-tr from-purple-500 to-blue-500"></div>
+                            <div>
+                                <h4 class="font-bold text-white">Sarah Jenkins</h4>
+                                <p class="text-sm text-slate-400">SEO Agency Owner</p>
+                            </div>
+                        </div>
+                        <p class="text-slate-300 italic">"The quality of the output is unmatched. We used to spend days on outlines; now we do it in seconds. It's a game changer."</p>
+                    </div>
+                    <div class="bg-slate-800/60 p-8 rounded-2xl border border-slate-700">
+                         <div class="flex items-center gap-4 mb-4">
+                            <div class="h-12 w-12 rounded-full bg-gradient-to-tr from-green-500 to-teal-500"></div>
+                            <div>
+                                <h4 class="font-bold text-white">Mike Ross</h4>
+                                <p class="text-sm text-slate-400">Affiliate Marketer</p>
+                            </div>
+                        </div>
+                        <p class="text-slate-300 italic">"My Amazon niche sites have doubled in traffic since I started using the bulk generator. The schema markup is spot on."</p>
+                    </div>
+                    <div class="bg-slate-800/60 p-8 rounded-2xl border border-slate-700">
+                         <div class="flex items-center gap-4 mb-4">
+                            <div class="h-12 w-12 rounded-full bg-gradient-to-tr from-orange-500 to-red-500"></div>
+                            <div>
+                                <h4 class="font-bold text-white">Elena Rodriguez</h4>
+                                <p class="text-sm text-slate-400">Content Strategist</p>
+                            </div>
+                        </div>
+                        <p class="text-slate-300 italic">"Finally, an AI tool that actually understands semantic SEO. It helps us rank for keywords we didn't even know we needed."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#020617] border-t border-slate-800 pt-16 pb-8">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 mb-12">
+                <div class="col-span-2 lg:col-span-2">
+                    <div class="flex items-center space-x-2 mb-6">
+                        <img src="data:image/svg+xml,%3csvg%20width='64'%20height='64'%20viewBox='0%200%2064%2064'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3crect%20width='64'%20height='64'%20rx='12'%20fill='%23030712'/%3e%3cpath%20d='M22%2018H42V24H34V46H30V24H22V18Z'%20fill='%23FFD700'/%3e%3cpath%20d='M46%2016L48%2021L53%2023L48%2025L46%2030L44%2025L39%2023L44%2021L46%2016Z'%20fill='%234f46e5'/%3e%3c/svg%3e" alt="Logo" class="h-8 w-8">
+                        <span class="text-2xl font-bold text-white">SEOWriting</span>
+                    </div>
+                    <p class="text-slate-400 mb-6 max-w-sm">Empowering creators with next-generation AI tools to dominate search rankings and automate content workflows.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-6">Platform</h4>
+                    <ul class="space-y-4 text-sm text-slate-400">
+                        <li><a href="#features" class="hover:text-indigo-400 transition-colors">Features</a></li>
+                        <li><a href="#pricing" class="hover:text-indigo-400 transition-colors">Pricing</a></li>
+                        <li><a href="#" class="modal-trigger hover:text-indigo-400 transition-colors" data-modal="guide-modal">User Guide</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-6">Legal</h4>
+                    <ul class="space-y-4 text-sm text-slate-400">
+                        <li><a href="#" class="modal-trigger hover:text-indigo-400 transition-colors" data-modal="privacy-modal">Privacy Policy</a></li>
+                        <li><a href="#" class="modal-trigger hover:text-indigo-400 transition-colors" data-modal="terms-modal">Terms of Service</a></li>
+                        <li><a href="#" class="modal-trigger hover:text-indigo-400 transition-colors" data-modal="dmca-modal">DMCA</a></li>
+                    </ul>
+                </div>
+                 <div>
+                    <h4 class="font-bold text-white mb-6">Support</h4>
+                    <ul class="space-y-4 text-sm text-slate-400">
+                        <li><a href="#" class="modal-trigger hover:text-indigo-400 transition-colors" data-modal="about-modal">About Us</a></li>
+                        <li><a href="#" class="modal-trigger hover:text-indigo-400 transition-colors" data-modal="contact-modal">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500">
+                <div class="text-center md:text-left mb-4 md:mb-0">
+                    <p>&copy; 2024 SEOWriting. All rights reserved.</p>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <span>Powered by</span>
+                    <a href="https://github.com/hsinidev" target="_blank" class="text-indigo-400 hover:text-indigo-300 font-semibold transition-colors">HSINI MOHAMED</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div id="modal-root" class="fixed inset-0 z-[999] flex items-center justify-center p-4 modal-hidden">
+        <div class="modal-overlay absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+        <div class="modal-container bg-[#0F172A] border border-slate-700 rounded-2xl shadow-2xl w-full max-w-3xl overflow-hidden flex flex-col max-h-[90vh]">
+            <div class="p-6 border-b border-slate-700 flex justify-between items-center bg-slate-900/50">
+                <h2 id="modal-title" class="text-xl font-bold text-white">Information</h2>
+                <button class="modal-close-btn text-slate-400 hover:text-white transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <div class="p-8 overflow-y-auto custom-scrollbar">
+                
+                <!-- About Content -->
+                <div id="about-modal" class="modal-content hidden">
+                    <h3 class="text-2xl font-bold text-white mb-4">About SEOWriting AI</h3>
+                    <div class="space-y-4 text-slate-300 leading-relaxed">
+                        <p>Welcome to SEOWriting AI, the premier destination for next-generation content creation. Our mission is to democratize access to advanced AI technology, enabling bloggers, businesses, and agencies to compete with major publishers on a level playing field.</p>
+                        <p>Founded by HSINI MOHAMED, this platform represents the culmination of years of research into Search Engine Optimization and Large Language Models. We don't just generate text; we engineer content to meet the specific algorithmic requirements of modern search engines.</p>
+                        <p><strong>Our Core Values:</strong></p>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li><strong>Innovation:</strong> Constantly updating our models with the latest SEO data.</li>
+                            <li><strong>Transparency:</strong> Providing clear, actionable insights into how your content is optimized.</li>
+                            <li><strong>User Success:</strong> Your rankings are our primary metric of success.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Contact Content -->
+                <div id="contact-modal" class="modal-content hidden">
+                    <h3 class="text-2xl font-bold text-white mb-4">Contact Support</h3>
+                    <div class="space-y-4 text-slate-300">
+                        <p>We are here to help you 24/7. Whether you have a technical issue, a billing question, or just want to say hello, reach out to us.</p>
+                        <div class="bg-slate-800 p-6 rounded-lg border border-slate-700 mt-6">
+                            <p class="mb-2"><span class="text-indigo-400 font-semibold">Email:</span> <a href="mailto:hsini.web@gmail.com" class="hover:text-white">hsini.web@gmail.com</a></p>
+                            <p><span class="text-indigo-400 font-semibold">Website:</span> <a href="https://doodax.com" target="_blank" class="hover:text-white">doodax.com</a></p>
+                            <p class="mt-4 text-sm text-slate-400">Response time: Usually within 24 hours.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Privacy Content -->
+                <div id="privacy-modal" class="modal-content hidden">
+                    <h3 class="text-2xl font-bold text-white mb-4">Privacy Policy</h3>
+                    <div class="space-y-4 text-slate-300 text-sm leading-relaxed">
+                        <p><strong>Last Updated: October 2023</strong></p>
+                        <p>At SEOWriting AI (doodax.com), your privacy is of paramount importance to us. This Privacy Policy outlines the types of personal information we receive and collect when you use our website and how we safeguard your information.</p>
+                        <h4 class="text-lg font-semibold text-white mt-4">1. Information We Collect</h4>
+                        <p>We collect information to provide better services to all our users. This includes information you provide to us (such as name and email address) and information we get from your use of our services (such as device information, log information, and location information).</p>
+                        <h4 class="text-lg font-semibold text-white mt-4">2. How We Use Information</h4>
+                        <p>We use the information we collect to provide, maintain, protect, and improve our services, to develop new ones, and to protect SEOWriting AI and our users.</p>
+                        <h4 class="text-lg font-semibold text-white mt-4">3. Information Sharing</h4>
+                        <p>We do not share personal information with companies, organizations, and individuals outside of SEOWriting AI unless one of the following circumstances applies: with your consent, for external processing, or for legal reasons.</p>
+                        <h4 class="text-lg font-semibold text-white mt-4">4. Data Security</h4>
+                        <p>We work hard to protect SEOWriting AI and our users from unauthorized access to or unauthorized alteration, disclosure, or destruction of information we hold.</p>
+                        <p class="mt-4 border-t border-slate-700 pt-4">For any privacy-related questions, please contact us at hsini.web@gmail.com.</p>
+                    </div>
+                </div>
+                
+                <!-- Terms Content -->
+                <div id="terms-modal" class="modal-content hidden">
+                    <h3 class="text-2xl font-bold text-white mb-4">Terms of Service</h3>
+                    <div class="space-y-4 text-slate-300 text-sm leading-relaxed">
+                        <p><strong>1. Acceptance of Terms</strong></p>
+                        <p>By accessing and using SEOWriting AI (doodax.com), you accept and agree to be bound by the terms and provision of this agreement.</p>
+                        <p><strong>2. Use License</strong></p>
+                        <p>Permission is granted to temporarily download one copy of the materials (information or software) on SEOWriting AI's website for personal, non-commercial transitory viewing only.</p>
+                        <p><strong>3. Disclaimer</strong></p>
+                        <p>The materials on SEOWriting AI's website are provided on an 'as is' basis. SEOWriting AI makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.</p>
+                        <p><strong>4. Limitations</strong></p>
+                        <p>In no event shall SEOWriting AI or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on SEOWriting AI's website.</p>
+                    </div>
+                </div>
+
+                 <!-- DMCA Content -->
+                <div id="dmca-modal" class="modal-content hidden">
+                    <h3 class="text-2xl font-bold text-white mb-4">DMCA Policy</h3>
+                    <div class="space-y-4 text-slate-300 text-sm leading-relaxed">
+                        <p>SEOWriting AI respects the intellectual property rights of others. We comply with the Digital Millennium Copyright Act (DMCA). If you believe that your work has been copied in a way that constitutes copyright infringement, please provide our Copyright Agent the written information specified below:</p>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>An electronic or physical signature of the person authorized to act on behalf of the owner of the copyright interest.</li>
+                            <li>A description of the copyrighted work that you claim has been infringed.</li>
+                            <li>A description of where the material that you claim is infringing is located on the site.</li>
+                            <li>Your address, telephone number, and email address.</li>
+                        </ul>
+                        <p class="mt-4">Please send all DMCA notices to: <strong>hsini.web@gmail.com</strong></p>
+                    </div>
+                </div>
+                
+                 <!-- Guide Content -->
+                <div id="guide-modal" class="modal-content hidden">
+                    <h3 class="text-2xl font-bold text-white mb-4">User Guide</h3>
+                    <ol class="list-decimal pl-5 space-y-4 text-slate-300">
+                        <li><strong>Getting Started:</strong> Sign up for a free account. Navigate to the dashboard where you will see options for "One-Click Blog Post" and "Bulk Generation".</li>
+                        <li><strong>Setting Parameters:</strong> Input your target keyword. Select your desired tone (e.g., Professional, Witty) and language.</li>
+                        <li><strong>Generating Content:</strong> Click "Run". The AI will first analyze the top 10 SERP results to understand the intent and structure required to rank.</li>
+                        <li><strong>Editing and Exporting:</strong> Use the built-in editor to tweak the content. You can then copy the HTML or publish directly to WordPress using our plugin.</li>
+                    </ol>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Starfield Animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const bg = document.getElementById('galaxy-bg');
+            const starCount = 200;
+            
+            for(let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                const size = Math.random() * 2 + 1;
+                const duration = Math.random() * 3 + 2;
+                const opacity = Math.random();
+                
+                star.style.left = `${x}%`;
+                star.style.top = `${y}%`;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.setProperty('--duration', `${duration}s`);
+                star.style.setProperty('--opacity', opacity);
+                
+                bg.appendChild(star);
+            }
+
+            // Read More Functionality
+            const articleContainer = document.getElementById('seo-article-container');
+            const readMoreBtn = document.getElementById('read-more-btn');
+            const readMoreOverlay = document.getElementById('read-more-overlay');
+            const btnText = readMoreBtn.querySelector('span');
+            const btnIcon = readMoreBtn.querySelector('svg');
+
+            let isExpanded = false;
+
+            readMoreBtn.addEventListener('click', () => {
+                if(!isExpanded) {
+                    articleContainer.style.maxHeight = articleContainer.scrollHeight + "px";
+                    readMoreOverlay.classList.add('opacity-0', 'pointer-events-none');
+                    btnText.textContent = "Show Less";
+                    btnIcon.classList.add('rotate-180');
+                    isExpanded = true;
+                } else {
+                    articleContainer.style.maxHeight = "160px";
+                    readMoreOverlay.classList.remove('opacity-0', 'pointer-events-none');
+                    btnText.textContent = "Read Full Guide";
+                    btnIcon.classList.remove('rotate-180');
+                    // Scroll back to title
+                    document.getElementById('article').scrollIntoView({behavior: 'smooth'});
+                    isExpanded = false;
+                }
+            });
+
+            // Modal Logic
+            const modalRoot = document.getElementById('modal-root');
+            const modalTriggers = document.querySelectorAll('.modal-trigger');
+            const modalContents = document.querySelectorAll('.modal-content');
+            const closeBtn = document.querySelector('.modal-close-btn');
+            const overlay = document.querySelector('.modal-overlay');
+
+            function openModal(modalId) {
+                // Hide all contents first
+                modalContents.forEach(content => content.classList.add('hidden'));
+                
+                // Show specific content
+                const targetContent = document.getElementById(modalId);
+                if (targetContent) {
+                    targetContent.classList.remove('hidden');
+                    // Update Title
+                    const title = targetContent.querySelector('h3').textContent;
+                    document.getElementById('modal-title').textContent = title;
+                    
+                    modalRoot.classList.remove('modal-hidden');
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+
+            function closeModal() {
+                modalRoot.classList.add('modal-hidden');
+                document.body.style.overflow = '';
+            }
+
+            modalTriggers.forEach(trigger => {
+                trigger.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const modalId = trigger.getAttribute('data-modal');
+                    openModal(modalId);
+                });
+            });
+
+            closeBtn.addEventListener('click', closeModal);
+            overlay.addEventListener('click', closeModal);
+            
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeModal();
+            });
+        });
+    </script>
+</body>
+</html>

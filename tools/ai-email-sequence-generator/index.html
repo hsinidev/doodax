@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- SEO Meta Tags -->
+    <title>AI Email Sequence Generator - Create High-Converting Emails Instantly | Doodax</title>
+    <meta name="description" content="Generate professional 3-part email marketing sequences in seconds using AI. The ultimate tool for newsletters, product launches, and welcome series. Powered by Gemini. Free tool at Doodax.com.">
+    <meta name="keywords" content="AI email generator, email marketing tool, newsletter sequence, welcome series copy, AI copywriting, Gemini AI, email templates, marketing automation, cold email generator, sales email ai">
+    <meta name="author" content="Hsini Mohamed">
+    <link rel="canonical" href="https://doodax.com" />
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://doodax.com/">
+    <meta property="og:title" content="AI Email Sequence Generator - Boost Your Email Marketing">
+    <meta property="og:description" content="Stop staring at a blank screen. Generate high-converting email sequences instantly with our free AI tool.">
+    <meta property="og:image" content="https://doodax.com/og-image.jpg">
+    <meta property="og:site_name" content="Doodax">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://doodax.com/">
+    <meta property="twitter:title" content="AI Email Sequence Generator">
+    <meta property="twitter:description" content="Generate professional 3-part email marketing sequences in seconds using AI.">
+    <meta property="twitter:image" content="https://doodax.com/og-image.jpg">
+    <meta property="twitter:creator" content="@hsinidev">
+
+    <!-- JSON-LD Schema for Software Application -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "AI Email Sequence Generator",
+      "operatingSystem": "Web Browser",
+      "applicationCategory": "BusinessApplication",
+      "url": "https://doodax.com",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Hsini Mohamed",
+        "url": "https://github.com/hsinidev",
+        "email": "hsini.web@gmail.com"
+      },
+      "description": "A powerful AI tool to generate 3-part email marketing sequences for products and newsletters.",
+      "featureList": "AI Copywriting, Email Sequencing, Marketing Automation, Instant Generation"
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                DEFAULT: '#8B5CF6', // Violet for galaxy theme
+                hover: '#7C3AED',
+              },
+              'dark-bg': '#0F172A', 
+              'dark-surface': 'rgba(15, 23, 42, 0.6)', // Glassmorphism
+              'dark-input': 'rgba(2, 6, 23, 0.4)',
+              'dark-text': '#E2E8F0',
+              'light-bg': '#F8FAFC',
+              'light-surface': 'rgba(255, 255, 255, 0.85)',
+              'light-input': 'rgba(255, 255, 255, 0.95)',
+              'light-text': '#1E293B',
+            },
+            fontFamily: {
+              sans: ['Inter', 'system-ui', 'sans-serif'],
+            },
+            animation: {
+              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'fadeInScale': 'fadeInScale 0.3s ease-out forwards',
+            },
+            keyframes: {
+              fadeInScale: {
+                '0%': { opacity: '0', transform: 'scale(0.95)' },
+                '100%': { opacity: '1', transform: 'scale(1)' },
+              }
+            }
+          },
+        },
+      };
+    </script>
+    <style>
+      /* Galaxy Background Animation */
+      body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        background-color: #050505;
+      }
+
+      .galaxy-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+        overflow: hidden;
+        background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+      }
+
+      /* Stars */
+      .stars {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 2px;
+        height: 2px;
+        background: transparent;
+        box-shadow: 
+          174px 500px #FFF, 500px 800px #FFF, 800px 100px #FFF, 
+          1200px 400px #FFF, 300px 300px #FFF, 1500px 900px #FFF,
+          600px 200px #FFF, 1000px 600px #FFF, 200px 900px #FFF;
+        animation: animStar 100s linear infinite;
+        opacity: 0.8;
+      }
+      
+      .stars::after {
+        content: " ";
+        position: absolute;
+        top: 2000px;
+        width: 2px;
+        height: 2px;
+        background: transparent;
+        box-shadow: 
+          174px 500px #FFF, 500px 800px #FFF, 800px 100px #FFF, 
+          1200px 400px #FFF, 300px 300px #FFF, 1500px 900px #FFF,
+          600px 200px #FFF, 1000px 600px #FFF, 200px 900px #FFF;
+      }
+
+      .stars2 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1px;
+        height: 1px;
+        background: transparent;
+        box-shadow: 
+          900px 100px #FFF, 400px 500px #FFF, 100px 800px #FFF,
+          1400px 300px #FFF, 700px 700px #FFF, 200px 200px #FFF;
+        animation: animStar 50s linear infinite;
+        opacity: 0.6;
+      }
+      
+      .stars2::after {
+        content: " ";
+        position: absolute;
+        top: 2000px;
+        width: 1px;
+        height: 1px;
+        background: transparent;
+        box-shadow: 
+          900px 100px #FFF, 400px 500px #FFF, 100px 800px #FFF,
+          1400px 300px #FFF, 700px 700px #FFF, 200px 200px #FFF;
+      }
+
+      /* Nebula / Cosmic Dust */
+      .nebula {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100vw;
+        height: 100vh;
+        transform: translate(-50%, -50%);
+        background-image: 
+          radial-gradient(circle at 20% 30%, rgba(139, 92, 246, 0.15), transparent 50%),
+          radial-gradient(circle at 80% 70%, rgba(236, 72, 153, 0.15), transparent 50%),
+          radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.1), transparent 60%);
+        filter: blur(40px);
+        z-index: -1;
+      }
+
+      @keyframes animStar {
+        from { transform: translateY(0px); }
+        to { transform: translateY(-2000px); }
+      }
+
+      /* Scrollbar Styling */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: rgba(15, 23, 42, 0.5); 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(to bottom, #8B5CF6, #4C1D95);
+        border-radius: 5px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #7C3AED; 
+      }
+    </style>
+
+<link rel="stylesheet" href="./index.css">
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.27.0"
+  }
+}
+</script>
+  <script type="module" crossorigin src="./assets/index-B-V1eR6Y.js"></script>
+
+    <style>
+      /* Cosmic Animations */
+      @keyframes move-twink-back {
+        from {background-position:0 0;}
+        to {background-position:-10000px 5000px;}
+      }
+      @keyframes clouds-move {
+        from {background-position:0 0;}
+        to {background-position:10000px 0;}
+      }
+      @keyframes gradient-shift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      
+      .stars, .twinkling, .clouds {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        pointer-events: none;
+        z-index: -1;
+      }
+      
+      .stars {
+        background: #000 url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png') repeat top center;
+        z-index: -3;
+      }
+      
+      .twinkling {
+        background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png') repeat top center;
+        z-index: -2;
+        animation: move-twink-back 200s linear infinite;
+        opacity: 0.5;
+      }
+      
+      .clouds {
+        background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/clouds3.png') repeat top center;
+        z-index: -1;
+        opacity: 0.4;
+        animation: clouds-move 200s linear infinite;
+      }
+      
+      .gradient-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(30, 27, 75, 0.7) 0%, rgba(49, 46, 129, 0.4) 50%, rgba(88, 28, 135, 0.6) 100%);
+        z-index: -1;
+        pointer-events: none;
+      }
+      
+      /* Scrollbar */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0f172a; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #4f46e5; 
+        border-radius: 5px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #6366f1; 
+      }
+    </style>
+
+</head>
+  <body class="bg-light-bg dark:bg-dark-bg text-light-text dark:text-dark-text transition-colors duration-300">
+    <div class="galaxy-container">
+      <div class="stars"></div>
+      <div class="stars2"></div>
+      <div class="nebula"></div>
+    </div>
+    <div id="root"></div>
+  
+  <div class="stars"></div>
+  <div class="twinkling"></div>
+  <div class="clouds"></div>
+  <div class="gradient-overlay"></div>
+
+</body>
+</html>

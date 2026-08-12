@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Will Generator AI | Simple Last Will & Testament Template</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Generate a free, legal-grade simple Last Will and Testament instantly with AI. Secure your legacy with our easy-to-use will generator. Not legal advice. Powered by HSINI MOHAMED.">
+    <meta name="keywords" content="will generator, free will template, simple will, last will and testament, estate planning, ai legal assistant, online will maker, doodax">
+    <meta name="author" content="HSINI MOHAMED">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://willgenerator.doodax.com/">
+    <meta property="og:title" content="Free Will Generator AI | Instant Simple Will Template">
+    <meta property="og:description" content="Create a secure, custom Last Will and Testament in minutes. AI-powered, free, and easy. Download your template today.">
+    <meta property="og:image" content="https://willgenerator.doodax.com/og-image.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://willgenerator.doodax.com/">
+    <meta property="twitter:title" content="Free Will Generator AI | Instant Simple Will Template">
+    <meta property="twitter:description" content="Create a secure, custom Last Will and Testament in minutes. AI-powered, free, and easy.">
+    <meta property="twitter:image" content="https://willgenerator.doodax.com/og-image.png">
+
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon-DeVrHPSC.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000;
+            color: #e2e8f0;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        /* Galaxy Background Animation */
+        .galaxy-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+            overflow: hidden;
+        }
+        
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            box-shadow: 
+                10vw 10vh 2px #fff,
+                20vw 40vh 1px #fff,
+                30vw 20vh 2px #fff,
+                40vw 50vh 1px #fff,
+                50vw 10vh 2px #fff,
+                60vw 80vh 1px #fff,
+                70vw 30vh 2px #fff,
+                80vw 60vh 1px #fff,
+                90vw 10vh 2px #fff;
+            animation: twinkle 10s infinite alternate;
+        }
+        
+        .nebula {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 200vw;
+            height: 200vh;
+            transform: translate(-50%, -50%);
+            background-image: 
+                radial-gradient(circle at 50% 50%, rgba(76, 29, 149, 0.2), transparent 60%),
+                radial-gradient(circle at 80% 20%, rgba(192, 38, 211, 0.15), transparent 50%),
+                radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.15), transparent 50%);
+            filter: blur(60px);
+            animation: rotate 120s linear infinite;
+        }
+        
+        @keyframes twinkle {
+            0% { opacity: 0.3; transform: translateY(0); }
+            100% { opacity: 1; transform: translateY(-20px); }
+        }
+        
+        @keyframes rotate {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #475569;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #64748b;
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "name": "Free Will Generator AI",
+          "url": "https://willgenerator.doodax.com/",
+          "description": "Generate a basic simple will template instantly. Powered by HSINI MOHAMED.",
+          "author": {
+            "@type": "Person",
+            "name": "HSINI MOHAMED",
+            "url": "https://github.com/hsinidev"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Doodax",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://willgenerator.doodax.com/favicon.svg"
+            },
+            "email": "hsini.web@gmail.com"
+          }
+        },
+        {
+          "@type": "WebApplication",
+          "name": "Simple Will Template Generator",
+          "url": "https://willgenerator.doodax.com/",
+          "applicationCategory": "LegalApplication",
+          "operatingSystem": "All",
+          "description": "Free AI-powered tool to create a simple last will and testament. Features include PDF/Docx text generation, beneficiary management, and AI review.",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        }
+      ]
+    }
+    </script>
+
+<link rel="stylesheet" href="./index.css">
+<script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@18.3.1",
+    "react/": "https://esm.sh/react@18.3.1",
+    "react": "https://esm.sh/react@18.3.1",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.29.0"
+  }
+}
+</script>
+  <script type="module" crossorigin src="./assets/index-D_tBXgtu.js"></script>
+</head>
+<body>
+    <div class="galaxy-bg">
+        <div class="nebula"></div>
+        <div class="stars"></div>
+    </div>
+    <div id="root"></div>
+</body>
+</html>

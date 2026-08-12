@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 297" fill="none">
+    <rect width="210" height="297" fill="#1f2937"/>
+    
+    <!-- Accent Sidebar -->
+    <path d="M0 0h210v80H0z" fill="#374151"/>
+    
+    <!-- Header -->
+    <rect x="20" y="25" width="60" height="15" rx="2" fill="#9333ea"/> <!-- Purple Brand -->
+    <rect x="130" y="25" width="60" height="10" rx="1" fill="#e5e7eb"/>
+    <rect x="130" y="40" width="40" height="4" rx="1" fill="#9ca3af"/>
+    
+    <!-- Content -->
+    <rect x="20" y="100" width="30" height="5" rx="1" fill="#6b7280"/>
+    <rect x="20" y="110" width="70" height="4" rx="1" fill="#d1d5db"/>
+    <rect x="20" y="118" width="50" height="4" rx="1" fill="#9ca3af"/>
+    
+    <!-- Table -->
+    <rect x="20" y="140" width="170" height="12" rx="2" fill="#9333ea"/>
+    
+    <rect x="20" y="160" width="170" height="1" fill="#374151"/>
+    <rect x="25" y="165" width="90" height="4" rx="1" fill="#e5e7eb"/>
+    <rect x="160" y="165" width="20" height="4" rx="1" fill="#e5e7eb"/>
+    
+    <rect x="20" y="175" width="170" height="1" fill="#374151"/>
+    <rect x="25" y="180" width="70" height="4" rx="1" fill="#e5e7eb"/>
+    <rect x="160" y="180" width="20" height="4" rx="1" fill="#e5e7eb"/>
+    
+    <!-- Total -->
+    <rect x="130" y="210" width="60" height="20" rx="2" fill="#374151"/>
+    <rect x="135" y="218" width="20" height="4" rx="1" fill="#9ca3af"/>
+    <rect x="165" y="215" width="20" height="10" rx="1" fill="#22d3ee"/>
+</svg>
